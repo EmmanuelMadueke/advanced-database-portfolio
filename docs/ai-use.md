@@ -16,9 +16,13 @@ Emmanuel Madueke supplied a reference diagram to guide the table-style presentat
 
 Codex mapped the ERD to 16 PostgreSQL tables and specified column types, defaults, nullability, keys, uniqueness, deletion policies, and row checks. It documented planned transaction routines and triggers for cross-table totals, payment consistency, inventory, and lifecycle rules, consulting official PostgreSQL documentation. Documentation checks compared table/column coverage with the entity inventory and checked local links. These checks do not establish database runtime correctness.
 
+## PostgreSQL implementation and checks
+
+Codex created table definitions, integrity/lifecycle triggers, controlled purchase/cart/delivery functions, and demonstration-role permissions. It verified them on an isolated PostgreSQL 18.1 cluster using temporary synthetic fixtures. All 35 single-session assertions passed, covering invalid writes, snapshots, purchase finalisation/replay, delivery states, and rollback. Actual output and reproduction instructions are saved in Portfolio 1. These are tool-run checks; no independent student runtime verification is asserted.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent verification of all database rules, schema execution, and runtime tests remain pending. No database implementation or measured performance results are claimed at this stage. Later entries should record relevant corrections and actual verification as they occur.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Realistic seed data, measured performance results, and two-session concurrency evidence remain pending.
 
 ## Sources
 

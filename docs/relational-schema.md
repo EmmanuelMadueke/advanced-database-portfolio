@@ -2,7 +2,7 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-This document translates the [ERD](conceptual-erd.md) and [business rules](business-rules.md) into a PostgreSQL design. It defines planned tables and enforcement; executable SQL and runtime evidence belong to the later implementation task. The installed PostgreSQL version remains to be verified.
+This document translates the [ERD](conceptual-erd.md) and [business rules](business-rules.md) into a PostgreSQL design. Its table and enforcement definitions are now implemented in the [Portfolio 1 SQL scripts](../portfolio-1-database-design/README.md) and verified on PostgreSQL 18.1. See [setup](setup.md) for evidence and remaining limitations.
 
 ## Relations and keys
 
@@ -62,7 +62,7 @@ PostgreSQL permits uniqueness restricted to selected rows through [partial index
 
 ## Enforcement of cross-table and lifecycle rules
 
-CHECK constraints cannot guarantee other-row facts. The planned implementation combines restricted write routines, state/immutability triggers, and deferred constraint triggers. This is a design commitment; none is implemented yet. The application/test role will not receive direct table DML for protected workflows. Owner-level maintenance can bypass routine permissions and is outside the normal operational path.
+CHECK constraints cannot guarantee other-row facts. The planned implementation combines restricted write routines, state/immutability triggers, and deferred constraint triggers. These controls are implemented in the SQL scripts; 35 single-session integrity/workflow assertions passed. Concurrent-session verification remains pending. The application/test role will not receive direct table DML for protected workflows. Owner-level maintenance can bypass routine permissions and is outside the normal operational path.
 
 | Rules | Planned enforcement | Verification to produce |
 | --- | --- | --- |
@@ -90,4 +90,4 @@ Failure records are separate committed payment attempts against a pending order;
 
 Create independent lookup/identity tables first; then customer addresses, products, variants, inventory, carts/items, orders/items, payments, and deliveries. Add any functions, triggers, and permissions after their referenced tables exist. Seed reference values before dependent records.
 
-This stage completes schema specification and the data dictionary. Next is the dedicated normalisation analysis, followed by executable SQL, realistic seed data, and actual constraint/transaction tests. Optimisation indexes beyond correctness requirements will be chosen from measured queries later.
+The schema specification, data dictionary, normalisation analysis, executable SQL, and initial integrity tests are complete. Next is realistic seed data, followed by additional activity-specific transaction and concurrency tests. Optimisation indexes beyond correctness requirements will be chosen from measured queries later.

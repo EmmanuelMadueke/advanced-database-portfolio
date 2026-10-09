@@ -78,10 +78,11 @@ The main objectives of this project are to:
 - [Relational schema specification](docs/relational-schema.md)
 - [Data dictionary](docs/data-dictionary.md)
 - [Normalisation analysis](docs/normalization.md)
+- [Database setup and verification](docs/setup.md)
 - [Portfolio 1 evidence and reproduction instructions](portfolio-1-database-design/README.md)
 - [AI-use working record](docs/ai-use.md)
 
-These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. SQL implementation and runtime verification remain pending. Next: verify the environment and implement the schema.
+These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. The PostgreSQL 18.1 schema and controlled write routines are implemented, with 35 passing integrity/workflow checks and saved outputs. Next: populate realistic fashion-store sample data.
 
 ## Main Entities
 
@@ -349,7 +350,7 @@ The structure may be expanded as the project progresses.
 The project may use the following technologies:
 
 - **SQL** — database definition and querying
-- **PostgreSQL** — selected relational database management system (installed version pending verification)
+- **PostgreSQL 18.1** — verified relational database management system
 - **Git** — version control
 - **GitHub** — source code and portfolio repository
 - **Markdown** — documentation
@@ -395,12 +396,12 @@ Current stage:
 - [x] Create conceptual ERD
 - [x] Convert ERD to relational schema
 - [x] Perform normalisation
-- [ ] Create SQL schema
-- [ ] Add database constraints
+- [x] Create SQL schema
+- [x] Add database constraints
 - [ ] Insert sample data
 - [ ] Create transactional queries
 - [ ] Create management queries
-- [ ] Test database
+- [ ] Complete database testing (35 schema/integrity checks passed; remaining activities pending)
 - [ ] Complete documentation
 
 ---
