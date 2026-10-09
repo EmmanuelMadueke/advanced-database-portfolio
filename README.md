@@ -77,10 +77,11 @@ The main objectives of this project are to:
 - [Conceptual ERD](docs/conceptual-erd.md)
 - [Relational schema specification](docs/relational-schema.md)
 - [Data dictionary](docs/data-dictionary.md)
+- [Normalisation analysis](docs/normalization.md)
 - [Portfolio 1 evidence and reproduction instructions](portfolio-1-database-design/README.md)
 - [AI-use working record](docs/ai-use.md)
 
-These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation and runtime verification are still pending. Next: document normalisation.
+These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. SQL implementation and runtime verification remain pending. Next: verify the environment and implement the schema.
 
 ## Main Entities
 
@@ -393,7 +394,7 @@ Current stage:
 - [x] Define relationships and cardinalities
 - [x] Create conceptual ERD
 - [x] Convert ERD to relational schema
-- [ ] Perform normalisation
+- [x] Perform normalisation
 - [ ] Create SQL schema
 - [ ] Add database constraints
 - [ ] Insert sample data
