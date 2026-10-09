@@ -69,11 +69,21 @@ The main objectives of this project are to:
 
 ---
 
+## Requirements and Modelling Documents
+
+- [Requirements analysis](docs/requirements.md)
+- [Business rules and relationship decisions](docs/business-rules.md)
+- [Proposed entities and attributes](docs/entities-and-attributes.md)
+- [AI-use working record](docs/ai-use.md)
+
+These documents propose the initial scope; the ERD, normalisation, schema, and runtime verification are still pending. Next: translate the relationships into a conceptual ERD.
+
 ## Main Entities
 
 The database is expected to contain entities such as:
 
 - Customer
+- Customer Address
 - Product
 - Category
 - Brand
@@ -373,9 +383,9 @@ Current stage:
 
 - [x] Select case study
 - [x] Define case study description
-- [ ] Identify entities
-- [ ] Identify entity attributes
-- [ ] Define business rules
+- [x] Identify entities
+- [x] Identify entity attributes
+- [x] Define business rules
 - [ ] Define relationships and cardinalities
 - [ ] Create conceptual ERD
 - [ ] Convert ERD to relational schema
@@ -392,6 +402,6 @@ Current stage:
 
 ## Author
 
-**Emmanuel Madueke**
+**Emmanuel Madueke** — owner, author, and maintainer
 
 Advanced Database Systems Portfolio
