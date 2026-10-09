@@ -74,9 +74,11 @@ The main objectives of this project are to:
 - [Requirements analysis](docs/requirements.md)
 - [Business rules and relationship decisions](docs/business-rules.md)
 - [Proposed entities and attributes](docs/entities-and-attributes.md)
+- [Conceptual ERD](docs/conceptual-erd.md)
+- [Portfolio 1 evidence and reproduction instructions](portfolio-1-database-design/README.md)
 - [AI-use working record](docs/ai-use.md)
 
-These documents propose the initial scope; the ERD, normalisation, schema, and runtime verification are still pending. Next: translate the relationships into a conceptual ERD.
+These documents and the conceptual ERD define the proposed initial model. Normalisation, the relational schema, and runtime verification are still pending. Next: derive the relational schema and data dictionary.
 
 ## Main Entities
 
@@ -386,8 +388,8 @@ Current stage:
 - [x] Identify entities
 - [x] Identify entity attributes
 - [x] Define business rules
-- [ ] Define relationships and cardinalities
-- [ ] Create conceptual ERD
+- [x] Define relationships and cardinalities
+- [x] Create conceptual ERD
 - [ ] Convert ERD to relational schema
 - [ ] Perform normalisation
 - [ ] Create SQL schema

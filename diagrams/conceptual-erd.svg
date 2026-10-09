@@ -1,0 +1,491 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1830" height="2870" viewBox="0 0 1830 2870" role="img" aria-labelledby="title desc">
+<title id="title">Online Fashion Retail Store ERD</title>
+<desc id="desc">Sixteen entities with attributes, primary and foreign keys, and fifteen crow’s-foot relationships.</desc>
+<rect width="1830" height="2870" fill="#fafafa"/>
+<style>text{font-family:Arial,sans-serif;fill:#30363a;font-size:17px}.head{fill:white;font-weight:bold;font-size:20px}.key{font-weight:bold;font-size:14px}.title{font-size:30px;font-weight:bold}</style>
+<text x="60" y="52" class="title" text-anchor="start">Online Fashion Retail Store — Entity Relationship Diagram</text>
+<text x="60" y="87" class="" text-anchor="start">Owner, author, maintainer: Emmanuel Madueke  |  Proposed keys and attributes; physical types pending</text>
+<path d="M400,207 L460,207" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M400,207 L460,207" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M408,200 L408,214" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M415,200 L415,214" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,215 L444,207" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,207 L444,207" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,199 L444,207" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="435" cy="207" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M400,457 L430,457 L430,236 L460,236" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M400,457 L430,457 L430,236 L460,236" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M408,450 L408,464" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M415,450 L415,464" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,244 L444,236" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,236 L444,236" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,228 L444,236" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="435" cy="236" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M800,300 L865,300 L865,213 L930,213" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M800,300 L865,300 L865,213 L930,213" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M808,293 L808,307" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M815,293 L815,307" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,221 L914,213" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,213 L914,213" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,205 L914,213" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="905" cy="213" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M800,647 L880,647 L880,242 L930,242" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M800,647 L880,647 L880,242 L930,242" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M808,640 L808,654" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M815,640 L815,654" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,250 L914,242" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,242 L914,242" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,234 L914,242" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="905" cy="242" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M800,897 L900,897 L900,271 L930,271" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M800,897 L900,897 L900,271 L930,271" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M808,890 L808,904" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M815,890 L815,904" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,279 L914,271" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,271 L914,271" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,263 L914,271" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="905" cy="271" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1270,213 L1400,213" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M1270,213 L1400,213" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M1278,206 L1278,220" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1285,206 L1285,220" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1392,220 L1392,206" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1385,220 L1385,206" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M400,1236 L460,1236" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M400,1236 L460,1236" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M408,1229 L408,1243" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M415,1229 L415,1243" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,1244 L444,1236" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,1236 L444,1236" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,1228 L444,1236" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="435" cy="1236" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M230,1387 L230,1580" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M230,1387 L230,1580" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M237,1395 L223,1395" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M237,1402 L223,1402" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M222,1579 L230,1564" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M230,1579 L230,1564" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M238,1579 L230,1564" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="230" cy="1555" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M400,1300 L425,1300 L425,1667 L460,1667" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M400,1300 L425,1300 L425,1667 L460,1667" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M408,1293 L408,1307" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M415,1293 L415,1307" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,1675 L444,1667" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,1667 L444,1667" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M459,1659 L444,1667" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="435" cy="1667" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M800,1236 L930,1236" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M800,1236 L930,1236" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M808,1229 L808,1243" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M815,1229 L815,1243" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,1244 L914,1236" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,1236 L914,1236" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,1228 L914,1236" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="905" cy="1236" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1270,300 L1305,300 L1305,1222 L1270,1222" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M1270,300 L1305,300 L1305,1222 L1270,1222" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M1278,293 L1278,307" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1285,293 L1285,307" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1271,1214 L1286,1222" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1271,1222 L1286,1222" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1271,1230 L1286,1222" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="1295" cy="1222" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1270,329 L1330,329 L1330,1667 L1270,1667" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M1270,329 L1330,329 L1330,1667 L1270,1667" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M1278,322 L1278,336" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1285,322 L1285,336" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1271,1659 L1286,1667" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1271,1667 L1286,1667" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1271,1675 L1286,1667" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="1295" cy="1667" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M800,1696 L930,1696" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M800,1696 L930,1696" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M808,1689 L808,1703" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M815,1689 L815,1703" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,1704 L914,1696" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,1696 L914,1696" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M929,1688 L914,1696" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="905" cy="1696" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M800,1725 L850,1725 L850,730 L1350,730 L1350,896 L1400,896" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M800,1725 L850,1725 L850,730 L1350,730 L1350,896 L1400,896" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M808,1718 L808,1732" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M815,1718 L815,1732" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1399,904 L1384,896" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1399,896 L1384,896" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1399,888 L1384,896" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="1375" cy="896" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M630,2059 L630,2225 L1570,2225 L1570,1637" fill="none" stroke="#fafafa" stroke-width="7"/>
+<path d="M630,2059 L630,2225 L1570,2225 L1570,1637" fill="none" stroke="#62696d" stroke-width="2"/>
+<path d="M637,2067 L623,2067" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M637,2074 L623,2074" stroke="#62696d" stroke-width="2" fill="none"/>
+<path d="M1577,1645 L1563,1645" stroke="#62696d" stroke-width="2" fill="none"/>
+<circle cx="1570" cy="1662" r="5" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<rect x="60" y="140" width="340" height="131" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M73,140 H387 Q400,140 400,153 V184 H60 V153 Q60,140 73,140" fill="#30383c"/>
+<text x="230.0" y="169" class="head" text-anchor="middle">Category</text>
+<path d="M125,184 V271" stroke="#62696d"/>
+<text x="68" y="205" class="key" text-anchor="start">PK</text>
+<text x="136" y="205" class="" text-anchor="start">category_id</text>
+<path d="M60,213 H400" stroke="#d7dadd"/>
+<text x="68" y="234" class="key" text-anchor="start"></text>
+<text x="136" y="234" class="" text-anchor="start">name</text>
+<path d="M60,242 H400" stroke="#d7dadd"/>
+<text x="68" y="263" class="key" text-anchor="start"></text>
+<text x="136" y="263" class="" text-anchor="start">description</text>
+<rect x="60" y="390" width="340" height="102" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M73,390 H387 Q400,390 400,403 V434 H60 V403 Q60,390 73,390" fill="#30383c"/>
+<text x="230.0" y="419" class="head" text-anchor="middle">Brand</text>
+<path d="M125,434 V492" stroke="#62696d"/>
+<text x="68" y="455" class="key" text-anchor="start">PK</text>
+<text x="136" y="455" class="" text-anchor="start">brand_id</text>
+<path d="M60,463 H400" stroke="#d7dadd"/>
+<text x="68" y="484" class="key" text-anchor="start"></text>
+<text x="136" y="484" class="" text-anchor="start">name</text>
+<rect x="460" y="140" width="340" height="276" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M473,140 H787 Q800,140 800,153 V184 H460 V153 Q460,140 473,140" fill="#30383c"/>
+<text x="630.0" y="169" class="head" text-anchor="middle">Product</text>
+<path d="M525,184 V416" stroke="#62696d"/>
+<text x="468" y="205" class="key" text-anchor="start">PK</text>
+<text x="536" y="205" class="" text-anchor="start">product_id</text>
+<path d="M460,213 H800" stroke="#d7dadd"/>
+<text x="468" y="234" class="key" text-anchor="start">FK</text>
+<text x="536" y="234" class="" text-anchor="start">category_id</text>
+<path d="M460,242 H800" stroke="#d7dadd"/>
+<text x="468" y="263" class="key" text-anchor="start">FK</text>
+<text x="536" y="263" class="" text-anchor="start">brand_id</text>
+<path d="M460,271 H800" stroke="#d7dadd"/>
+<text x="468" y="292" class="key" text-anchor="start"></text>
+<text x="536" y="292" class="" text-anchor="start">name</text>
+<path d="M460,300 H800" stroke="#d7dadd"/>
+<text x="468" y="321" class="key" text-anchor="start"></text>
+<text x="536" y="321" class="" text-anchor="start">description</text>
+<path d="M460,329 H800" stroke="#d7dadd"/>
+<text x="468" y="350" class="key" text-anchor="start"></text>
+<text x="536" y="350" class="" text-anchor="start">audience</text>
+<path d="M460,358 H800" stroke="#d7dadd"/>
+<text x="468" y="379" class="key" text-anchor="start"></text>
+<text x="536" y="379" class="" text-anchor="start">is_active</text>
+<path d="M460,387 H800" stroke="#d7dadd"/>
+<text x="468" y="408" class="key" text-anchor="start"></text>
+<text x="536" y="408" class="" text-anchor="start">created_at</text>
+<rect x="460" y="580" width="340" height="131" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M473,580 H787 Q800,580 800,593 V624 H460 V593 Q460,580 473,580" fill="#30383c"/>
+<text x="630.0" y="609" class="head" text-anchor="middle">Size</text>
+<path d="M525,624 V711" stroke="#62696d"/>
+<text x="468" y="645" class="key" text-anchor="start">PK</text>
+<text x="536" y="645" class="" text-anchor="start">size_id</text>
+<path d="M460,653 H800" stroke="#d7dadd"/>
+<text x="468" y="674" class="key" text-anchor="start"></text>
+<text x="536" y="674" class="" text-anchor="start">label</text>
+<path d="M460,682 H800" stroke="#d7dadd"/>
+<text x="468" y="703" class="key" text-anchor="start"></text>
+<text x="536" y="703" class="" text-anchor="start">description</text>
+<rect x="460" y="830" width="340" height="131" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M473,830 H787 Q800,830 800,843 V874 H460 V843 Q460,830 473,830" fill="#30383c"/>
+<text x="630.0" y="859" class="head" text-anchor="middle">Colour</text>
+<path d="M525,874 V961" stroke="#62696d"/>
+<text x="468" y="895" class="key" text-anchor="start">PK</text>
+<text x="536" y="895" class="" text-anchor="start">colour_id</text>
+<path d="M460,903 H800" stroke="#d7dadd"/>
+<text x="468" y="924" class="key" text-anchor="start"></text>
+<text x="536" y="924" class="" text-anchor="start">name</text>
+<path d="M460,932 H800" stroke="#d7dadd"/>
+<text x="468" y="953" class="key" text-anchor="start"></text>
+<text x="536" y="953" class="" text-anchor="start">hex_code</text>
+<rect x="930" y="140" width="340" height="247" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M943,140 H1257 Q1270,140 1270,153 V184 H930 V153 Q930,140 943,140" fill="#30383c"/>
+<text x="1100.0" y="169" class="head" text-anchor="middle">Product Variant</text>
+<path d="M995,184 V387" stroke="#62696d"/>
+<text x="938" y="205" class="key" text-anchor="start">PK</text>
+<text x="1006" y="205" class="" text-anchor="start">variant_id</text>
+<path d="M930,213 H1270" stroke="#d7dadd"/>
+<text x="938" y="234" class="key" text-anchor="start">FK</text>
+<text x="1006" y="234" class="" text-anchor="start">product_id</text>
+<path d="M930,242 H1270" stroke="#d7dadd"/>
+<text x="938" y="263" class="key" text-anchor="start">FK</text>
+<text x="1006" y="263" class="" text-anchor="start">size_id</text>
+<path d="M930,271 H1270" stroke="#d7dadd"/>
+<text x="938" y="292" class="key" text-anchor="start">FK</text>
+<text x="1006" y="292" class="" text-anchor="start">colour_id</text>
+<path d="M930,300 H1270" stroke="#d7dadd"/>
+<text x="938" y="321" class="key" text-anchor="start"></text>
+<text x="1006" y="321" class="" text-anchor="start">sku</text>
+<path d="M930,329 H1270" stroke="#d7dadd"/>
+<text x="938" y="350" class="key" text-anchor="start"></text>
+<text x="1006" y="350" class="" text-anchor="start">unit_price</text>
+<path d="M930,358 H1270" stroke="#d7dadd"/>
+<text x="938" y="379" class="key" text-anchor="start"></text>
+<text x="1006" y="379" class="" text-anchor="start">is_active</text>
+<rect x="1400" y="140" width="340" height="160" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1413,140 H1727 Q1740,140 1740,153 V184 H1400 V153 Q1400,140 1413,140" fill="#30383c"/>
+<text x="1570.0" y="169" class="head" text-anchor="middle">Inventory</text>
+<path d="M1465,184 V300" stroke="#62696d"/>
+<text x="1408" y="205" class="key" text-anchor="start">PK/FK</text>
+<text x="1476" y="205" class="" text-anchor="start">variant_id</text>
+<path d="M1400,213 H1740" stroke="#d7dadd"/>
+<text x="1408" y="234" class="key" text-anchor="start"></text>
+<text x="1476" y="234" class="" text-anchor="start">available_quantity</text>
+<path d="M1400,242 H1740" stroke="#d7dadd"/>
+<text x="1408" y="263" class="key" text-anchor="start"></text>
+<text x="1476" y="263" class="" text-anchor="start">low_stock_threshold</text>
+<path d="M1400,271 H1740" stroke="#d7dadd"/>
+<text x="1408" y="292" class="key" text-anchor="start"></text>
+<text x="1476" y="292" class="" text-anchor="start">updated_at</text>
+<rect x="60" y="1140" width="340" height="247" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M73,1140 H387 Q400,1140 400,1153 V1184 H60 V1153 Q60,1140 73,1140" fill="#30383c"/>
+<text x="230.0" y="1169" class="head" text-anchor="middle">Customer</text>
+<path d="M125,1184 V1387" stroke="#62696d"/>
+<text x="68" y="1205" class="key" text-anchor="start">PK</text>
+<text x="136" y="1205" class="" text-anchor="start">customer_id</text>
+<path d="M60,1213 H400" stroke="#d7dadd"/>
+<text x="68" y="1234" class="key" text-anchor="start"></text>
+<text x="136" y="1234" class="" text-anchor="start">first_name</text>
+<path d="M60,1242 H400" stroke="#d7dadd"/>
+<text x="68" y="1263" class="key" text-anchor="start"></text>
+<text x="136" y="1263" class="" text-anchor="start">last_name</text>
+<path d="M60,1271 H400" stroke="#d7dadd"/>
+<text x="68" y="1292" class="key" text-anchor="start"></text>
+<text x="136" y="1292" class="" text-anchor="start">email</text>
+<path d="M60,1300 H400" stroke="#d7dadd"/>
+<text x="68" y="1321" class="key" text-anchor="start"></text>
+<text x="136" y="1321" class="" text-anchor="start">phone</text>
+<path d="M60,1329 H400" stroke="#d7dadd"/>
+<text x="68" y="1350" class="key" text-anchor="start"></text>
+<text x="136" y="1350" class="" text-anchor="start">created_at</text>
+<path d="M60,1358 H400" stroke="#d7dadd"/>
+<text x="68" y="1379" class="key" text-anchor="start"></text>
+<text x="136" y="1379" class="" text-anchor="start">is_active</text>
+<rect x="60" y="1580" width="340" height="334" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M73,1580 H387 Q400,1580 400,1593 V1624 H60 V1593 Q60,1580 73,1580" fill="#30383c"/>
+<text x="230.0" y="1609" class="head" text-anchor="middle">Customer Address</text>
+<path d="M125,1624 V1914" stroke="#62696d"/>
+<text x="68" y="1645" class="key" text-anchor="start">PK</text>
+<text x="136" y="1645" class="" text-anchor="start">address_id</text>
+<path d="M60,1653 H400" stroke="#d7dadd"/>
+<text x="68" y="1674" class="key" text-anchor="start">FK</text>
+<text x="136" y="1674" class="" text-anchor="start">customer_id</text>
+<path d="M60,1682 H400" stroke="#d7dadd"/>
+<text x="68" y="1703" class="key" text-anchor="start"></text>
+<text x="136" y="1703" class="" text-anchor="start">recipient_name</text>
+<path d="M60,1711 H400" stroke="#d7dadd"/>
+<text x="68" y="1732" class="key" text-anchor="start"></text>
+<text x="136" y="1732" class="" text-anchor="start">recipient_phone</text>
+<path d="M60,1740 H400" stroke="#d7dadd"/>
+<text x="68" y="1761" class="key" text-anchor="start"></text>
+<text x="136" y="1761" class="" text-anchor="start">address_line_1</text>
+<path d="M60,1769 H400" stroke="#d7dadd"/>
+<text x="68" y="1790" class="key" text-anchor="start"></text>
+<text x="136" y="1790" class="" text-anchor="start">address_line_2</text>
+<path d="M60,1798 H400" stroke="#d7dadd"/>
+<text x="68" y="1819" class="key" text-anchor="start"></text>
+<text x="136" y="1819" class="" text-anchor="start">city</text>
+<path d="M60,1827 H400" stroke="#d7dadd"/>
+<text x="68" y="1848" class="key" text-anchor="start"></text>
+<text x="136" y="1848" class="" text-anchor="start">state_region</text>
+<path d="M60,1856 H400" stroke="#d7dadd"/>
+<text x="68" y="1877" class="key" text-anchor="start"></text>
+<text x="136" y="1877" class="" text-anchor="start">postal_code</text>
+<path d="M60,1885 H400" stroke="#d7dadd"/>
+<text x="68" y="1906" class="key" text-anchor="start"></text>
+<text x="136" y="1906" class="" text-anchor="start">country_code</text>
+<rect x="460" y="1140" width="340" height="189" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M473,1140 H787 Q800,1140 800,1153 V1184 H460 V1153 Q460,1140 473,1140" fill="#30383c"/>
+<text x="630.0" y="1169" class="head" text-anchor="middle">Shopping Cart</text>
+<path d="M525,1184 V1329" stroke="#62696d"/>
+<text x="468" y="1205" class="key" text-anchor="start">PK</text>
+<text x="536" y="1205" class="" text-anchor="start">cart_id</text>
+<path d="M460,1213 H800" stroke="#d7dadd"/>
+<text x="468" y="1234" class="key" text-anchor="start">FK</text>
+<text x="536" y="1234" class="" text-anchor="start">customer_id</text>
+<path d="M460,1242 H800" stroke="#d7dadd"/>
+<text x="468" y="1263" class="key" text-anchor="start"></text>
+<text x="536" y="1263" class="" text-anchor="start">status</text>
+<path d="M460,1271 H800" stroke="#d7dadd"/>
+<text x="468" y="1292" class="key" text-anchor="start"></text>
+<text x="536" y="1292" class="" text-anchor="start">created_at</text>
+<path d="M460,1300 H800" stroke="#d7dadd"/>
+<text x="468" y="1321" class="key" text-anchor="start"></text>
+<text x="536" y="1321" class="" text-anchor="start">updated_at</text>
+<rect x="930" y="1140" width="340" height="131" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M943,1140 H1257 Q1270,1140 1270,1153 V1184 H930 V1153 Q930,1140 943,1140" fill="#30383c"/>
+<text x="1100.0" y="1169" class="head" text-anchor="middle">Cart Item</text>
+<path d="M995,1184 V1271" stroke="#62696d"/>
+<text x="938" y="1205" class="key" text-anchor="start">PK/FK</text>
+<text x="1006" y="1205" class="" text-anchor="start">cart_id</text>
+<path d="M930,1213 H1270" stroke="#d7dadd"/>
+<text x="938" y="1234" class="key" text-anchor="start">PK/FK</text>
+<text x="1006" y="1234" class="" text-anchor="start">variant_id</text>
+<path d="M930,1242 H1270" stroke="#d7dadd"/>
+<text x="938" y="1263" class="key" text-anchor="start"></text>
+<text x="1006" y="1263" class="" text-anchor="start">quantity</text>
+<rect x="460" y="1580" width="340" height="479" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M473,1580 H787 Q800,1580 800,1593 V1624 H460 V1593 Q460,1580 473,1580" fill="#30383c"/>
+<text x="630.0" y="1609" class="head" text-anchor="middle">Order</text>
+<path d="M525,1624 V2059" stroke="#62696d"/>
+<text x="468" y="1645" class="key" text-anchor="start">PK</text>
+<text x="536" y="1645" class="" text-anchor="start">order_id</text>
+<path d="M460,1653 H800" stroke="#d7dadd"/>
+<text x="468" y="1674" class="key" text-anchor="start">FK</text>
+<text x="536" y="1674" class="" text-anchor="start">customer_id</text>
+<path d="M460,1682 H800" stroke="#d7dadd"/>
+<text x="468" y="1703" class="key" text-anchor="start"></text>
+<text x="536" y="1703" class="" text-anchor="start">status</text>
+<path d="M460,1711 H800" stroke="#d7dadd"/>
+<text x="468" y="1732" class="key" text-anchor="start"></text>
+<text x="536" y="1732" class="" text-anchor="start">currency_code</text>
+<path d="M460,1740 H800" stroke="#d7dadd"/>
+<text x="468" y="1761" class="key" text-anchor="start"></text>
+<text x="536" y="1761" class="" text-anchor="start">total_amount</text>
+<path d="M460,1769 H800" stroke="#d7dadd"/>
+<text x="468" y="1790" class="key" text-anchor="start"></text>
+<text x="536" y="1790" class="" text-anchor="start">recipient_name</text>
+<path d="M460,1798 H800" stroke="#d7dadd"/>
+<text x="468" y="1819" class="key" text-anchor="start"></text>
+<text x="536" y="1819" class="" text-anchor="start">recipient_phone</text>
+<path d="M460,1827 H800" stroke="#d7dadd"/>
+<text x="468" y="1848" class="key" text-anchor="start"></text>
+<text x="536" y="1848" class="" text-anchor="start">address_line_1</text>
+<path d="M460,1856 H800" stroke="#d7dadd"/>
+<text x="468" y="1877" class="key" text-anchor="start"></text>
+<text x="536" y="1877" class="" text-anchor="start">address_line_2</text>
+<path d="M460,1885 H800" stroke="#d7dadd"/>
+<text x="468" y="1906" class="key" text-anchor="start"></text>
+<text x="536" y="1906" class="" text-anchor="start">city</text>
+<path d="M460,1914 H800" stroke="#d7dadd"/>
+<text x="468" y="1935" class="key" text-anchor="start"></text>
+<text x="536" y="1935" class="" text-anchor="start">state_region</text>
+<path d="M460,1943 H800" stroke="#d7dadd"/>
+<text x="468" y="1964" class="key" text-anchor="start"></text>
+<text x="536" y="1964" class="" text-anchor="start">postal_code</text>
+<path d="M460,1972 H800" stroke="#d7dadd"/>
+<text x="468" y="1993" class="key" text-anchor="start"></text>
+<text x="536" y="1993" class="" text-anchor="start">country_code</text>
+<path d="M460,2001 H800" stroke="#d7dadd"/>
+<text x="468" y="2022" class="key" text-anchor="start"></text>
+<text x="536" y="2022" class="" text-anchor="start">created_at</text>
+<path d="M460,2030 H800" stroke="#d7dadd"/>
+<text x="468" y="2051" class="key" text-anchor="start"></text>
+<text x="536" y="2051" class="" text-anchor="start">paid_at</text>
+<rect x="930" y="1580" width="340" height="276" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M943,1580 H1257 Q1270,1580 1270,1593 V1624 H930 V1593 Q930,1580 943,1580" fill="#30383c"/>
+<text x="1100.0" y="1609" class="head" text-anchor="middle">Order Item</text>
+<path d="M995,1624 V1856" stroke="#62696d"/>
+<text x="938" y="1645" class="key" text-anchor="start">PK/FK</text>
+<text x="1006" y="1645" class="" text-anchor="start">order_id</text>
+<path d="M930,1653 H1270" stroke="#d7dadd"/>
+<text x="938" y="1674" class="key" text-anchor="start">PK/FK</text>
+<text x="1006" y="1674" class="" text-anchor="start">variant_id</text>
+<path d="M930,1682 H1270" stroke="#d7dadd"/>
+<text x="938" y="1703" class="key" text-anchor="start"></text>
+<text x="1006" y="1703" class="" text-anchor="start">quantity</text>
+<path d="M930,1711 H1270" stroke="#d7dadd"/>
+<text x="938" y="1732" class="key" text-anchor="start"></text>
+<text x="1006" y="1732" class="" text-anchor="start">unit_price</text>
+<path d="M930,1740 H1270" stroke="#d7dadd"/>
+<text x="938" y="1761" class="key" text-anchor="start"></text>
+<text x="1006" y="1761" class="" text-anchor="start">product_name_snapshot</text>
+<path d="M930,1769 H1270" stroke="#d7dadd"/>
+<text x="938" y="1790" class="key" text-anchor="start"></text>
+<text x="1006" y="1790" class="" text-anchor="start">sku_snapshot</text>
+<path d="M930,1798 H1270" stroke="#d7dadd"/>
+<text x="938" y="1819" class="key" text-anchor="start"></text>
+<text x="1006" y="1819" class="" text-anchor="start">size_label_snapshot</text>
+<path d="M930,1827 H1270" stroke="#d7dadd"/>
+<text x="938" y="1848" class="key" text-anchor="start"></text>
+<text x="1006" y="1848" class="" text-anchor="start">colour_name_snapshot</text>
+<rect x="1400" y="800" width="340" height="305" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1413,800 H1727 Q1740,800 1740,813 V844 H1400 V813 Q1400,800 1413,800" fill="#30383c"/>
+<text x="1570.0" y="829" class="head" text-anchor="middle">Payment</text>
+<path d="M1465,844 V1105" stroke="#62696d"/>
+<text x="1408" y="865" class="key" text-anchor="start">PK</text>
+<text x="1476" y="865" class="" text-anchor="start">payment_id</text>
+<path d="M1400,873 H1740" stroke="#d7dadd"/>
+<text x="1408" y="894" class="key" text-anchor="start">FK</text>
+<text x="1476" y="894" class="" text-anchor="start">order_id</text>
+<path d="M1400,902 H1740" stroke="#d7dadd"/>
+<text x="1408" y="923" class="key" text-anchor="start"></text>
+<text x="1476" y="923" class="" text-anchor="start">method</text>
+<path d="M1400,931 H1740" stroke="#d7dadd"/>
+<text x="1408" y="952" class="key" text-anchor="start"></text>
+<text x="1476" y="952" class="" text-anchor="start">provider_reference</text>
+<path d="M1400,960 H1740" stroke="#d7dadd"/>
+<text x="1408" y="981" class="key" text-anchor="start"></text>
+<text x="1476" y="981" class="" text-anchor="start">amount</text>
+<path d="M1400,989 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1010" class="key" text-anchor="start"></text>
+<text x="1476" y="1010" class="" text-anchor="start">currency_code</text>
+<path d="M1400,1018 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1039" class="key" text-anchor="start"></text>
+<text x="1476" y="1039" class="" text-anchor="start">status</text>
+<path d="M1400,1047 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1068" class="key" text-anchor="start"></text>
+<text x="1476" y="1068" class="" text-anchor="start">created_at</text>
+<path d="M1400,1076 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1097" class="key" text-anchor="start"></text>
+<text x="1476" y="1097" class="" text-anchor="start">completed_at</text>
+<rect x="1400" y="1390" width="340" height="247" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1413,1390 H1727 Q1740,1390 1740,1403 V1434 H1400 V1403 Q1400,1390 1413,1390" fill="#30383c"/>
+<text x="1570.0" y="1419" class="head" text-anchor="middle">Delivery</text>
+<path d="M1465,1434 V1637" stroke="#62696d"/>
+<text x="1408" y="1455" class="key" text-anchor="start">PK</text>
+<text x="1476" y="1455" class="" text-anchor="start">delivery_id</text>
+<path d="M1400,1463 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1484" class="key" text-anchor="start">FK</text>
+<text x="1476" y="1484" class="" text-anchor="start">order_id</text>
+<path d="M1400,1492 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1513" class="key" text-anchor="start"></text>
+<text x="1476" y="1513" class="" text-anchor="start">carrier</text>
+<path d="M1400,1521 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1542" class="key" text-anchor="start"></text>
+<text x="1476" y="1542" class="" text-anchor="start">tracking_reference</text>
+<path d="M1400,1550 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1571" class="key" text-anchor="start"></text>
+<text x="1476" y="1571" class="" text-anchor="start">status</text>
+<path d="M1400,1579 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1600" class="key" text-anchor="start"></text>
+<text x="1476" y="1600" class="" text-anchor="start">dispatched_at</text>
+<path d="M1400,1608 H1740" stroke="#d7dadd"/>
+<text x="1408" y="1629" class="key" text-anchor="start"></text>
+<text x="1476" y="1629" class="" text-anchor="start">delivered_at</text>
+<rect x="1400" y="1930" width="340" height="189" rx="13" fill="#fafafa" stroke="#62696d" stroke-width="2"/>
+<path d="M1413,1930 H1727 Q1740,1930 1740,1943 V1974 H1400 V1943 Q1400,1930 1413,1930" fill="#30383c"/>
+<text x="1570.0" y="1959" class="head" text-anchor="middle">Administrator</text>
+<path d="M1465,1974 V2119" stroke="#62696d"/>
+<text x="1408" y="1995" class="key" text-anchor="start">PK</text>
+<text x="1476" y="1995" class="" text-anchor="start">administrator_id</text>
+<path d="M1400,2003 H1740" stroke="#d7dadd"/>
+<text x="1408" y="2024" class="key" text-anchor="start"></text>
+<text x="1476" y="2024" class="" text-anchor="start">display_name</text>
+<path d="M1400,2032 H1740" stroke="#d7dadd"/>
+<text x="1408" y="2053" class="key" text-anchor="start"></text>
+<text x="1476" y="2053" class="" text-anchor="start">email</text>
+<path d="M1400,2061 H1740" stroke="#d7dadd"/>
+<text x="1408" y="2082" class="key" text-anchor="start"></text>
+<text x="1476" y="2082" class="" text-anchor="start">is_active</text>
+<path d="M1400,2090 H1740" stroke="#d7dadd"/>
+<text x="1408" y="2111" class="key" text-anchor="start"></text>
+<text x="1476" y="2111" class="" text-anchor="start">created_at</text>
+<text x="60" y="2300" class="" text-anchor="start">Legend: PK = primary key; FK = foreign key; || = exactly one; circle + crow’s foot = zero or many.</text>
+<text x="60" y="2330" class="" text-anchor="start">Circle + bar = zero or one. Completed orders require items; sellable products require active variants.</text>
+<text x="60" y="2360" class="" text-anchor="start">At most one active cart/customer and successful payment/order. Administrator relationships are deferred.</text>
+<path d="M60,2400 H1770" stroke="#c2c7ca"/>
+<text x="60" y="2440" class="title">Entity relationship summary</text>
+<text x="60" y="2480">Customer → Customer Address — 1:many (0..many addresses)</text>
+<text x="60" y="2519">Customer → Shopping Cart — 1:many (0..many historical carts)</text>
+<text x="60" y="2558">Customer → Order — 1:many (0..many orders)</text>
+<text x="60" y="2597">Category → Product — 1:many (0..many products)</text>
+<text x="60" y="2636">Brand → Product — 1:many (0..many products)</text>
+<text x="60" y="2675">Product → Product Variant — 1:many (0..many; active variant needed to sell)</text>
+<text x="60" y="2714">Size → Product Variant — 1:many (0..many variants)</text>
+<text x="60" y="2753">Colour → Product Variant — 1:many (0..many variants)</text>
+<text x="960" y="2480">Product Variant → Inventory — 1:1 (mandatory on both sides)</text>
+<text x="960" y="2519">Shopping Cart → Cart Item — 1:many (0..many items)</text>
+<text x="960" y="2558">Product Variant → Cart Item — 1:many (0..many cart lines)</text>
+<text x="960" y="2597">Order → Order Item — 1:many (0..many; completed order needs ≥1)</text>
+<text x="960" y="2636">Product Variant → Order Item — 1:many (0..many purchase lines)</text>
+<text x="960" y="2675">Order → Payment — 1:many (0..many attempts; at most 1 success)</text>
+<text x="960" y="2714">Order → Delivery — 1:1 (optional: 0..1 delivery per order)</text>
+<text x="60" y="2815">Each child has exactly one parent in every relationship above. Administrator has no defined relationship yet.</text>
+<text x="60" y="2845">Cart ↔ Variant and Order ↔ Variant are many:many, resolved through Cart Item and Order Item respectively.</text>
+</svg>

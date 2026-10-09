@@ -1,0 +1,17 @@
+# Portfolio 1 — Database Design and Modelling
+
+Owner, author, and maintainer: **Emmanuel Madueke**.
+
+## Current evidence
+
+- [Requirements](../docs/requirements.md)
+- [Business rules](../docs/business-rules.md)
+- [Entities and attributes](../docs/entities-and-attributes.md)
+- [Conceptual ERD documentation](../docs/conceptual-erd.md)
+- [Standalone ERD image](../diagrams/conceptual-erd.svg)
+
+The conceptual model is complete as a proposed design. The relational schema, data dictionary, normalisation analysis, SQL implementation, sample data, and runtime integrity evidence are still pending.
+
+## Viewing the diagram
+
+Open the [full-size SVG image](../diagrams/conceptual-erd.svg) in a browser and zoom as needed. It uses attribute tables, PK/FK labels, and crow’s-foot relationships. Only the image is retained; there is no diagram-generation script.
