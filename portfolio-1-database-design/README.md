@@ -8,9 +8,11 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 - [Business rules](../docs/business-rules.md)
 - [Entities and attributes](../docs/entities-and-attributes.md)
 - [Conceptual ERD documentation](../docs/conceptual-erd.md)
+- [Relational schema specification](../docs/relational-schema.md)
+- [Data dictionary](../docs/data-dictionary.md)
 - [Standalone ERD image](../diagrams/conceptual-erd.svg)
 
-The conceptual model is complete as a proposed design. The relational schema, data dictionary, normalisation analysis, SQL implementation, sample data, and runtime integrity evidence are still pending.
+The conceptual model is complete as a proposed design. The relational schema and data dictionary are specified for PostgreSQL. Normalisation analysis, executable SQL, sample data, and runtime integrity evidence are still pending.
 
 ## Viewing the diagram
 

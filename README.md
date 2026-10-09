@@ -75,10 +75,12 @@ The main objectives of this project are to:
 - [Business rules and relationship decisions](docs/business-rules.md)
 - [Proposed entities and attributes](docs/entities-and-attributes.md)
 - [Conceptual ERD](docs/conceptual-erd.md)
+- [Relational schema specification](docs/relational-schema.md)
+- [Data dictionary](docs/data-dictionary.md)
 - [Portfolio 1 evidence and reproduction instructions](portfolio-1-database-design/README.md)
 - [AI-use working record](docs/ai-use.md)
 
-These documents and the conceptual ERD define the proposed initial model. Normalisation, the relational schema, and runtime verification are still pending. Next: derive the relational schema and data dictionary.
+These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation and runtime verification are still pending. Next: document normalisation.
 
 ## Main Entities
 
@@ -346,13 +348,13 @@ The structure may be expanded as the project progresses.
 The project may use the following technologies:
 
 - **SQL** — database definition and querying
-- **PostgreSQL / MySQL** — relational database management system
+- **PostgreSQL** — selected relational database management system (installed version pending verification)
 - **Git** — version control
 - **GitHub** — source code and portfolio repository
 - **Markdown** — documentation
 - **ERD Tool** — database modelling and visualisation
 
-The final database management system will depend on the implementation requirements of the assignment.
+PostgreSQL is the relational design target. The remaining tools and NoSQL database will be confirmed during setup and their respective activities.
 
 ---
 
@@ -390,7 +392,7 @@ Current stage:
 - [x] Define business rules
 - [x] Define relationships and cardinalities
 - [x] Create conceptual ERD
-- [ ] Convert ERD to relational schema
+- [x] Convert ERD to relational schema
 - [ ] Perform normalisation
 - [ ] Create SQL schema
 - [ ] Add database constraints
