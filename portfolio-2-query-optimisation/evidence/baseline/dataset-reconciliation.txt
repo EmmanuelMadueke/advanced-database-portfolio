@@ -1,0 +1,10 @@
+ successful_payments | successful_payment_amount_ngn 
+---------------------+-------------------------------
+                2508 |                   36908000.00
+(1 row)
+
+ sold_units 
+------------
+       2514
+(1 row)
+

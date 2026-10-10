@@ -28,9 +28,13 @@ Codex drafted synthetic fashion-store seed data covering stock, carts, order sta
 
 Codex drafted twelve read-only SQL reports covering catalogue filters, stock, customer history, open orders, deliveries, sales, and unresolved payments. It used pre-aggregated payment attempts to avoid duplicate history rows and historical monetary values for revenue, with explicit Lagos calendar boundaries. Thirty tool-run result checks passed on the unscaled sample dataset, including NGN 268,000 reconciliation, retries, empty periods, endpoint and timezone checks, and literal input handling. Actual output and reproduction instructions are saved in Portfolio 2. Execution plans, optimisation, and measured performance remain pending.
 
+## Portfolio 2 baseline plans
+
+Codex collected five repeated measured EXPLAIN (ANALYZE, BUFFERS, TIMING OFF, FORMAT JSON) plans for each of five reports, with warm-ups, on the default scale dataset. It recorded server/settings, exact row counts, statistics, all existing index definitions, result fingerprints, and per-run measurements. Independent successful payments reconciled to NGN 36,908,000.00. The baseline notes identify history scans and sales-row estimate differences without claiming an optimisation improvement. Cache, timing instrumentation, sample distribution, and host-noise limitations are documented.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Measured performance results and two-session concurrency evidence remain pending.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and two-session concurrency evidence remain pending.
 
 ## Sources
 
@@ -40,3 +44,5 @@ Emmanuel's recorded review covers the ERD presentation. Independent student veri
 - PostgreSQL documentation: [constraints](https://www.postgresql.org/docs/18/ddl-constraints.html), [numeric types](https://www.postgresql.org/docs/18/datatype-numeric.html), [date/time types](https://www.postgresql.org/docs/18/datatype-datetime.html), and [partial indexes](https://www.postgresql.org/docs/18/indexes-partial.html).
 
 - PostgreSQL 18 documentation: [psql](https://www.postgresql.org/docs/18/app-psql.html), [date/time functions](https://www.postgresql.org/docs/18/functions-datetime.html), and [transaction isolation](https://www.postgresql.org/docs/18/transaction-iso.html).
+
+- PostgreSQL 18 documentation: [EXPLAIN](https://www.postgresql.org/docs/18/sql-explain.html), [reading plans](https://www.postgresql.org/docs/18/using-explain.html), and [ANALYZE](https://www.postgresql.org/docs/18/sql-analyze.html).

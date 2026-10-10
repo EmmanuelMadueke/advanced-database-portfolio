@@ -7,4 +7,4 @@ Recorded on 10 October 2026 using PostgreSQL 18.1 and a fresh isolated database 
 - [sample-query-results.txt](sample-query-results.txt): actual output from all twelve reports in one read-only snapshot.
 - [query-check-output.txt](query-check-output.txt): thirty assertions passed against the original SQL files, including parameter variations and reconciliation to NGN 268,000.
 
-No performance indexes were added, no execution plans or timings are claimed, and no two-session concurrency demonstration was performed here. Reproduction and remaining work are in the [Portfolio 2 README](../README.md).
+These sample-query files contain correctness evidence. Separate [scale-dataset baseline plans and timings](baseline/README.md) are now available; no optimisation indexes have been added. No two-session concurrency demonstration was performed here. Reproduction and remaining work are in the [Portfolio 2 README](../README.md).

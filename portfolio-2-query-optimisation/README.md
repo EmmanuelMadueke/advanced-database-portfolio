@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Current stage
 
-The first checklist item, meaningful SQL queries, is complete. Twelve read-only reports have been implemented and verified on PostgreSQL 18.1 against the unscaled fashion-store sample data. Thirty result checks passed; actual outputs are saved below. Baseline execution plans, optimisation indexes/rewrites, timing comparisons, and performance analysis are pending.
+The first checklist item, meaningful SQL queries, is complete. Twelve read-only reports have been implemented and verified on PostgreSQL 18.1 against the unscaled fashion-store sample data. Thirty result checks passed; actual outputs are saved below. Baseline execution plans and measurement conditions are now recorded for five reports on the default scale dataset. Optimisation indexes/rewrites, before/after comparisons, and final performance analysis remain pending.
 
 ## Queries
 
@@ -60,7 +60,11 @@ The Python check runner uses psql CSV output and the original query files; it do
 
 Checks verify known totals, filters, failed-payment retries, empty results, zero-sales groups/months, date endpoints, timezone invariance, and literal handling. They establish correctness on the documented sample data, not query efficiency. Sample timestamps are concentrated around loading; broad historical/date-distribution testing remains limited. The optional scale dataset is available for the next experiment stage, but these results were captured before enlargement.
 
-Next: capture baseline EXPLAIN (ANALYZE, BUFFERS) output on selected queries, recording database version, dataset/distribution, existing correctness indexes, and measurement conditions before introducing optimisation changes.
+## Baseline plans
+
+[Baseline results and plan observations](evidence/baseline/README.md) retain five measured plans per selected query, environment/index metadata, buffer counts, and result fingerprints. [The collection protocol](benchmarks/README.md) explains reproduction and limitations. This is the scale dataset; it is separate from the unscaled sample correctness outputs above.
+
+Next: create and test justified optimisation indexes or query rewrites, verify unchanged results, and compare repeated measurements under the recorded conditions.
 
 ## References
 
