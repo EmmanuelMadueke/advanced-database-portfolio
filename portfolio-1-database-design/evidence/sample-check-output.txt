@@ -1,0 +1,120 @@
+BEGIN
+SET
+CREATE FUNCTION
+psql:portfolio-1-database-design/tests/sample_data.sql:19: NOTICE:  PASS: sample entity counts
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:21: NOTICE:  PASS: all six order states represented
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:27: NOTICE:  PASS: payment outcomes and retry represented
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:31: NOTICE:  PASS: delivery outcomes represented
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:35: NOTICE:  PASS: active and historical carts represented
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:38: NOTICE:  PASS: stock categories represented
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:41: NOTICE:  PASS: order totals equal independently aggregated line totals
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:44: NOTICE:  PASS: paid order totals reconcile to NGN 268000.00
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:49: NOTICE:  PASS: paid orders have exactly one matching successful payment
+ assert_sample 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/sample_data.sql:59: NOTICE:  PASS: inventory reconciles to initial stock minus successful purchases
+ assert_sample 
+---------------
+ 
+(1 row)
+
+   status   | orders | order_amount_ngn 
+------------+--------+------------------
+ cancelled  |      2 |         44500.00
+ delivered  |      3 |         87000.00
+ dispatched |      2 |         83000.00
+ paid       |      2 |         70000.00
+ pending    |      2 |         48000.00
+ processing |      1 |         28000.00
+(6 rows)
+
+  status   | attempts | attempted_amount_ngn 
+-----------+----------+----------------------
+ failed    |        3 |             59500.00
+ pending   |        1 |             29000.00
+ succeeded |        8 |            268000.00
+(3 rows)
+
+    sku     | available_quantity | low_stock_threshold | stock_status 
+------------+--------------------+---------------------+--------------
+ BLT-BRN-OS |                  4 |                   3 | available
+ DRS-BLK-M  |                  2 |                   3 | low_stock
+ DRS-BLU-S  |                  7 |                   3 | available
+ HOD-BLK-M  |                  8 |                   3 | available
+ HOD-BLU-S  |                 11 |                   3 | available
+ LIN-BLU-L  |                  2 |                   3 | low_stock
+ LIN-WHT-M  |                  9 |                   3 | available
+ SND-BLK-42 |                  4 |                   3 | available
+ SND-BRN-41 |                  4 |                   3 | available
+ SNK-BLK-41 |                  6 |                   3 | available
+ SNK-WHT-40 |                  5 |                   3 | available
+ SNK-WHT-42 |                  0 |                   3 | out_of_stock
+ TEE-BLK-L  |                  0 |                   3 | out_of_stock
+ TEE-BLK-M  |                 18 |                   3 | available
+ TEE-BLK-S  |                 14 |                   3 | available
+ TEE-WHT-M  |                 11 |                   3 | available
+ TOT-BLK-OS |                 18 |                   3 | available
+ TOT-WHT-OS |                 10 |                   3 | available
+(18 rows)
+
+        email         |   status   | total_amount | payment_status | provider_reference | delivery_status 
+----------------------+------------+--------------+----------------+--------------------+-----------------
+ ada@example.test     | delivered  |     33000.00 | succeeded      | DEMO-001           | delivered
+ amina@example.test   | delivered  |     27000.00 | succeeded      | DEMO-007           | delivered
+ bisi@example.test    | pending    |     19000.00 | failed         | DEMO-005-FAIL      | 
+ chidi@example.test   | paid       |     47500.00 | succeeded      | DEMO-004           | 
+ femi@example.test    | paid       |     22500.00 | succeeded      | DEMO-008           | 
+ femi@example.test    | paid       |     22500.00 | failed         | DEMO-008-FAIL      | 
+ ibrahim@example.test | cancelled  |     26500.00 |                |                    | 
+ ife@example.test     | cancelled  |     18000.00 | failed         | DEMO-006-FAIL      | 
+ ngozi@example.test   | pending    |     29000.00 | pending        | DEMO-009-PENDING   | 
+ nneka@example.test   | delivered  |     27000.00 | succeeded      | DEMO-011           | delivered
+ seyi@example.test    | dispatched |     35000.00 | succeeded      | DEMO-010           | dispatched
+ tunde@example.test   | dispatched |     48000.00 | succeeded      | DEMO-002           | dispatched
+ zainab@example.test  | processing |     28000.00 | succeeded      | DEMO-003           | pending
+(13 rows)
+
+ROLLBACK

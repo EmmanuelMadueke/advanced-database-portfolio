@@ -1,0 +1,28 @@
+BEGIN
+SELECT 1
+psql:portfolio-1-database-design/tests/scale_data.sql:33: NOTICE:  PASS: scale counts (10000 additional orders)
+psql:portfolio-1-database-design/tests/scale_data.sql:33: NOTICE:  PASS: scale order totals
+psql:portfolio-1-database-design/tests/scale_data.sql:33: NOTICE:  PASS: scale inventory reconciliation
+psql:portfolio-1-database-design/tests/scale_data.sql:33: NOTICE:  PASS: scale payment reconciliation
+DO
+  relation   | count 
+-------------+-------
+ customers   |  1012
+ products    |   208
+ variants    |  1218
+ orders      | 10012
+ order_items | 10017
+ payments    |  2512
+(6 rows)
+
+   status   | count 
+------------+-------
+ cancelled  |     2
+ delivered  |     3
+ dispatched |     2
+ paid       |  2502
+ pending    |  7502
+ processing |     1
+(6 rows)
+
+ROLLBACK

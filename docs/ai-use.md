@@ -20,9 +20,13 @@ Codex mapped the ERD to 16 PostgreSQL tables and specified column types, default
 
 Codex created table definitions, integrity/lifecycle triggers, controlled purchase/cart/delivery functions, and demonstration-role permissions. It verified them on an isolated PostgreSQL 18.1 cluster using temporary synthetic fixtures. All 35 single-session assertions passed, covering invalid writes, snapshots, purchase finalisation/replay, delivery states, and rollback. Actual output and reproduction instructions are saved in Portfolio 1. These are tool-run checks; no independent student runtime verification is asserted.
 
+## Sample data and reconciliation
+
+Codex drafted synthetic fashion-store seed data covering stock, carts, order states, payment outcomes/retries, and deliveries, using the implemented write routines. It ran 10 sample checks against a fresh PostgreSQL 18.1 database, reconciling inventory and NGN 268,000.00 in successful sales. An optional 10,000-order synthetic workload passed four additional count/total/payment/stock checks. Scripts, actual outputs, reproduction steps, and distribution/timestamp limitations are documented. These datasets contain no real customer records and do not establish performance conclusions.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Realistic seed data, measured performance results, and two-session concurrency evidence remain pending.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Measured performance results and two-session concurrency evidence remain pending.
 
 ## Sources
 

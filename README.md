@@ -79,10 +79,11 @@ The main objectives of this project are to:
 - [Data dictionary](docs/data-dictionary.md)
 - [Normalisation analysis](docs/normalization.md)
 - [Database setup and verification](docs/setup.md)
+- [Sample data and expected results](docs/sample-data.md)
 - [Portfolio 1 evidence and reproduction instructions](portfolio-1-database-design/README.md)
 - [AI-use working record](docs/ai-use.md)
 
-These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. The PostgreSQL 18.1 schema and controlled write routines are implemented, with 35 passing integrity/workflow checks and saved outputs. Next: populate realistic fashion-store sample data.
+These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. The PostgreSQL 18.1 schema and controlled write routines are implemented, with 35 passing integrity/workflow checks and saved outputs. Reproducible sample data and an optional larger workload are now included. Next: Portfolio 2 query development and optimisation.
 
 ## Main Entities
 
@@ -398,7 +399,7 @@ Current stage:
 - [x] Perform normalisation
 - [x] Create SQL schema
 - [x] Add database constraints
-- [ ] Insert sample data
+- [x] Insert sample data
 - [ ] Create transactional queries
 - [ ] Create management queries
 - [ ] Complete database testing (35 schema/integrity checks passed; remaining activities pending)

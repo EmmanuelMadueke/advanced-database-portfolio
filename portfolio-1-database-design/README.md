@@ -13,7 +13,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 - [Normalisation analysis](../docs/normalization.md)
 - [Standalone ERD image](../diagrams/conceptual-erd.svg)
 
-The conceptual model is complete as a proposed design. The relational schema and data dictionary are specified for PostgreSQL. Normalisation analysis is complete with explicit redundancy and fixed-currency caveats. The SQL implementation and 35 integrity/workflow assertions have passed on PostgreSQL 18.1. Realistic sample data is still pending; Portfolio 1 is not complete yet.
+The conceptual model is complete as a proposed design. The relational schema and data dictionary are specified for PostgreSQL. Normalisation analysis is complete with explicit redundancy and fixed-currency caveats. The SQL implementation and 35 integrity/workflow assertions have passed on PostgreSQL 18.1. Sample data, seed validation, and supporting evidence are complete; Portfolio 1 deliverables are now covered. Further activity-specific testing remains.
 
 ## Viewing the diagram
 
@@ -26,4 +26,13 @@ Open the [full-size SVG image](../diagrams/conceptual-erd.svg) in a browser and 
 3. [Controlled checkout, cart, and delivery operations](sql/03_operations.sql)
 4. [Demonstration role permissions](sql/04_permissions.sql)
 
-See [setup and reproduction instructions](../docs/setup.md), [integrity tests](tests/integrity.sql), and [actual outputs](evidence/README.md). Tests use temporary fixtures, force deferred validation, and roll back their rows. Realistic seed data and full two-session concurrency demonstrations remain separate tasks.
+See [setup and reproduction instructions](../docs/setup.md), [integrity tests](tests/integrity.sql), and [actual outputs](evidence/README.md). Tests use temporary fixtures, force deferred validation, and roll back their rows. The sample seed and checks are described below. Full two-session concurrency demonstrations remain Portfolio 3 work.
+
+## Sample data
+
+- [Fashion-store seed](sql/05_sample_data.sql): 12 customers, 8 products, 18 variants, 12 orders, and all order/payment/delivery states.
+- [Sample validation](tests/sample_data.sql): 10 assertions, including NGN 268,000.00 in recognised sales and stock reconciliation.
+- [Optional scale seed](sql/06_scale_data.sql): 10,000 additional orders by default for later query experiments.
+- [Scale validation](tests/scale_data.sql): counts, totals, payments, and inventory reconciliation.
+
+See [dataset scenarios and reproduction](../docs/sample-data.md) and [actual output](evidence/README.md). Run sample validation before the optional scale seed. The seeds are committed data; validation scripts roll back only their own temporary helpers. Data is fictional and event timestamps reflect the run time.
