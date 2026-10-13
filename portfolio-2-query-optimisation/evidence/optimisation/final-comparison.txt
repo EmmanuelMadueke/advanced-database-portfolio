@@ -1,0 +1,9 @@
+PASS: connection, settings, parameters, counts and distributions match
+PASS: all 28 pre-existing index definitions retained
+query,before_median_ms,after_median_ms,change_percent,before_hits,after_hits
+01_catalogue,0.616,0.605,-1.79,1626,1626
+03_customer_history,1.380,0.109,-92.10,597,43
+04_open_orders,3.664,3.169,-13.51,541,541
+06_best_selling_variants,3.758,2.747,-26.90,702,197
+10_revenue_summary,1.049,0.194,-81.51,520,15
+PASS: all five full ordered-result fingerprints and row counts match

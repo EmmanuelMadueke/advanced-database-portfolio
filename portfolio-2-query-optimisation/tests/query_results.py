@@ -21,7 +21,9 @@ def report(number, **parameters):
     timezone = parameters.pop('_timezone', 'Africa/Lagos')
     if 6 <= number <= 11:
         parameters = {**PERIOD, **parameters}
-    files = list(SQL.glob(f'{number:02d}_*.sql'))
+    override = os.environ.get('QUERY_OVERRIDE_DIR')
+    files = list(Path(override).glob(f'{number:02d}_*.sql')) if override else []
+    files = files or list(SQL.glob(f'{number:02d}_*.sql'))
     assert len(files) == 1
     command = [PSQL, '-X', '-q', '--csv', '-v', 'ON_ERROR_STOP=1']
     for key, value in parameters.items():

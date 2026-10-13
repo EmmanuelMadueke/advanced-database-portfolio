@@ -26,15 +26,21 @@ Codex drafted synthetic fashion-store seed data covering stock, carts, order sta
 
 ## Portfolio 2 query development
 
-Codex drafted twelve read-only SQL reports covering catalogue filters, stock, customer history, open orders, deliveries, sales, and unresolved payments. It used pre-aggregated payment attempts to avoid duplicate history rows and historical monetary values for revenue, with explicit Lagos calendar boundaries. Thirty tool-run result checks passed on the unscaled sample dataset, including NGN 268,000 reconciliation, retries, empty periods, endpoint and timezone checks, and literal input handling. Actual output and reproduction instructions are saved in Portfolio 2. Execution plans, optimisation, and measured performance remain pending.
+Codex drafted twelve read-only SQL reports covering catalogue filters, stock, customer history, open orders, deliveries, sales, and unresolved payments. It used pre-aggregated payment attempts to avoid duplicate history rows and historical monetary values for revenue, with explicit Lagos calendar boundaries. Thirty tool-run result checks passed on the unscaled sample dataset, including NGN 268,000 reconciliation, retries, empty periods, endpoint and timezone checks, and literal input handling. Actual output and reproduction instructions are saved in Portfolio 2. Execution plans and optimisation measurements are recorded in the subsequent stages below.
 
 ## Portfolio 2 baseline plans
 
 Codex collected five repeated measured EXPLAIN (ANALYZE, BUFFERS, TIMING OFF, FORMAT JSON) plans for each of five reports, with warm-ups, on the default scale dataset. It recorded server/settings, exact row counts, statistics, all existing index definitions, result fingerprints, and per-run measurements. Independent successful payments reconciled to NGN 36,908,000.00. The baseline notes identify history scans and sales-row estimate differences without claiming an optimisation improvement. Cache, timing instrumentation, sample distribution, and host-noise limitations are documented.
 
+## Portfolio 2 optimisation
+
+Codex used the captured plans to select three reporting indexes and a lateral customer-history rewrite. It rebuilt the unavailable temporary database and captured a fresh baseline, indexes-only phase, and rewrite phase under matching conditions. All five ordered-result fingerprints matched; 30 sample checks and seven varied history comparisons passed. It documented measured plan/buffer changes, index sizes, unmeasured write costs, and the visibility/cache limitations of the experiment. No improvement was attributed to unchanged catalogue/open-order plans solely from timing variation.
+
+Emmanuel directed progression through the checklist and required README/checklist updates so completed work and the next assessment task stay clear. Independent student review of these performance findings has not yet been recorded.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and two-session concurrency evidence remain pending.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session concurrency evidence remains pending.
 
 ## Sources
 

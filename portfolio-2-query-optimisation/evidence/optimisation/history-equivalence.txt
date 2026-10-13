@@ -1,0 +1,8 @@
+PASS: original and rewritten history agree for femi@example.test
+PASS: original and rewritten history agree for ibrahim@example.test
+PASS: original and rewritten history agree for ada@example.test
+PASS: original and rewritten history agree for ngozi@example.test
+PASS: original and rewritten history agree for scale-0004@example.test
+PASS: original and rewritten history agree for scale-0001@example.test
+PASS: original and rewritten history agree for absent@example.test
+7 history-equivalence cases passed, including retries, no attempts, pending payments, and an absent customer.

@@ -1,0 +1,31 @@
+PASS: catalogue filters return the stocked black medium T-shirt
+PASS: out-of-stock catalogue variant excluded
+PASS: inclusive catalogue price boundary
+PASS: inventory has all 18 variants
+PASS: low-stock filter identifies expected variants
+PASS: zero-stock filter identifies expected variants
+PASS: failed then successful payment produces one history row
+PASS: customer email is trimmed and case-normalised
+PASS: unknown email returns empty history
+PASS: quoted input is treated as an email literal
+PASS: open orders include seven awaiting payment/fulfilment/delivery
+PASS: delivery report includes all six shipments
+PASS: dispatched delivery filter returns two shipments
+PASS: variant sales reconcile to 14 sold units and NGN 268000
+PASS: pending-only dress variant excluded from best sellers
+PASS: product sales cover eight products and reconcile
+PASS: sneaker product sales equal NGN 70000
+PASS: category revenue matches independent expected amounts
+PASS: monthly report includes all 12 calendar months and reconciles
+PASS: summary gives eight paid orders, NGN 268000 and average NGN 33500
+PASS: all 12 customers included, including four zero-spend customers
+PASS: unresolved payment attempts exclude the successful retry customer
+PASS: empty sales period returns zero summary
+PASS: empty calendar year still returns 12 zero months
+PASS: same start/end date is an empty half-open interval
+PASS: zero-sales categories retained for empty period
+PASS: date range starts inclusively on the first paid Lagos day
+PASS: until_date excludes sales on that Lagos calendar day
+PASS: sales summary is invariant under UTC session timezone
+PASS: monthly grouping is invariant under UTC session timezone
+30 query-result checks passed. No application records were modified.

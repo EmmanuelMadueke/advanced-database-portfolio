@@ -41,3 +41,9 @@ The scale seed has narrow categories/prices, every-fourth-order success, correla
 ## References
 
 PostgreSQL 18: [EXPLAIN options and overhead](https://www.postgresql.org/docs/18/sql-explain.html), [reading plans](https://www.postgresql.org/docs/18/using-explain.html), and [ANALYZE statistics](https://www.postgresql.org/docs/18/sql-analyze.html).
+
+## Optimisation comparisons
+
+The [October 13 experiment](../optimisation/README.md) uses a fresh before capture after one VACUUM (ANALYZE), followed by index installation and a rewrite phase on the same unchanged database. This differs from the historical October 10 ANALYZE-only baseline; compare within the new three-phase experiment.
+
+Pass `--query-dir portfolio-2-query-optimisation/optimisation` to use numbered SQL overrides, with other queries falling back to sql/. Metadata records the source hash of each executed query and all-visible table page counts. `python3 portfolio-2-query-optimisation/benchmarks/compare_plans.py BEFORE_DIR AFTER_DIR` checks counts, settings, parameters, server, distributions, existing index definitions, and full ordered-result hashes before printing timing/buffer comparisons. These checks complement inspection of raw plans and do not prove the absence of every possible environment change.

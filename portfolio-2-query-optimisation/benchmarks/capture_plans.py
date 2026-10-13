@@ -24,6 +24,7 @@ PARAMETERS = {
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--output', type=Path, default=ROOT / 'evidence' / 'baseline')
 parser.add_argument('--runs', type=int, default=5)
+parser.add_argument('--query-dir', type=Path, help='Optional per-query overrides; missing files use sql/.')
 args = parser.parse_args()
 if args.runs < 3:
     parser.error('Use at least three measured runs.')
@@ -63,7 +64,7 @@ metadata['settings'] = json_sql("SELECT coalesce(json_agg(x ORDER BY name),'[]':
     "'max_parallel_workers_per_gather','default_statistics_target','jit','track_io_timing',"
     "'enable_seqscan','enable_indexscan','enable_bitmapscan')) x;")
 metadata['tables'] = json_sql("SELECT json_agg(x ORDER BY table_name) FROM ("
-    "SELECT c.relname AS table_name,c.reltuples::bigint AS estimated_rows,c.relpages AS pages "
+    "SELECT c.relname AS table_name,c.reltuples::bigint AS estimated_rows,c.relpages AS pages,c.relallvisible AS all_visible_pages "
     "FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='retail' AND c.relkind='r') x;")
 counts = {}
 for item in metadata['tables']:
@@ -87,7 +88,8 @@ metadata['category_distribution'] = json_sql("SELECT json_agg(x ORDER BY categor
 measurements = []
 summaries = []
 for number in SELECTED:
-    path, = (ROOT/'sql').glob(f'{number:02d}_*.sql')
+    overrides = list(args.query_dir.resolve().glob(f'{number:02d}_*.sql')) if args.query_dir else []
+    path, = overrides or list((ROOT/'sql').glob(f'{number:02d}_*.sql'))
     source = path.read_text()
     start = re.search(r'(?m)^(SELECT|WITH)\b', source).start()
     prelude, statement = source[:start], source[start:].strip().rstrip(';')
@@ -124,4 +126,4 @@ with (args.output/'measurements.csv').open('w', newline='') as file:
     writer = csv.DictWriter(file, fieldnames=list(measurements[0]))
     writer.writeheader()
     writer.writerows(measurements)
-print('Captured 1 warm-up and repeated measured plans per query; no optimisation indexes added.')
+print('Captured 1 warm-up and repeated measured plans per query; collector made no schema changes.')

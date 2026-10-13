@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Current stage
 
-The first checklist item, meaningful SQL queries, is complete. Twelve read-only reports have been implemented and verified on PostgreSQL 18.1 against the unscaled fashion-store sample data. Thirty result checks passed; actual outputs are saved below. Baseline execution plans and measurement conditions are now recorded for five reports on the default scale dataset. Optimisation indexes/rewrites, before/after comparisons, and final performance analysis remain pending.
+The first checklist item, meaningful SQL queries, is complete. Twelve read-only reports have been implemented and verified on PostgreSQL 18.1 against the unscaled fashion-store sample data. Thirty result checks passed; actual outputs are saved below. Baseline execution plans and measurement conditions are now recorded for five reports on the default scale dataset. Three reporting indexes and a customer-history rewrite have now been tested in a controlled three-phase comparison. Result equivalence, plan changes, storage costs, and limitations are documented in the [optimisation findings](optimisation/README.md). Portfolio 2 is complete.
 
 ## Queries
 
@@ -64,7 +64,7 @@ Checks verify known totals, filters, failed-payment retries, empty results, zero
 
 [Baseline results and plan observations](evidence/baseline/README.md) retain five measured plans per selected query, environment/index metadata, buffer counts, and result fingerprints. [The collection protocol](benchmarks/README.md) explains reproduction and limitations. This is the scale dataset; it is separate from the unscaled sample correctness outputs above.
 
-Next: create and test justified optimisation indexes or query rewrites, verify unchanged results, and compare repeated measurements under the recorded conditions.
+The [optimisation experiment](optimisation/README.md) retains a fresh before/indexes-only/indexes-and-rewrite comparison and reproducible SQL. Thirty sample checks and seven history-equivalence cases passed. Next: Portfolio 3, define the checkout transaction boundary.
 
 ## References
 
