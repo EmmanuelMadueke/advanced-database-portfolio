@@ -71,31 +71,36 @@ def check(label, condition):
 def state(row):
     return [row[k] for k in ['orders','items','payments','paid_orders','successes','revenue','shirt','jacket']]
 
-sessions = []
-try:
-    a = Session('A'); sessions.append(a)
-    b = Session('B'); sessions.append(b)
-    a.run('SELECT version();')
-    b.script('07_isolation_observer.sql')
-    before = b.observe()
-    check('starting fixture has no purchases and stock 10/5', state(before)==[0,0,0,0,0,0,10,5])
-    a.script('06_isolation_writer.sql')
-    own = a.observe()
-    check('two distinct PostgreSQL sessions', own['pid'] != before['pid'])
-    check('both transactions use READ COMMITTED and controlled writer role',
-          all(x['isolation']=='read committed' and x['role']=='fashion_portfolio_writer' for x in [before,own]))
-    check('A sees its own uncommitted purchase and deductions', state(own)==[1,2,1,1,1,49000,8,4])
-    hidden = b.observe()
-    check('B sees only original committed state while A stays open', state(hidden)==state(before))
-    print('A: COMMIT (only after B completed the uncommitted-state observation)', flush=True)
-    a.run('COMMIT;')
-    visible = b.observe()
-    check('same observer connection remains read-only',
-          before['pid']==hidden['pid']==visible['pid'] and all(x['read_only']=='on' for x in [before,hidden,visible]))
-    check('B next statement sees complete purchase after A commit', state(visible)==state(own))
-    print('B: COMMIT (close the same observer transaction)', flush=True)
-    b.run('COMMIT;')
-    print(f'{checks} two-session isolation checks passed.', flush=True)
-finally:
-    for session in reversed(sessions):
-        session.close()
+def main():
+    sessions = []
+    try:
+        a = Session('A'); sessions.append(a)
+        b = Session('B'); sessions.append(b)
+        a.run('SELECT version();')
+        b.script('07_isolation_observer.sql')
+        before = b.observe()
+        check('starting fixture has no purchases and stock 10/5', state(before)==[0,0,0,0,0,0,10,5])
+        a.script('06_isolation_writer.sql')
+        own = a.observe()
+        check('two distinct PostgreSQL sessions', own['pid'] != before['pid'])
+        check('both transactions use READ COMMITTED and controlled writer role',
+              all(x['isolation']=='read committed' and x['role']=='fashion_portfolio_writer' for x in [before,own]))
+        check('A sees its own uncommitted purchase and deductions', state(own)==[1,2,1,1,1,49000,8,4])
+        hidden = b.observe()
+        check('B sees only original committed state while A stays open', state(hidden)==state(before))
+        print('A: COMMIT (only after B completed the uncommitted-state observation)', flush=True)
+        a.run('COMMIT;')
+        visible = b.observe()
+        check('same observer connection remains read-only',
+              before['pid']==hidden['pid']==visible['pid'] and all(x['read_only']=='on' for x in [before,hidden,visible]))
+        check('B next statement sees complete purchase after A commit', state(visible)==state(own))
+        print('B: COMMIT (close the same observer transaction)', flush=True)
+        b.run('COMMIT;')
+        print(f'{checks} two-session isolation checks passed.', flush=True)
+    finally:
+        for session in reversed(sessions):
+            session.close()
+
+
+if __name__ == "__main__":
+    main()

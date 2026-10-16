@@ -54,9 +54,13 @@ Codex reused the synthetic fixture in a separate database and injected a SQL exc
 
 Codex created a standard-library Python coordinator for two persistent psql connections and separate SQL for the writer, observer, and shared snapshot query. Seven tool-run checks passed at READ COMMITTED: the observer saw no uncommitted checkout changes and then saw the complete purchase after the writer committed, within the observer's same transaction. Completion markers controlled ordering without sleep-based timing. Actual session output and manual reproduction steps are retained. This verifies visibility, not competing-writer safety or independent student review.
 
+## Portfolio 3 controlled concurrency issue
+
+Codex created an isolated unsafe stock/allocation model and coordinated two READ COMMITTED buyers so both read the last unit before either wrote. Eight checks confirmed two committed purchases with final stock zero from an initial one, including verification in a fresh connection. It documented the stale-read lost deduction, why nonnegative stock alone misses overselling, and the distinction from the protected retail routines. The existing session coordinator was made importable without executing its isolation experiment. Actual SQL, session output, and manual reproduction steps are retained; the corrected concurrent comparison remains pending.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. Competing-writer concurrency evidence remains pending.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. An isolated unsafe two-buyer race has reproduced overselling. The protected concurrent comparison remains pending.
 
 ## Sources
 

@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Current stage
 
-The checkout transaction boundary is defined in [transaction-boundary.md](transaction-boundary.md), based on the implemented fashion-store routines and integrity rules. The COMMIT demonstration has now passed eight persistence checks through a fresh connection. The ROLLBACK demonstration has also passed six fresh-connection checks. A [two-session READ COMMITTED demonstration](isolation.md) has now passed seven checks. The competing-writer race and concurrency-control comparison remain pending.
+The checkout transaction boundary is defined in [transaction-boundary.md](transaction-boundary.md), based on the implemented fashion-store routines and integrity rules. The COMMIT demonstration has now passed eight persistence checks through a fresh connection. The ROLLBACK demonstration has also passed six fresh-connection checks. A [two-session READ COMMITTED demonstration](isolation.md) has now passed seven checks. An [isolated unsafe last-unit race](unsafe-concurrency.md) reproduced overselling with eight checks. The corrected concurrency-control comparison remains pending.
 
 ## Activity checklist
 
@@ -12,7 +12,7 @@ The checkout transaction boundary is defined in [transaction-boundary.md](transa
 - [x] Demonstrate COMMIT and verify persisted order, items, payment, and stock together.
 - [x] Demonstrate ROLLBACK after a checkout failure.
 - [x] Demonstrate isolation with two database sessions.
-- [ ] Demonstrate a controlled concurrency issue in an isolated unsafe example.
+- [x] Demonstrate a controlled concurrency issue in an isolated unsafe example.
 - [ ] Repeat with concurrency control and document retry handling.
 - [ ] Retain reproducible session scripts, outputs, and conclusions.
 
@@ -22,7 +22,7 @@ Use the existing [PostgreSQL setup](../docs/setup.md) and [sample data](../docs/
 
 The existing [operations](../portfolio-1-database-design/sql/03_operations.sql), [integrity triggers](../portfolio-1-database-design/sql/02_integrity.sql), and [controlled writer role](../portfolio-1-database-design/sql/04_permissions.sql) supply the implementation being examined. Portfolio 1's [integrity tests](../portfolio-1-database-design/tests/integrity.sql) provide earlier single-session checks; they do not replace this activity's planned persistence and concurrency evidence.
 
-Next: demonstrate a controlled concurrency issue using an isolated unsafe last-unit purchase example.
+Next: apply concurrency control and repeat the last-unit scenario, verifying that only one eligible purchase succeeds.
 
 ## COMMIT demonstration
 
