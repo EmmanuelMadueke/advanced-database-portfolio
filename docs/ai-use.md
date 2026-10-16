@@ -58,9 +58,13 @@ Codex created a standard-library Python coordinator for two persistent psql conn
 
 Codex created an isolated unsafe stock/allocation model and coordinated two READ COMMITTED buyers so both read the last unit before either wrote. Eight checks confirmed two committed purchases with final stock zero from an initial one, including verification in a fresh connection. It documented the stale-read lost deduction, why nonnegative stock alone misses overselling, and the distinction from the protected retail routines. The existing session coordinator was made importable without executing its isolation experiment. Actual SQL, session output, and manual reproduction steps are retained; the corrected concurrent comparison remains pending.
 
+## Portfolio 3 protected concurrency
+
+Codex exercised the existing inventory-locking checkout with two buyers in a fresh database. A monitoring connection confirmed that B waited on A before A committed. Eleven checks passed for stock-depletion rejection, full loser rollback, one successful purchase, stock conservation, and unchanged state when replaying the known paid order. It retained actual output and documented the comparison with the simplified unsafe model, the difference between business rejection and transient-error retries, and untested broader schedules. No new checkout implementation or independent student verification is claimed.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. An isolated unsafe two-buyer race has reproduced overselling. The protected concurrent comparison remains pending.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. An isolated unsafe two-buyer race has reproduced overselling. The protected concurrent comparison passed eleven checks, including confirmed blocking and a single successful buyer.
 
 ## Sources
 

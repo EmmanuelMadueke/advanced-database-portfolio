@@ -1,0 +1,33 @@
+A: PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit
+Monitor: execute 17_protected_result.sql
+Monitor: {"pid" : 80540, "stock" : 1, "jacket_stock" : 5, "orders" : 0, "paid_orders" : 0, "items" : 0, "units" : 0, "payments" : 0, "successes" : 0, "loser_orders" : 0, "reconciled" : null}
+PASS: fresh fixture: one shirt, no purchases
+A: execute 14_protected_prepare.sql
+A: {"pid" : 80536, "isolation" : "read committed", "role" : "fashion_portfolio_writer", "order_id" : 1, "stock" : 1}
+B: execute 14_protected_prepare.sql
+B: {"pid" : 80538, "isolation" : "read committed", "role" : "fashion_portfolio_writer", "order_id" : 2, "stock" : 1}
+PASS: distinct sessions and pending order identities
+PASS: both controlled READ COMMITTED buyers initially see one unit
+A: execute 15_protected_winner.sql
+A: 1|paid|12000.00
+B: execute 16_protected_loser.sql
+Monitor: {"blockers" : [80536], "wait_type" : "Lock", "wait_event" : "transactionid"}
+PASS: database confirms B blocked by A on a lock
+A: COMMIT after confirmed blocking
+B: ERROR:  insufficient stock or inactive variant 1
+B: CONTEXT:  PL/pgSQL function finalise_order(bigint,text,text) line 35 at RAISE
+B: PASS: depleted-stock rejection P0001; losing purchase rolled back.
+PASS: B rejected for stock depletion, then explicitly rolled back
+Verifier: execute 17_protected_result.sql
+Verifier: {"pid" : 80542, "stock" : 0, "jacket_stock" : 5, "orders" : 1, "paid_orders" : 1, "items" : 1, "units" : 1, "payments" : 1, "successes" : 1, "loser_orders" : 0, "reconciled" : true}
+PASS: fresh verifier connection
+PASS: only one paid order, line, unit, and successful payment persist
+PASS: loser has no retained order
+PASS: stock conserved and unrelated jacket unchanged
+A: retry finalisation of known committed order
+A: t
+PASS: known-order replay returns same payment
+Verifier: execute 17_protected_result.sql
+Verifier: {"pid" : 80542, "stock" : 0, "jacket_stock" : 5, "orders" : 1, "paid_orders" : 1, "items" : 1, "units" : 1, "payments" : 1, "successes" : 1, "loser_orders" : 0, "reconciled" : true}
+PASS: replay leaves all verified purchase and stock values unchanged
+11 protected-race checks passed.

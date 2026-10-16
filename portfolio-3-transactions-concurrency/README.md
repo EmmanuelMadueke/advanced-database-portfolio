@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Current stage
 
-The checkout transaction boundary is defined in [transaction-boundary.md](transaction-boundary.md), based on the implemented fashion-store routines and integrity rules. The COMMIT demonstration has now passed eight persistence checks through a fresh connection. The ROLLBACK demonstration has also passed six fresh-connection checks. A [two-session READ COMMITTED demonstration](isolation.md) has now passed seven checks. An [isolated unsafe last-unit race](unsafe-concurrency.md) reproduced overselling with eight checks. The corrected concurrency-control comparison remains pending.
+The checkout transaction boundary is defined in [transaction-boundary.md](transaction-boundary.md), based on the implemented fashion-store routines and integrity rules. The COMMIT demonstration has now passed eight persistence checks through a fresh connection. The ROLLBACK demonstration has also passed six fresh-connection checks. A [two-session READ COMMITTED demonstration](isolation.md) has now passed seven checks. An [isolated unsafe last-unit race](unsafe-concurrency.md) reproduced overselling with eight checks. The [protected concurrency comparison](protected-concurrency.md) passed eleven checks, including observed lock waiting, loser rollback, stock conservation, and idempotent finalisation replay. Portfolio 3 implementation and evidence are complete.
 
 ## Activity checklist
 
@@ -13,8 +13,8 @@ The checkout transaction boundary is defined in [transaction-boundary.md](transa
 - [x] Demonstrate ROLLBACK after a checkout failure.
 - [x] Demonstrate isolation with two database sessions.
 - [x] Demonstrate a controlled concurrency issue in an isolated unsafe example.
-- [ ] Repeat with concurrency control and document retry handling.
-- [ ] Retain reproducible session scripts, outputs, and conclusions.
+- [x] Repeat with concurrency control and document retry handling.
+- [x] Retain reproducible session scripts, outputs, and conclusions.
 
 ## Starting point
 
@@ -22,7 +22,7 @@ Use the existing [PostgreSQL setup](../docs/setup.md) and [sample data](../docs/
 
 The existing [operations](../portfolio-1-database-design/sql/03_operations.sql), [integrity triggers](../portfolio-1-database-design/sql/02_integrity.sql), and [controlled writer role](../portfolio-1-database-design/sql/04_permissions.sql) supply the implementation being examined. Portfolio 1's [integrity tests](../portfolio-1-database-design/tests/integrity.sql) provide earlier single-session checks; they do not replace this activity's planned persistence and concurrency evidence.
 
-Next: apply concurrency control and repeat the last-unit scenario, verifying that only one eligible purchase succeeds.
+Next: Portfolio 4 — choose and justify a NoSQL use case from the same fashion store.
 
 ## COMMIT demonstration
 
@@ -62,3 +62,16 @@ psql -X -f portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql
 ```
 
 Do not run 02_commit_purchase.sql in this database. The shared fixture retains its COMMIT-prefixed synthetic names; these are catalogue identifiers, not evidence of a committed purchase. The expected error is generated deliberately after finalisation to exercise full-transaction rollback. No real provider is called and no charge is reversed. The script checks the expected SQLSTATE, while the verifier independently checks persisted data. The failure scenario and verifier can be repeated on the unchanged fixture; generated IDs may differ.
+
+## Evidence coverage
+
+| Requirement | Retained work |
+| --- | --- |
+| Transaction boundary | [Scope and consistency contract](transaction-boundary.md) |
+| COMMIT | [Eight fresh-connection checks](evidence/commit-verification.txt) |
+| ROLLBACK | [Six fresh-connection checks](evidence/rollback-verification.txt) |
+| Isolation | [Two-session schedule and seven checks](isolation.md) |
+| Concurrency issue | [Unsafe race and eight checks](unsafe-concurrency.md) |
+| Concurrency control | [Protected race and eleven checks](protected-concurrency.md) |
+
+These are distinct demonstrations, not a claim that every possible transaction schedule has been verified. Raw outputs, reproducible SQL, and limitations are retained for each stage. Emmanuel's personal review/reflection remains separate from tool-run checks.

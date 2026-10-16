@@ -42,3 +42,7 @@ The deliberate ERROR line is expected evidence, not a failed test run. Identity 
 ## Unsafe last-unit race — 16 October 2026
 
 [Fixture output](unsafe-fixture.txt) and [session output](unsafe-sessions.txt) record the separate fashion_unsafe_demo database. Two READ COMMITTED buyers read the same last unit before either wrote, then both committed accepted purchases using stale stock values. A fresh connection found stock zero and two units sold from an initial one. Eight assertions passed by confirming the intended defect. The existing retail implementation was not modified. See [analysis, scope, and reproduction](../unsafe-concurrency.md). Corrected concurrent behaviour remains pending.
+
+## Protected last-unit race — 16 October 2026
+
+[Installation](protected-install.txt), [fixture](protected-fixture.txt), and [session evidence](protected-sessions.txt) record the separate fashion_protected_demo database. Eleven checks passed using the existing retail checkout routines. The monitor confirmed B waited on A; after A committed, B rejected depleted stock and rolled back. A fresh verifier found one paid order/payment, no loser order, stock zero, and conserved units. Replaying A's finalisation returned the same payment without changing state. [Analysis and reproduction](../protected-concurrency.md) distinguish measured outcomes from planned retry policy and broader concurrency limits.
