@@ -11,12 +11,14 @@ This activity will build on the implemented PostgreSQL checkout and MongoDB cata
 ## Activity checklist
 
 - [x] Choose a discussion or practical setup path.
-- [ ] Explain replication and availability, including outage/failover behaviour.
+- [x] Explain replication and availability, including outage/failover behaviour.
 - [ ] Explain consistency and sharding, including stock and customer-order visibility.
 - [ ] Produce a sourced architecture diagram and concrete failure scenarios.
 - [ ] Consolidate design assumptions, operational trade-offs, references, and conclusions.
 
-Next: explain replication and availability for the proposed fashion-store architecture.
+The [replication and availability analysis](replication-availability.md) now defines proposed node roles, acknowledgement choices, failover safeguards, and outage responses using official sources.
+
+Next: explain consistency and sharding, including replica lag, customer order visibility, and cross-partition checkout.
 
 ## Existing evidence used as the starting point
 
