@@ -34,3 +34,7 @@ The purchase connection was backend 84227; the subsequent verifier was backend 8
 The failure script disables ON_ERROR_STOP for exactly the intentionally failing statement, records its SQLSTATE, re-enables stop-on-error, explicitly rolls back, and rejects an unexpected SQLSTATE. There is no savepoint or exception handler preserving part of the purchase. The earlier create_order and finalise_order calls returned successfully; the full outer rollback removes their changes. The simulation demonstrates why successful function return is not equivalent to successful COMMIT.
 
 The deliberate ERROR line is expected evidence, not a failed test run. Identity sequence values may advance despite rollback. No concurrency, deadlock, crash recovery, or external-charge reversal is demonstrated. Previously committed pending-order failure and insufficient-stock cases are separate scenarios; this evidence covers a newly created purchase rolled back in full.
+
+## Two-session isolation — 16 October 2026
+
+[Installation](isolation-install.txt), [fixture](isolation-fixture.txt), and [session-by-session observations](isolation-sessions.txt) record the separate fashion_isolation_demo database. Seven checks passed: B could not see A's uncommitted purchase but saw it in the next statement after A committed, without restarting B's READ COMMITTED transaction. See [interpretation, SQL, and reproduction](../isolation.md). Competing-writer behaviour remains to be demonstrated.

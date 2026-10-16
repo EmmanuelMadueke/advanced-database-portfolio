@@ -50,9 +50,13 @@ Codex created isolated synthetic fixtures, an explicit checkout transaction usin
 
 Codex reused the synthetic fixture in a separate database and injected a SQL exception after simulated checkout finalisation, before COMMIT. It recorded the uncommitted order/payment and stock deductions, checked the expected SQLSTATE, issued explicit ROLLBACK, and verified persisted state through a fresh connection. Six assertions passed: no purchase rows remained, both stock balances were restored, and committed fixtures remained. Documentation distinguishes this injected failure from insufficient stock, external payment reversal, and concurrent-session evidence. No independent student verification is claimed.
 
+## Portfolio 3 two-session isolation
+
+Codex created a standard-library Python coordinator for two persistent psql connections and separate SQL for the writer, observer, and shared snapshot query. Seven tool-run checks passed at READ COMMITTED: the observer saw no uncommitted checkout changes and then saw the complete purchase after the writer committed, within the observer's same transaction. Completion markers controlled ordering without sleep-based timing. Actual session output and manual reproduction steps are retained. This verifies visibility, not competing-writer safety or independent student review.
+
 ## Verification status
 
-Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session concurrency evidence remains pending.
+Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. Competing-writer concurrency evidence remains pending.
 
 ## Sources
 
