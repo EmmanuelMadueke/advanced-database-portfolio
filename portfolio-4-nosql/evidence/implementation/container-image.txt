@@ -1,0 +1,1 @@
+["mongodb/mongodb-community-server@sha256:8e60bd7f7f5d54e31657a3ee08385dcad3a93ff8f1d1fb1ea6dd216c8454d33f"] linux/arm64

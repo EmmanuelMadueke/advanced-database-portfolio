@@ -1,0 +1,21 @@
+PASS importer: composition total
+PASS importer: duplicate material
+PASS importer: noncanonical tag
+PASS importer: nonfinite dimensions
+PASS importer: bigint overflow
+PASS importer: leading-zero ID
+PASS importer: missing SQL product
+PASS importer: ambiguous source lookup
+PASS importer: duplicate selected product
+PASS importer: remapped source IDs preserved
+Loaded 3 profiles into fashion_profiles
+PASS MongoDB: missing name (code 121)
+PASS MongoDB: category/type mismatch (code 121)
+PASS MongoDB: forbidden stock field (code 121)
+PASS MongoDB: negative dimensions (code 121)
+PASS MongoDB: unknown attribute (code 121)
+PASS MongoDB: blank label (code 121)
+PASS MongoDB: duplicate tag (code 121)
+PASS MongoDB: composition percent out of range (code 121)
+PASS MongoDB: duplicate product identity (code 11000)
+AssertionError: Missing expected exception.

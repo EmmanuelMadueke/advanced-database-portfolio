@@ -1,0 +1,414 @@
+{
+  "validator": {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": [
+        "_id",
+        "schema_version",
+        "profile_type",
+        "sql_context",
+        "tags",
+        "attributes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "_id": {
+          "bsonType": "string",
+          "pattern": "^[1-9][0-9]{0,18}$"
+        },
+        "schema_version": {
+          "bsonType": "int",
+          "enum": [
+            {
+              "$numberInt": "1"
+            }
+          ]
+        },
+        "profile_type": {
+          "enum": [
+            "clothing",
+            "footwear",
+            "accessory"
+          ]
+        },
+        "sql_context": {
+          "bsonType": "object",
+          "required": [
+            "name",
+            "category",
+            "brand",
+            "audience",
+            "is_active"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "bsonType": "string",
+              "minLength": {
+                "$numberInt": "1"
+              },
+              "maxLength": {
+                "$numberInt": "160"
+              },
+              "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+            },
+            "category": {
+              "enum": [
+                "Clothing",
+                "Footwear",
+                "Accessories"
+              ]
+            },
+            "brand": {
+              "bsonType": "string",
+              "minLength": {
+                "$numberInt": "1"
+              },
+              "maxLength": {
+                "$numberInt": "160"
+              },
+              "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+            },
+            "audience": {
+              "enum": [
+                "women",
+                "men",
+                "unisex",
+                "kids"
+              ]
+            },
+            "is_active": {
+              "bsonType": "bool"
+            }
+          }
+        },
+        "tags": {
+          "bsonType": "array",
+          "minItems": {
+            "$numberInt": "0"
+          },
+          "maxItems": {
+            "$numberInt": "12"
+          },
+          "uniqueItems": true,
+          "items": {
+            "bsonType": "string",
+            "minLength": {
+              "$numberInt": "1"
+            },
+            "maxLength": {
+              "$numberInt": "60"
+            },
+            "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+          }
+        },
+        "attributes": {
+          "bsonType": "object"
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "profile_type": {
+              "enum": [
+                "clothing"
+              ]
+            },
+            "sql_context": {
+              "properties": {
+                "category": {
+                  "enum": [
+                    "Clothing"
+                  ]
+                }
+              }
+            },
+            "attributes": {
+              "bsonType": "object",
+              "required": [
+                "composition",
+                "fit",
+                "care"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "composition": {
+                  "bsonType": "array",
+                  "minItems": {
+                    "$numberInt": "1"
+                  },
+                  "maxItems": {
+                    "$numberInt": "8"
+                  },
+                  "uniqueItems": true,
+                  "items": {
+                    "bsonType": "object",
+                    "required": [
+                      "material",
+                      "percent"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "material": {
+                        "bsonType": "string",
+                        "minLength": {
+                          "$numberInt": "1"
+                        },
+                        "maxLength": {
+                          "$numberInt": "60"
+                        },
+                        "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+                      },
+                      "percent": {
+                        "bsonType": [
+                          "int",
+                          "long"
+                        ],
+                        "minimum": {
+                          "$numberInt": "1"
+                        },
+                        "maximum": {
+                          "$numberInt": "100"
+                        }
+                      }
+                    }
+                  }
+                },
+                "fit": {
+                  "enum": [
+                    "regular",
+                    "slim",
+                    "relaxed"
+                  ]
+                },
+                "care": {
+                  "bsonType": "array",
+                  "minItems": {
+                    "$numberInt": "1"
+                  },
+                  "maxItems": {
+                    "$numberInt": "10"
+                  },
+                  "uniqueItems": true,
+                  "items": {
+                    "bsonType": "string",
+                    "minLength": {
+                      "$numberInt": "1"
+                    },
+                    "maxLength": {
+                      "$numberInt": "200"
+                    },
+                    "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "profile_type": {
+              "enum": [
+                "footwear"
+              ]
+            },
+            "sql_context": {
+              "properties": {
+                "category": {
+                  "enum": [
+                    "Footwear"
+                  ]
+                }
+              }
+            },
+            "attributes": {
+              "bsonType": "object",
+              "required": [
+                "upper_materials",
+                "sole_materials",
+                "fastening"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "upper_materials": {
+                  "bsonType": "array",
+                  "minItems": {
+                    "$numberInt": "1"
+                  },
+                  "maxItems": {
+                    "$numberInt": "8"
+                  },
+                  "uniqueItems": true,
+                  "items": {
+                    "bsonType": "string",
+                    "minLength": {
+                      "$numberInt": "1"
+                    },
+                    "maxLength": {
+                      "$numberInt": "60"
+                    },
+                    "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+                  }
+                },
+                "sole_materials": {
+                  "bsonType": "array",
+                  "minItems": {
+                    "$numberInt": "1"
+                  },
+                  "maxItems": {
+                    "$numberInt": "8"
+                  },
+                  "uniqueItems": true,
+                  "items": {
+                    "bsonType": "string",
+                    "minLength": {
+                      "$numberInt": "1"
+                    },
+                    "maxLength": {
+                      "$numberInt": "60"
+                    },
+                    "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+                  }
+                },
+                "fastening": {
+                  "enum": [
+                    "lace-up",
+                    "slip-on",
+                    "buckle",
+                    "hook-and-loop"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "profile_type": {
+              "enum": [
+                "accessory"
+              ]
+            },
+            "sql_context": {
+              "properties": {
+                "category": {
+                  "enum": [
+                    "Accessories"
+                  ]
+                }
+              }
+            },
+            "attributes": {
+              "bsonType": "object",
+              "required": [
+                "materials",
+                "features"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "materials": {
+                  "bsonType": "array",
+                  "minItems": {
+                    "$numberInt": "1"
+                  },
+                  "maxItems": {
+                    "$numberInt": "8"
+                  },
+                  "uniqueItems": true,
+                  "items": {
+                    "bsonType": "string",
+                    "minLength": {
+                      "$numberInt": "1"
+                    },
+                    "maxLength": {
+                      "$numberInt": "60"
+                    },
+                    "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+                  }
+                },
+                "features": {
+                  "bsonType": "array",
+                  "minItems": {
+                    "$numberInt": "0"
+                  },
+                  "maxItems": {
+                    "$numberInt": "12"
+                  },
+                  "uniqueItems": true,
+                  "items": {
+                    "bsonType": "string",
+                    "minLength": {
+                      "$numberInt": "1"
+                    },
+                    "maxLength": {
+                      "$numberInt": "80"
+                    },
+                    "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+                  }
+                },
+                "dimensions_cm": {
+                  "bsonType": "object",
+                  "required": [
+                    "height",
+                    "width",
+                    "depth"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "height": {
+                      "bsonType": [
+                        "int",
+                        "long",
+                        "double",
+                        "decimal"
+                      ],
+                      "minimum": {
+                        "$numberInt": "0"
+                      },
+                      "exclusiveMinimum": true,
+                      "maximum": {
+                        "$numberInt": "500"
+                      }
+                    },
+                    "width": {
+                      "bsonType": [
+                        "int",
+                        "long",
+                        "double",
+                        "decimal"
+                      ],
+                      "minimum": {
+                        "$numberInt": "0"
+                      },
+                      "exclusiveMinimum": true,
+                      "maximum": {
+                        "$numberInt": "500"
+                      }
+                    },
+                    "depth": {
+                      "bsonType": [
+                        "int",
+                        "long",
+                        "double",
+                        "decimal"
+                      ],
+                      "minimum": {
+                        "$numberInt": "0"
+                      },
+                      "exclusiveMinimum": true,
+                      "maximum": {
+                        "$numberInt": "500"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "validationLevel": "strict",
+  "validationAction": "error"
+}

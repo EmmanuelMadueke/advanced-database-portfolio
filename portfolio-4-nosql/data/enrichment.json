@@ -1,0 +1,75 @@
+[
+  {
+    "selector": {
+      "name": "Classic T-Shirt",
+      "category": "Clothing",
+      "brand": "Lagos Threads"
+    },
+    "profile_type": "clothing",
+    "tags": [
+      "everyday"
+    ],
+    "attributes": {
+      "composition": [
+        {
+          "material": "cotton",
+          "percent": 95
+        },
+        {
+          "material": "elastane",
+          "percent": 5
+        }
+      ],
+      "fit": "regular",
+      "care": [
+        "Wash at 30 C",
+        "Do not bleach"
+      ]
+    }
+  },
+  {
+    "selector": {
+      "name": "Canvas Sneakers",
+      "category": "Footwear",
+      "brand": "Urban Steps"
+    },
+    "profile_type": "footwear",
+    "tags": [
+      "casual"
+    ],
+    "attributes": {
+      "upper_materials": [
+        "cotton canvas"
+      ],
+      "sole_materials": [
+        "rubber"
+      ],
+      "fastening": "lace-up"
+    }
+  },
+  {
+    "selector": {
+      "name": "Tote Bag",
+      "category": "Accessories",
+      "brand": "Lagos Threads"
+    },
+    "profile_type": "accessory",
+    "tags": [
+      "everyday",
+      "reusable"
+    ],
+    "attributes": {
+      "materials": [
+        "cotton canvas"
+      ],
+      "features": [
+        "inner pocket"
+      ],
+      "dimensions_cm": {
+        "height": 38,
+        "width": 34,
+        "depth": 10
+      }
+    }
+  }
+]

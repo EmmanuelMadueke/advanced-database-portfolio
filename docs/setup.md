@@ -76,3 +76,7 @@ Country-code constraints validate two uppercase letters only. Semantic country-l
 Schema creation and 35 integrity/workflow assertions passed on PostgreSQL 18.1. The tests force deferred validators at checkpoints and roll back fixture rows. Identity sequences can still advance after rolled-back inserts; generated order/payment IDs are captured dynamically. This is not yet a Portfolio 3 COMMIT/isolation/concurrency demonstration.
 
 Reproducible sample data and optional scale data are supplied in [sample-data documentation](sample-data.md). Broad management queries, two-session races, retry/deadlock behaviour, measured plans, NoSQL setup, and distributed/cloud evidence remain pending. Next: Portfolio 2 query development.
+
+## Subsequent NoSQL runtime verification
+
+Docker Engine 29.1.3 and MongoDB Community 8.0.34 have now been verified for Portfolio 4. See [MongoDB implementation and reproduction](../portfolio-4-nosql/implementation.md) for the pinned image, actual source export, validation evidence, and shell-version observations. Earlier setup tables describe the environment as observed on their stated date.

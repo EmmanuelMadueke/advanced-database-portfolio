@@ -1,0 +1,47 @@
+PASS importer: composition total
+PASS importer: duplicate material
+PASS importer: noncanonical tag
+PASS importer: nonfinite dimensions
+PASS importer: bigint overflow
+PASS importer: leading-zero ID
+PASS importer: missing SQL product
+PASS importer: ambiguous source lookup
+PASS importer: duplicate selected product
+PASS importer: remapped source IDs preserved
+Loaded 3 profiles into fashion_profiles_complete
+PASS MongoDB: missing name (code 121)
+PASS MongoDB: category/type mismatch (code 121)
+PASS MongoDB: forbidden stock field (code 121)
+PASS MongoDB: negative dimensions (code 121)
+PASS MongoDB: unknown attribute (code 121)
+PASS MongoDB: blank label (code 121)
+PASS MongoDB: duplicate tag (code 121)
+PASS MongoDB: composition percent out of range (code 121)
+PASS MongoDB: duplicate product identity (code 11000)
+PASS MongoDB: invalid update rejected (code 121)
+PASS reconciliation: exact selected IDs, copied SQL context, and enrichment match; no missing/orphan/extra profiles
+PASS reconciliation: zero documents fail the installed validator
+{
+  "source_database": "fashion_nosql_source",
+  "source_server": "PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit",
+  "exported_at": "2026-10-16T22:03:52.390367+00:00",
+  "imported_at": "2026-10-16T22:05:52.164Z",
+  "source_sha256": "b6a664152b533720d31fb9b92df06e6b8f72e06e0288ef946f9ba1211f29b7b4",
+  "enrichment_sha256": "f6da1d45152cbc0aae8d355109170e07c6a771dab05dd71d0aaa32267688a8c6",
+  "validator_sha256": "ddfb5df690ba2758252424d5e1d99594bba7132015d75f10bd2023d06f43947b",
+  "target_database": "fashion_profiles_complete",
+  "mongodb_version": "8.0.34",
+  "mongosh_version": "2.5.10",
+  "schema_version": 1,
+  "source_product_count": 8,
+  "selected_product_ids": [
+    "2",
+    "7",
+    "1"
+  ],
+  "document_count": 3,
+  "importer_checks": 10,
+  "mongodb_rejection_checks": 10,
+  "reconciliation_checks": 2
+}
+PASS: 10 importer checks, 10 MongoDB rejection checks, 2 reconciliation checks.
