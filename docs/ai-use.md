@@ -42,6 +42,10 @@ Emmanuel directed progression through the checklist and required README/checklis
 
 Codex reviewed the existing checkout functions, integrity triggers, writer permissions, and integrity test source, then documented a single transaction around order creation, simulated successful payment, and inventory deductions. It distinguished rollback of a new purchase from failure to finalise a previously committed pending order, and recorded deferred validation, lock ordering, replay limits, cart exclusions, and the external-payment boundary. PostgreSQL documentation was used to check transaction, constraint, and locking semantics. This stage supplies expected outcomes for subsequent demonstrations; no new runtime or student verification is claimed.
 
+## Portfolio 3 COMMIT demonstration
+
+Codex created isolated synthetic fixtures, an explicit checkout transaction using the controlled writer role, and a separate-connection verifier. It ran them on PostgreSQL 18.1: eight assertions passed for the NGN 49,000 order, two lines and snapshots, matching successful payment, and exact stock deductions. An initial missing required fixture description was corrected; both the failed setup output and successful outputs are retained. The demonstration verifies committed state through a fresh connection, not crash recovery or concurrency. No independent student verification is claimed.
+
 ## Verification status
 
 Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session concurrency evidence remains pending.

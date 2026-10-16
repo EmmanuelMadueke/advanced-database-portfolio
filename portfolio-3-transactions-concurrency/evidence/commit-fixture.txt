@@ -1,0 +1,29 @@
+Pager usage is off.
+BEGIN
+SET
+DO
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+COMMIT
+Fixture committed; no purchase yet.
+      sku      | unit_price | available_quantity 
+---------------+------------+--------------------
+ COMMIT-JACKET |   25000.00 |                  5
+ COMMIT-SHIRT  |   12000.00 |                 10
+(2 rows)
+
+ orders | items | payments 
+--------+-------+----------
+      0 |     0 |        0
+(1 row)
+

@@ -1,0 +1,70 @@
+Pager usage is off.
+CREATE FUNCTION
+BEGIN
+SET
+    verification_role     | verification_session 
+--------------------------+----------------------
+ fashion_portfolio_writer |                91603
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:14: NOTICE:  PASS: one paid order persisted with NGN 49000 total
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:19: NOTICE:  PASS: two correct purchase lines persisted
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:21: NOTICE:  PASS: order total reconciles to lines
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:25: NOTICE:  PASS: one matching successful payment persisted
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:27: NOTICE:  PASS: shirt stock decreased from 10 to 8
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:29: NOTICE:  PASS: jacket stock decreased from 5 to 4
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:32: NOTICE:  PASS: delivery address snapshot persisted
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/03_verify_commit.sql:34: NOTICE:  PASS: size and colour snapshots persisted
+ assert_true 
+-------------
+ 
+(1 row)
+
+ order_id | status | total_amount | payment_id | payment_status |  amount  
+----------+--------+--------------+------------+----------------+----------
+        1 | paid   |     49000.00 |          1 | succeeded      | 49000.00
+(1 row)
+
+      sku      | available_quantity 
+---------------+--------------------
+ COMMIT-JACKET |                  4
+ COMMIT-SHIRT  |                  8
+(2 rows)
+
+COMMIT
+8 COMMIT persistence checks passed in a fresh connection.

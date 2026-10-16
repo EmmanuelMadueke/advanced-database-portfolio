@@ -1,0 +1,12 @@
+Pager usage is off.
+BEGIN
+SET
+DO
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+psql:portfolio-3-transactions-concurrency/sql/01_commit_fixture.sql:20: ERROR:  null value in column "description" of relation "products" violates not-null constraint
+DETAIL:  Failing row contains (1, 1, 1, Commit Shirt, null, unisex, t, 2026-10-14 07:03:43.907614+01).
