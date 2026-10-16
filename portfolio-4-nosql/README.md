@@ -11,13 +11,15 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 ## Activity checklist
 
 - [x] Choose and justify a NoSQL use case from the same fashion store.
-- [ ] Design the document model and validation rules.
+- [x] Design the document model and validation rules.
 - [ ] Implement and populate the NoSQL database.
 - [ ] Demonstrate queries, aggregation, and a justified index.
 - [ ] Complete the SQL/NoSQL comparison using actual implementation findings.
 - [ ] Save implementation evidence and reproduction instructions.
 
-Next: define identifiers, fields, embedded structures, validation, reference handling, and representative documents.
+The [document model](document-model.md), [candidate validator](model/profile-validator.json), and [three illustrative profiles](model/example-profiles.json) now define the next implementation. Their JSON structure has been checked locally; MongoDB validation has not been run.
+
+Next: verify the MongoDB runtime, implement collection setup/import, and populate profiles using actual SQL IDs and reconciliation.
 
 ## Existing foundations
 

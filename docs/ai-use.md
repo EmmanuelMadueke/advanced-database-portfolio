@@ -66,6 +66,10 @@ Codex exercised the existing inventory-locking checkout with two buyers in a fre
 
 Codex reviewed the fashion-store case study and existing relational catalogue, then selected MongoDB product enrichment for category-specific materials, care, and descriptive features. It documented the proposed boundary with PostgreSQL, synthetic-data assumptions, planned export/load reconciliation, and the PostgreSQL JSONB alternative using official documentation. This is a sourced design decision; MongoDB runtime setup and implementation remain unverified.
 
+## Portfolio 4 document model
+
+Codex designed one enrichment profile per SQL product, string-preserved bigint identifiers, embedded category-specific attributes, and a candidate MongoDB JSON Schema validator. Three synthetic examples cover clothing, footwear, and accessories. It separated database validation from importer-only business checks and SQL-reference reconciliation, documented units and refresh rules, and consulted MongoDB's supported validation keywords. Local JSON/document checks do not establish MongoDB runtime validation; no server insertion or student verification is claimed.
+
 ## Verification status
 
 Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. An isolated unsafe two-buyer race has reproduced overselling. The protected concurrent comparison passed eleven checks, including confirmed blocking and a single successful buyer.
