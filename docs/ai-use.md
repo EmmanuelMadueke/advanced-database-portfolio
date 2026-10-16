@@ -78,6 +78,10 @@ Codex verified Docker/MongoDB, installed the strict validator, exported actual S
 
 Codex implemented five catalogue predicates and a tag-coverage aggregation, executing the shared definitions in 16 checks. Tests covered same-element material/percentage semantics, boundaries, empty results, and unchanged documents/results after adding a compound multikey index. The automatic planner retained the identity-index scan on three profiles; a separately labelled hinted diagnostic scanned one document and passed result equivalence. Actual plans, index sizes, outputs, and limitations are retained. No production speedup or student verification is claimed.
 
+## Portfolio 4 SQL/NoSQL comparison
+
+Codex compared the implemented relational checkout/reporting with MongoDB profile validation, import reconciliation, queries, and index evidence. It distinguished fixed-snapshot consistency from automatic convergence, retained MongoDB transaction capability and PostgreSQL JSONB as documented alternatives, and avoided comparing timings from incompatible datasets. The activity evidence map was completed using existing results; this stage involved documentation checks rather than new database execution. No student reflection or independent verification was invented.
+
 ## Verification status
 
 Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. An isolated unsafe two-buyer race has reproduced overselling. The protected concurrent comparison passed eleven checks, including confirmed blocking and a single successful buyer.
