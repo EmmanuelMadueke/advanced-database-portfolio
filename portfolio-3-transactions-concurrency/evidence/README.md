@@ -17,3 +17,20 @@ The initial fixture was corrected by supplying product descriptions and rerun af
 The purchase used backend 91602 and verification used backend 91603. The verifier ran a REPEATABLE READ, READ ONLY transaction under fashion_portfolio_writer; its temporary assertion helper was created beforehand and did not change retail data. It checked paid order count/total, line quantities/prices/product names, line-total reconciliation, successful payment reference/method/amount/currency/time, both stock balances, delivery address, and size/colour snapshots.
 
 The logs contain actual psql output, including formatting whitespace. The eight checks are tool-run evidence of committed state visible through a new connection. They do not establish crash recovery, independent student verification, rollback behaviour, or concurrent last-unit safety. No external payment was processed.
+
+## ROLLBACK demonstration — 16 October 2026
+
+The dedicated fashion_rollback_demo database was installed separately from the COMMIT demonstration and loaded with the same starting fixture. The purchase used the restricted writer role at READ COMMITTED, then deliberately raised SQLSTATE P0001 after successful simulated finalisation and deferred validation, before COMMIT. This is an injected caller-side checkout failure, not an insufficient-stock failure or a real payment-provider failure.
+
+| Evidence | Observed result |
+| --- | --- |
+| [Installation](rollback-install.txt) | Portfolio 1 scripts 01–04 installed in the new database |
+| [Starting fixture](rollback-fixture.txt) | Zero purchase rows, shirts 10, jackets 5 |
+| [Failure and rollback](rollback-purchase.txt) | Uncommitted paid order NGN 49,000, succeeded payment, stock 8/4; expected exception followed by explicit ROLLBACK |
+| [Fresh verification](rollback-verification.txt) | Six assertions passed: no orders/items/payments, stock restored to 10/5, committed fixtures preserved |
+
+The purchase connection was backend 84227; the subsequent verifier was backend 84228. The verifier used a REPEATABLE READ, READ ONLY transaction under the writer role. Its final COMMIT closes that read-only verification transaction; it does not commit the failed purchase.
+
+The failure script disables ON_ERROR_STOP for exactly the intentionally failing statement, records its SQLSTATE, re-enables stop-on-error, explicitly rolls back, and rejects an unexpected SQLSTATE. There is no savepoint or exception handler preserving part of the purchase. The earlier create_order and finalise_order calls returned successfully; the full outer rollback removes their changes. The simulation demonstrates why successful function return is not equivalent to successful COMMIT.
+
+The deliberate ERROR line is expected evidence, not a failed test run. Identity sequence values may advance despite rollback. No concurrency, deadlock, crash recovery, or external-charge reversal is demonstrated. Previously committed pending-order failure and insufficient-stock cases are separate scenarios; this evidence covers a newly created purchase rolled back in full.

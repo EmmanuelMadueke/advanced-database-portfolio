@@ -1,0 +1,58 @@
+Pager usage is off.
+CREATE FUNCTION
+BEGIN
+SET
+    verification_role     | verification_session 
+--------------------------+----------------------
+ fashion_portfolio_writer |                84228
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql:13: NOTICE:  PASS: new order rolled back
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql:14: NOTICE:  PASS: both purchase lines rolled back
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql:15: NOTICE:  PASS: simulated successful payment rolled back
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql:17: NOTICE:  PASS: shirt stock restored to 10
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql:19: NOTICE:  PASS: jacket stock restored to 5
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql:22: NOTICE:  PASS: committed fixture customer and catalogue preserved
+ assert_true 
+-------------
+ 
+(1 row)
+
+ orders | items | payments 
+--------+-------+----------
+      0 |     0 |        0
+(1 row)
+
+      sku      | available_quantity 
+---------------+--------------------
+ COMMIT-JACKET |                  5
+ COMMIT-SHIRT  |                 10
+(2 rows)
+
+COMMIT
+6 ROLLBACK persistence checks passed in a fresh connection.

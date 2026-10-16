@@ -46,6 +46,10 @@ Codex reviewed the existing checkout functions, integrity triggers, writer permi
 
 Codex created isolated synthetic fixtures, an explicit checkout transaction using the controlled writer role, and a separate-connection verifier. It ran them on PostgreSQL 18.1: eight assertions passed for the NGN 49,000 order, two lines and snapshots, matching successful payment, and exact stock deductions. An initial missing required fixture description was corrected; both the failed setup output and successful outputs are retained. The demonstration verifies committed state through a fresh connection, not crash recovery or concurrency. No independent student verification is claimed.
 
+## Portfolio 3 ROLLBACK demonstration
+
+Codex reused the synthetic fixture in a separate database and injected a SQL exception after simulated checkout finalisation, before COMMIT. It recorded the uncommitted order/payment and stock deductions, checked the expected SQLSTATE, issued explicit ROLLBACK, and verified persisted state through a fresh connection. Six assertions passed: no purchase rows remained, both stock balances were restored, and committed fixtures remained. Documentation distinguishes this injected failure from insufficient stock, external payment reversal, and concurrent-session evidence. No independent student verification is claimed.
+
 ## Verification status
 
 Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session concurrency evidence remains pending.
