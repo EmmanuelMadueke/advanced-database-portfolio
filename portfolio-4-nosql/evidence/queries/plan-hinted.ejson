@@ -1,0 +1,502 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "fashion_profiles_complete.product_profiles",
+    "parsedQuery": {
+      "$and": [
+        {
+          "attributes.composition": {
+            "$elemMatch": {
+              "$and": [
+                {
+                  "material": {
+                    "$eq": "cotton"
+                  }
+                },
+                {
+                  "percent": {
+                    "$gte": {
+                      "$numberInt": "90"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "profile_type": {
+            "$eq": "clothing"
+          }
+        },
+        {
+          "sql_context.is_active": {
+            "$eq": true
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "queryHash": "F57134A9",
+    "planCacheShapeHash": "F57134A9",
+    "planCacheKey": "7588030F",
+    "optimizationTimeMillis": {
+      "$numberInt": "0"
+    },
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "SORT",
+      "sortPattern": {
+        "_id": {
+          "$numberInt": "1"
+        }
+      },
+      "memLimit": {
+        "$numberInt": "104857600"
+      },
+      "type": "simple",
+      "inputStage": {
+        "stage": "PROJECTION_DEFAULT",
+        "transformBy": {
+          "_id": {
+            "$numberInt": "1"
+          },
+          "sql_context.name": {
+            "$numberInt": "1"
+          },
+          "profile_type": {
+            "$numberInt": "1"
+          },
+          "attributes": {
+            "$numberInt": "1"
+          },
+          "tags": {
+            "$numberInt": "1"
+          }
+        },
+        "inputStage": {
+          "stage": "FETCH",
+          "filter": {
+            "$and": [
+              {
+                "attributes.composition": {
+                  "$elemMatch": {
+                    "$and": [
+                      {
+                        "material": {
+                          "$eq": "cotton"
+                        }
+                      },
+                      {
+                        "percent": {
+                          "$gte": {
+                            "$numberInt": "90"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "sql_context.is_active": {
+                  "$eq": true
+                }
+              }
+            ]
+          },
+          "inputStage": {
+            "stage": "IXSCAN",
+            "keyPattern": {
+              "profile_type": {
+                "$numberInt": "1"
+              },
+              "attributes.composition.material": {
+                "$numberInt": "1"
+              },
+              "attributes.composition.percent": {
+                "$numberInt": "1"
+              }
+            },
+            "indexName": "profile_composition_lookup",
+            "isMultiKey": true,
+            "multiKeyPaths": {
+              "profile_type": [],
+              "attributes.composition.material": [
+                "attributes.composition"
+              ],
+              "attributes.composition.percent": [
+                "attributes.composition"
+              ]
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": false,
+            "indexVersion": {
+              "$numberInt": "2"
+            },
+            "direction": "forward",
+            "indexBounds": {
+              "profile_type": [
+                "[\"clothing\", \"clothing\"]"
+              ],
+              "attributes.composition.material": [
+                "[\"cotton\", \"cotton\"]"
+              ],
+              "attributes.composition.percent": [
+                "[90, inf.0]"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": {
+      "$numberInt": "1"
+    },
+    "executionTimeMillis": {
+      "$numberInt": "0"
+    },
+    "totalKeysExamined": {
+      "$numberInt": "1"
+    },
+    "totalDocsExamined": {
+      "$numberInt": "1"
+    },
+    "executionStages": {
+      "isCached": false,
+      "stage": "SORT",
+      "nReturned": {
+        "$numberInt": "1"
+      },
+      "executionTimeMillisEstimate": {
+        "$numberInt": "0"
+      },
+      "works": {
+        "$numberInt": "4"
+      },
+      "advanced": {
+        "$numberInt": "1"
+      },
+      "needTime": {
+        "$numberInt": "2"
+      },
+      "needYield": {
+        "$numberInt": "0"
+      },
+      "saveState": {
+        "$numberInt": "0"
+      },
+      "restoreState": {
+        "$numberInt": "0"
+      },
+      "isEOF": {
+        "$numberInt": "1"
+      },
+      "sortPattern": {
+        "_id": {
+          "$numberInt": "1"
+        }
+      },
+      "memLimit": {
+        "$numberInt": "104857600"
+      },
+      "type": "simple",
+      "totalDataSizeSorted": {
+        "$numberInt": "336"
+      },
+      "usedDisk": false,
+      "spills": {
+        "$numberInt": "0"
+      },
+      "spilledDataStorageSize": {
+        "$numberInt": "0"
+      },
+      "inputStage": {
+        "stage": "PROJECTION_DEFAULT",
+        "nReturned": {
+          "$numberInt": "1"
+        },
+        "executionTimeMillisEstimate": {
+          "$numberInt": "0"
+        },
+        "works": {
+          "$numberInt": "2"
+        },
+        "advanced": {
+          "$numberInt": "1"
+        },
+        "needTime": {
+          "$numberInt": "0"
+        },
+        "needYield": {
+          "$numberInt": "0"
+        },
+        "saveState": {
+          "$numberInt": "0"
+        },
+        "restoreState": {
+          "$numberInt": "0"
+        },
+        "isEOF": {
+          "$numberInt": "1"
+        },
+        "transformBy": {
+          "_id": {
+            "$numberInt": "1"
+          },
+          "sql_context.name": {
+            "$numberInt": "1"
+          },
+          "profile_type": {
+            "$numberInt": "1"
+          },
+          "attributes": {
+            "$numberInt": "1"
+          },
+          "tags": {
+            "$numberInt": "1"
+          }
+        },
+        "inputStage": {
+          "stage": "FETCH",
+          "filter": {
+            "$and": [
+              {
+                "attributes.composition": {
+                  "$elemMatch": {
+                    "$and": [
+                      {
+                        "material": {
+                          "$eq": "cotton"
+                        }
+                      },
+                      {
+                        "percent": {
+                          "$gte": {
+                            "$numberInt": "90"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "sql_context.is_active": {
+                  "$eq": true
+                }
+              }
+            ]
+          },
+          "nReturned": {
+            "$numberInt": "1"
+          },
+          "executionTimeMillisEstimate": {
+            "$numberInt": "0"
+          },
+          "works": {
+            "$numberInt": "2"
+          },
+          "advanced": {
+            "$numberInt": "1"
+          },
+          "needTime": {
+            "$numberInt": "0"
+          },
+          "needYield": {
+            "$numberInt": "0"
+          },
+          "saveState": {
+            "$numberInt": "0"
+          },
+          "restoreState": {
+            "$numberInt": "0"
+          },
+          "isEOF": {
+            "$numberInt": "1"
+          },
+          "docsExamined": {
+            "$numberInt": "1"
+          },
+          "alreadyHasObj": {
+            "$numberInt": "0"
+          },
+          "inputStage": {
+            "stage": "IXSCAN",
+            "nReturned": {
+              "$numberInt": "1"
+            },
+            "executionTimeMillisEstimate": {
+              "$numberInt": "0"
+            },
+            "works": {
+              "$numberInt": "2"
+            },
+            "advanced": {
+              "$numberInt": "1"
+            },
+            "needTime": {
+              "$numberInt": "0"
+            },
+            "needYield": {
+              "$numberInt": "0"
+            },
+            "saveState": {
+              "$numberInt": "0"
+            },
+            "restoreState": {
+              "$numberInt": "0"
+            },
+            "isEOF": {
+              "$numberInt": "1"
+            },
+            "keyPattern": {
+              "profile_type": {
+                "$numberInt": "1"
+              },
+              "attributes.composition.material": {
+                "$numberInt": "1"
+              },
+              "attributes.composition.percent": {
+                "$numberInt": "1"
+              }
+            },
+            "indexName": "profile_composition_lookup",
+            "isMultiKey": true,
+            "multiKeyPaths": {
+              "profile_type": [],
+              "attributes.composition.material": [
+                "attributes.composition"
+              ],
+              "attributes.composition.percent": [
+                "attributes.composition"
+              ]
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": false,
+            "indexVersion": {
+              "$numberInt": "2"
+            },
+            "direction": "forward",
+            "indexBounds": {
+              "profile_type": [
+                "[\"clothing\", \"clothing\"]"
+              ],
+              "attributes.composition.material": [
+                "[\"cotton\", \"cotton\"]"
+              ],
+              "attributes.composition.percent": [
+                "[90, inf.0]"
+              ]
+            },
+            "keysExamined": {
+              "$numberInt": "1"
+            },
+            "seeks": {
+              "$numberInt": "1"
+            },
+            "dupsTested": {
+              "$numberInt": "1"
+            },
+            "dupsDropped": {
+              "$numberInt": "0"
+            }
+          }
+        }
+      }
+    }
+  },
+  "queryShapeHash": "12FC9FC1FA62E962141A7AAC0C542B28DD638BADAA575882C18A253586D858EF",
+  "command": {
+    "find": "product_profiles",
+    "filter": {
+      "sql_context.is_active": true,
+      "profile_type": "clothing",
+      "attributes.composition": {
+        "$elemMatch": {
+          "material": "cotton",
+          "percent": {
+            "$gte": {
+              "$numberInt": "90"
+            }
+          }
+        }
+      }
+    },
+    "sort": {
+      "_id": {
+        "$numberInt": "1"
+      }
+    },
+    "projection": {
+      "_id": {
+        "$numberInt": "1"
+      },
+      "sql_context.name": {
+        "$numberInt": "1"
+      },
+      "profile_type": {
+        "$numberInt": "1"
+      },
+      "attributes": {
+        "$numberInt": "1"
+      },
+      "tags": {
+        "$numberInt": "1"
+      }
+    },
+    "hint": "profile_composition_lookup",
+    "$db": "fashion_profiles_complete"
+  },
+  "serverInfo": {
+    "host": "5254dfe4388d",
+    "port": {
+      "$numberInt": "27017"
+    },
+    "version": "8.0.34",
+    "gitVersion": "51db4515a6597aedcf6188ee4e48a27e65b065ae"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalQueryFacetMaxOutputDocSizeBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalDocumentSourceGroupMaxMemoryBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalQueryMaxBlockingSortMemoryUsageBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalQueryProhibitBlockingMergeOnMongoS": {
+      "$numberInt": "0"
+    },
+    "internalQueryMaxAddToSetBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": {
+      "$numberInt": "104857600"
+    },
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": {
+      "$numberInt": "1"
+    }
+  },
+  "ok": {
+    "$numberInt": "1"
+  }
+}

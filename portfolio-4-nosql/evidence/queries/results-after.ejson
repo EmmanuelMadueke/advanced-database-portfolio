@@ -1,0 +1,204 @@
+{
+  "product_lookup": [
+    {
+      "_id": "2",
+      "profile_type": "clothing",
+      "sql_context": {
+        "name": "Classic T-Shirt"
+      },
+      "tags": [
+        "everyday"
+      ],
+      "attributes": {
+        "composition": [
+          {
+            "material": "cotton",
+            "percent": {
+              "$numberInt": "95"
+            }
+          },
+          {
+            "material": "elastane",
+            "percent": {
+              "$numberInt": "5"
+            }
+          }
+        ],
+        "fit": "regular",
+        "care": [
+          "Wash at 30 C",
+          "Do not bleach"
+        ]
+      }
+    }
+  ],
+  "cotton_clothing": [
+    {
+      "_id": "2",
+      "profile_type": "clothing",
+      "sql_context": {
+        "name": "Classic T-Shirt"
+      },
+      "tags": [
+        "everyday"
+      ],
+      "attributes": {
+        "composition": [
+          {
+            "material": "cotton",
+            "percent": {
+              "$numberInt": "95"
+            }
+          },
+          {
+            "material": "elastane",
+            "percent": {
+              "$numberInt": "5"
+            }
+          }
+        ],
+        "fit": "regular",
+        "care": [
+          "Wash at 30 C",
+          "Do not bleach"
+        ]
+      }
+    }
+  ],
+  "lace_up_footwear": [
+    {
+      "_id": "7",
+      "profile_type": "footwear",
+      "sql_context": {
+        "name": "Canvas Sneakers"
+      },
+      "tags": [
+        "casual"
+      ],
+      "attributes": {
+        "upper_materials": [
+          "cotton canvas"
+        ],
+        "sole_materials": [
+          "rubber"
+        ],
+        "fastening": "lace-up"
+      }
+    }
+  ],
+  "pocket_accessories": [
+    {
+      "_id": "1",
+      "profile_type": "accessory",
+      "sql_context": {
+        "name": "Tote Bag"
+      },
+      "tags": [
+        "everyday",
+        "reusable"
+      ],
+      "attributes": {
+        "materials": [
+          "cotton canvas"
+        ],
+        "features": [
+          "inner pocket"
+        ],
+        "dimensions_cm": {
+          "height": {
+            "$numberInt": "38"
+          },
+          "width": {
+            "$numberInt": "34"
+          },
+          "depth": {
+            "$numberInt": "10"
+          }
+        }
+      }
+    }
+  ],
+  "everyday_profiles": [
+    {
+      "_id": "1",
+      "profile_type": "accessory",
+      "sql_context": {
+        "name": "Tote Bag"
+      },
+      "tags": [
+        "everyday",
+        "reusable"
+      ],
+      "attributes": {
+        "materials": [
+          "cotton canvas"
+        ],
+        "features": [
+          "inner pocket"
+        ],
+        "dimensions_cm": {
+          "height": {
+            "$numberInt": "38"
+          },
+          "width": {
+            "$numberInt": "34"
+          },
+          "depth": {
+            "$numberInt": "10"
+          }
+        }
+      }
+    },
+    {
+      "_id": "2",
+      "profile_type": "clothing",
+      "sql_context": {
+        "name": "Classic T-Shirt"
+      },
+      "tags": [
+        "everyday"
+      ],
+      "attributes": {
+        "composition": [
+          {
+            "material": "cotton",
+            "percent": {
+              "$numberInt": "95"
+            }
+          },
+          {
+            "material": "elastane",
+            "percent": {
+              "$numberInt": "5"
+            }
+          }
+        ],
+        "fit": "regular",
+        "care": [
+          "Wash at 30 C",
+          "Do not bleach"
+        ]
+      }
+    }
+  ],
+  "tag_coverage": [
+    {
+      "profile_count": {
+        "$numberInt": "2"
+      },
+      "tag": "everyday"
+    },
+    {
+      "profile_count": {
+        "$numberInt": "1"
+      },
+      "tag": "casual"
+    },
+    {
+      "profile_count": {
+        "$numberInt": "1"
+      },
+      "tag": "reusable"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+PASS: lookup returns requested shirt
+PASS: cotton at least 90 percent
+PASS: lace-up footwear
+PASS: pocket accessory at least 30 cm wide
+PASS: everyday tag spans two categories
+PASS: tag aggregation exact counts and order
+PASS: cotton 95 percent boundary included
+PASS: cotton 96 percent excludes shirt
+PASS: same-element matching excludes elastane 90 percent
+PASS: separate array predicates demonstrate cross-element false match
+PASS: absent product returns no profile
+PASS: absent tag returns empty
+PASS: width 34 inclusive, 35 excluded
+PASS: all six complete ordered outputs unchanged after index creation
+PASS: profiles unchanged by queries/index creation
+PASS: original identity index retained and exactly one reporting index added
+{
+  "captured_at": "2026-10-16T22:11:56.032Z",
+  "mongodb_version": "8.0.34",
+  "database": "fashion_profiles_complete",
+  "profile_count": 3,
+  "checks": 16,
+  "query_sha256": "1d4ee65f3e9397d9e23c49593bd329e76257c2f2c28ea1ded9e2066caa9ae043",
+  "result_sha256": "6c90cce59c9324b25110b1bf4ea794334fb81a50b5aae255b3f17981a635b2ec",
+  "before": {
+    "returned": 1,
+    "keys_examined": 3,
+    "documents_examined": 3,
+    "execution_ms": 0,
+    "winning_plan": {
+      "isCached": false,
+      "stage": "PROJECTION_DEFAULT",
+      "transformBy": {
+        "_id": 1,
+        "sql_context.name": 1,
+        "profile_type": 1,
+        "attributes": 1,
+        "tags": 1
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "attributes.composition": {
+                "$elemMatch": {
+                  "$and": [
+                    {
+                      "material": {
+                        "$eq": "cotton"
+                      }
+                    },
+                    {
+                      "percent": {
+                        "$gte": 90
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "profile_type": {
+                "$eq": "clothing"
+              }
+            },
+            {
+              "sql_context.is_active": {
+                "$eq": true
+              }
+            }
+          ]
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "_id": 1
+          },
+          "indexName": "_id_",
+          "isMultiKey": false,
+          "isUnique": true,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "_id": [
+              "[MinKey, MaxKey]"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "after": {
+    "returned": 1,
+    "keys_examined": 3,
+    "documents_examined": 3,
+    "execution_ms": 1,
+    "winning_plan": {
+      "isCached": false,
+      "stage": "PROJECTION_DEFAULT",
+      "transformBy": {
+        "_id": 1,
+        "sql_context.name": 1,
+        "profile_type": 1,
+        "attributes": 1,
+        "tags": 1
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "attributes.composition": {
+                "$elemMatch": {
+                  "$and": [
+                    {
+                      "material": {
+                        "$eq": "cotton"
+                      }
+                    },
+                    {
+                      "percent": {
+                        "$gte": 90
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "profile_type": {
+                "$eq": "clothing"
+              }
+            },
+            {
+              "sql_context.is_active": {
+                "$eq": true
+              }
+            }
+          ]
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "_id": 1
+          },
+          "indexName": "_id_",
+          "isMultiKey": false,
+          "isUnique": true,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "_id": [
+              "[MinKey, MaxKey]"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "indexes_before": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    }
+  ],
+  "indexes_after": [
+    {
+      "v": 2,
+      "key": {
+        "_id": 1
+      },
+      "name": "_id_"
+    },
+    {
+      "v": 2,
+      "key": {
+        "profile_type": 1,
+        "attributes.composition.material": 1,
+        "attributes.composition.percent": 1
+      },
+      "name": "profile_composition_lookup"
+    }
+  ],
+  "index_bytes_before": {
+    "_id_": 20480
+  },
+  "index_bytes_after": {
+    "_id_": 20480,
+    "profile_composition_lookup": 20480
+  }
+}
+16 query/index checks passed. Single explain runs on three profiles are not a latency benchmark.

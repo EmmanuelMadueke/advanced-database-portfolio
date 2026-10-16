@@ -74,6 +74,10 @@ Codex designed one enrichment profile per SQL product, string-preserved bigint i
 
 Codex verified Docker/MongoDB, installed the strict validator, exported actual SQL product identities, and loaded three synthetic enrichment profiles. Ten importer checks, ten MongoDB rejection checks, two reconciliation checks, and four fresh-connection checks passed. It saved input hashes, actual versions/timestamps, stored BSON, and execution outputs. The import resolved source IDs that differed from illustrative examples. Logging, asynchronous update-error handling, and cross-context comparison issues in the harness were corrected with diagnostic outputs retained. This verifies snapshot loading and validation, not live synchronisation or independent student review.
 
+## Portfolio 4 queries, aggregation, and index
+
+Codex implemented five catalogue predicates and a tag-coverage aggregation, executing the shared definitions in 16 checks. Tests covered same-element material/percentage semantics, boundaries, empty results, and unchanged documents/results after adding a compound multikey index. The automatic planner retained the identity-index scan on three profiles; a separately labelled hinted diagnostic scanned one document and passed result equivalence. Actual plans, index sizes, outputs, and limitations are retained. No production speedup or student verification is claimed.
+
 ## Verification status
 
 Emmanuel's recorded review covers the ERD presentation. Independent student verification remains to be recorded after it occurs. Schema installation and the documented single-session integrity/workflow checks have passed. Sample and optional scale data have been loaded and reconciled by tool-run checks. Baseline execution plans and repeated local measurements are recorded. Optimisation comparisons and result-equivalence checks have passed. Two-session READ COMMITTED visibility checks have passed. An isolated unsafe two-buyer race has reproduced overselling. The protected concurrent comparison passed eleven checks, including confirmed blocking and a single successful buyer.

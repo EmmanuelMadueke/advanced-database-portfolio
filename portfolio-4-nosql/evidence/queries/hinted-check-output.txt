@@ -1,0 +1,91 @@
+PASS: explicit index hint returns the same ordered result as the unhinted query
+{
+  "diagnostic_only": true,
+  "keys": 1,
+  "documents": 1,
+  "returned": 1,
+  "winning_plan": {
+    "isCached": false,
+    "stage": "SORT",
+    "sortPattern": {
+      "_id": 1
+    },
+    "memLimit": 104857600,
+    "type": "simple",
+    "inputStage": {
+      "stage": "PROJECTION_DEFAULT",
+      "transformBy": {
+        "_id": 1,
+        "sql_context.name": 1,
+        "profile_type": 1,
+        "attributes": 1,
+        "tags": 1
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "attributes.composition": {
+                "$elemMatch": {
+                  "$and": [
+                    {
+                      "material": {
+                        "$eq": "cotton"
+                      }
+                    },
+                    {
+                      "percent": {
+                        "$gte": 90
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "sql_context.is_active": {
+                "$eq": true
+              }
+            }
+          ]
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "profile_type": 1,
+            "attributes.composition.material": 1,
+            "attributes.composition.percent": 1
+          },
+          "indexName": "profile_composition_lookup",
+          "isMultiKey": true,
+          "multiKeyPaths": {
+            "profile_type": [],
+            "attributes.composition.material": [
+              "attributes.composition"
+            ],
+            "attributes.composition.percent": [
+              "attributes.composition"
+            ]
+          },
+          "isUnique": false,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "profile_type": [
+              "[\"clothing\", \"clothing\"]"
+            ],
+            "attributes.composition.material": [
+              "[\"cotton\", \"cotton\"]"
+            ],
+            "attributes.composition.percent": [
+              "[90, inf.0]"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "captured_at": "2026-10-16T22:11:56.032Z",
+  "mongodb_version": "8.0.34",
+  "database": "fashion_profiles_complete",
+  "profile_count": {
+    "$numberInt": "3"
+  },
+  "checks": {
+    "$numberInt": "16"
+  },
+  "query_sha256": "1d4ee65f3e9397d9e23c49593bd329e76257c2f2c28ea1ded9e2066caa9ae043",
+  "result_sha256": "6c90cce59c9324b25110b1bf4ea794334fb81a50b5aae255b3f17981a635b2ec",
+  "before": {
+    "returned": {
+      "$numberInt": "1"
+    },
+    "keys_examined": {
+      "$numberInt": "3"
+    },
+    "documents_examined": {
+      "$numberInt": "3"
+    },
+    "execution_ms": {
+      "$numberInt": "0"
+    },
+    "winning_plan": {
+      "isCached": false,
+      "stage": "PROJECTION_DEFAULT",
+      "transformBy": {
+        "_id": {
+          "$numberInt": "1"
+        },
+        "sql_context.name": {
+          "$numberInt": "1"
+        },
+        "profile_type": {
+          "$numberInt": "1"
+        },
+        "attributes": {
+          "$numberInt": "1"
+        },
+        "tags": {
+          "$numberInt": "1"
+        }
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "attributes.composition": {
+                "$elemMatch": {
+                  "$and": [
+                    {
+                      "material": {
+                        "$eq": "cotton"
+                      }
+                    },
+                    {
+                      "percent": {
+                        "$gte": {
+                          "$numberInt": "90"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "profile_type": {
+                "$eq": "clothing"
+              }
+            },
+            {
+              "sql_context.is_active": {
+                "$eq": true
+              }
+            }
+          ]
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "_id": {
+              "$numberInt": "1"
+            }
+          },
+          "indexName": "_id_",
+          "isMultiKey": false,
+          "isUnique": true,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": {
+            "$numberInt": "2"
+          },
+          "direction": "forward",
+          "indexBounds": {
+            "_id": [
+              "[MinKey, MaxKey]"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "after": {
+    "returned": {
+      "$numberInt": "1"
+    },
+    "keys_examined": {
+      "$numberInt": "3"
+    },
+    "documents_examined": {
+      "$numberInt": "3"
+    },
+    "execution_ms": {
+      "$numberInt": "1"
+    },
+    "winning_plan": {
+      "isCached": false,
+      "stage": "PROJECTION_DEFAULT",
+      "transformBy": {
+        "_id": {
+          "$numberInt": "1"
+        },
+        "sql_context.name": {
+          "$numberInt": "1"
+        },
+        "profile_type": {
+          "$numberInt": "1"
+        },
+        "attributes": {
+          "$numberInt": "1"
+        },
+        "tags": {
+          "$numberInt": "1"
+        }
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$and": [
+            {
+              "attributes.composition": {
+                "$elemMatch": {
+                  "$and": [
+                    {
+                      "material": {
+                        "$eq": "cotton"
+                      }
+                    },
+                    {
+                      "percent": {
+                        "$gte": {
+                          "$numberInt": "90"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "profile_type": {
+                "$eq": "clothing"
+              }
+            },
+            {
+              "sql_context.is_active": {
+                "$eq": true
+              }
+            }
+          ]
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "_id": {
+              "$numberInt": "1"
+            }
+          },
+          "indexName": "_id_",
+          "isMultiKey": false,
+          "isUnique": true,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": {
+            "$numberInt": "2"
+          },
+          "direction": "forward",
+          "indexBounds": {
+            "_id": [
+              "[MinKey, MaxKey]"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "indexes_before": [
+    {
+      "v": {
+        "$numberInt": "2"
+      },
+      "key": {
+        "_id": {
+          "$numberInt": "1"
+        }
+      },
+      "name": "_id_"
+    }
+  ],
+  "indexes_after": [
+    {
+      "v": {
+        "$numberInt": "2"
+      },
+      "key": {
+        "_id": {
+          "$numberInt": "1"
+        }
+      },
+      "name": "_id_"
+    },
+    {
+      "v": {
+        "$numberInt": "2"
+      },
+      "key": {
+        "profile_type": {
+          "$numberInt": "1"
+        },
+        "attributes.composition.material": {
+          "$numberInt": "1"
+        },
+        "attributes.composition.percent": {
+          "$numberInt": "1"
+        }
+      },
+      "name": "profile_composition_lookup"
+    }
+  ],
+  "index_bytes_before": {
+    "_id_": {
+      "$numberInt": "20480"
+    }
+  },
+  "index_bytes_after": {
+    "_id_": {
+      "$numberInt": "20480"
+    },
+    "profile_composition_lookup": {
+      "$numberInt": "20480"
+    }
+  }
+}
