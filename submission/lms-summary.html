@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MIT 8103 Portfolio Summary — Emmanuel Madueke</title>
+<style>
+@page { size: A4; margin: 16mm 17mm; }
+* { box-sizing: border-box; }
+body { font: 10.3pt/1.36 Arial, sans-serif; color: #182334; margin: 0; }
+.page { break-after: page; } .page:last-child { break-after: auto; }
+h1 { font-size: 21pt; line-height: 1.12; margin: 5px 0 9px; }
+h2 { font-size: 12.5pt; margin: 14px 0 5px; color: #184a62; }
+p { margin: 6px 0; } a { color: #174b73; text-decoration: underline; }
+.kicker, footer { font-size: 8.5pt; color: #526171; }
+.status { padding: 8px 10px; background: #fff3d9; border-left: 3px solid #aa7518; margin: 10px 0; }
+.meta { margin-bottom: 12px; } table { border-collapse: collapse; width: 100%; font-size: 9.3pt; margin: 8px 0; }
+th,td { border-bottom: 1px solid #cdd7df; padding: 6px; text-align: left; vertical-align: top; }
+th { background: #edf2f6; } .small { font-size: 9pt; } footer { border-top: 1px solid #cdd7df; margin-top: 15px; padding-top: 6px; }
+pre { background: #edf2f6; padding: 8px; font: 8.7pt/1.35 monospace; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<section class="page">
+<div class="kicker">MIT 8103 · ADVANCED DATABASE SYSTEMS · INDIVIDUAL PORTFOLIO</div>
+<h1>Online Fashion Retail Store<br>Database System</h1>
+<p class="meta"><strong>Emmanuel Madueke</strong> · Owner, author and maintainer<br>September cohort 2026 · Summary prepared 17 October 2026</p>
+
+<p><strong>GitHub:</strong> <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio">github.com/EmmanuelMadueke/advanced-database-portfolio</a></p>
+<h2>Organisation, users and operations</h2>
+<p>The case study is a simulated online retailer selling clothing, footwear and accessories. Customers browse variants, manage carts, place orders and track purchases. Administrators maintain products, stock and fulfilment; management uses sales and inventory reports. Major data includes customers, addresses, products, categories, brands, sizes, colours, variants, inventory, carts, orders, items, payment attempts and deliveries.</p>
+<p>One scenario connects all five activities. PostgreSQL owns transactional prices, stock and purchase records. MongoDB provides flexible descriptive product enrichment. Data is synthetic; payment outcomes are simulated. No live storefront, payment gateway or cloud deployment is claimed.</p>
+<h2>1 · Database design and modelling</h2>
+<p>The relational design contains 16 tables with primary/foreign keys, uniqueness, required values and validation rules. A table-style ERD shows attributes, keys, cardinalities and optionality. Normalisation explains 1NF–3NF and deliberate purchase-time snapshots: later catalogue or address changes must not rewrite an earlier purchase.</p>
+<p>PostgreSQL 18.1 implements the schema, integrity triggers, controlled write routines and a restricted demonstration writer role. Checks cover invalid references, duplicate variants, negative stock, invalid prices, lifecycle transitions and checkout consistency. The sample has 12 customers, eight products, 18 variants and 12 orders; recognised sales reconcile to NGN 268,000.</p>
+<p class="small"><strong>Evidence:</strong> <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/diagrams/conceptual-erd.svg">ERD image</a> · <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-1-database-design/README.md">schema, normalisation and outputs</a>. Fresh checks: 35 integrity/workflow, 10 sample and four scale assertions.</p>
+<h2>2 · Query processing and optimisation</h2>
+<p>Twelve reports cover catalogue filtering, stock, customer history, fulfilment, revenue and sales trends. Revenue uses historical purchase amounts and eligible order states; failed payment retries do not duplicate revenue. Thirty result checks cover totals, empty groups, date endpoints and timezone behaviour.</p>
+<p>Five reports were measured on a synthetic 10,012-order dataset before indexing, after three reporting indexes, and after a targeted history rewrite. Each phase used a warm-up and five measured plans. Complete ordered-result fingerprints matched. The rewrite aggregates payment attempts for selected customer orders instead of scanning every attempt.</p>
+<footer>Emmanuel Madueke · MIT 8103 portfolio summary · 1 / 3</footer>
+</section>
+<section class="page">
+<div class="kicker">IMPLEMENTATION FINDINGS AND SELECTED EVIDENCE</div>
+<h2>Query results and limits</h2>
+<table><tr><th>Fresh run: 17 October</th><th>Before median</th><th>Final median</th></tr><tr><td>Customer history</td><td>1.444 ms</td><td>0.116 ms</td></tr><tr><td>Revenue summary</td><td>1.055 ms</td><td>0.191 ms</td></tr></table>
+<p>These local measurements support the selected workload changes, not a production speed guarantee. Warm caches, synthetic distribution and instrumentation limit generalisation. Unchanged catalogue/report plans did not justify claiming an index benefit from timing variation alone. Index maintenance adds storage and write costs.</p>
+<p class="small"><strong>Evidence:</strong> <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-2-query-optimisation/optimisation/README.md">optimisation analysis</a> · <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/evidence/reproducibility-2026-10-17/compare-final.txt">fresh comparison output</a>.</p>
+<h2>3 · Transactions and concurrency</h2>
+<p>A controlled checkout transaction combines order creation, item snapshots, simulated successful payment and inventory deduction. A NGN 49,000 purchase passed eight persistence checks after COMMIT. An injected pre-commit failure followed by ROLLBACK passed six checks for no purchase rows and restored stock. Two persistent sessions passed seven READ COMMITTED visibility checks.</p>
+<p>An isolated unsafe last-unit model let two buyers read stock one and commit two purchases, demonstrating why nonnegative stock alone does not prevent overselling. The protected checkout made the second buyer wait on the first, then rejected the depleted-stock purchase. Eleven checks confirmed one successful buyer, stock conservation and unchanged state on replay of known-order finalisation. That replay does not make new-order requests or external charges idempotent.</p>
+<pre>Selected fresh output — protected-sessions.txt:
+PASS: loser has no retained order
+PASS: stock conserved and unrelated jacket unchanged
+11 protected-race checks passed.</pre>
+<p class="small"><strong>Evidence:</strong> <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-3-transactions-concurrency/README.md">transaction schedules, SQL and outputs</a>.</p>
+<h2>4 · NoSQL and advanced data models</h2>
+<p>MongoDB Community 8.0.34 stores three product-enrichment profiles with embedded category-specific materials, care and descriptive features. String IDs preserve SQL product identity. Strict validation checks document shape; importer/reconciliation checks enforce source matching and rules such as material percentages. PostgreSQL retains authority over stock, price, orders and payments.</p>
+<p>The fresh import passed 22 checks plus four checks through a new connection. Five finds and a tag aggregation passed 16 checks. A compound multikey index was tested: a hinted diagnostic examined one document and preserved results, but the automatic planner retained the identity scan on this tiny collection. No speedup is claimed. The SQL-to-MongoDB workflow reconciles one exported snapshot; live synchronisation is not implemented.</p>
+<p class="small"><strong>Evidence:</strong> <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-4-nosql/README.md">model, implementation and queries</a> · <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-4-nosql/sql-nosql-comparison.md">SQL/NoSQL suitability and limits</a>.</p>
+<footer>Emmanuel Madueke · MIT 8103 portfolio summary · 2 / 3</footer>
+</section>
+<section class="page">
+<div class="kicker">ARCHITECTURE, VERIFICATION AND REFLECTION</div>
+<h2>5 · Distributed and cloud databases</h2>
+<p>The permitted discussion path proposes one region with three independent zones. PostgreSQL has one writer, a required synchronous standby and an asynchronous reporting standby. Recent-order reads use the current writer; lagging reports cannot authorise a purchase. Safe failover requires exclusive authority, fencing of the former writer and validated recovery. Loss of the required standby can stall checkout commits.</p>
+<p>A three-member MongoDB replica set is proposed for enrichment. Database replication would not refresh copied SQL facts. Sharding is deferred: there is no production capacity evidence requiring it, and a basket spanning inventory shards would need coordinated transactions or an explicit reservation/recovery design. Eight scenarios cover failures, stale reads, ambiguous commits and recovery. All topology and failure behaviour remain proposed and untested.</p>
+<p class="small"><strong>Evidence:</strong> <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-5-distributed-cloud/architecture-scenarios.md">architecture diagram and scenarios</a> · <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/portfolio-5-distributed-cloud/conclusions.md">decisions and references</a>.</p>
+<h2>Reproduction and ownership</h2>
+<p>A fresh run at commit <strong>5ba7d37</strong> completed all 52 recorded commands on 17 October 2026. Separate logs, plans, versions, manifests and hashes preserve the results; both disposable database runtimes were stopped. Portfolio 5 received documentation checks only. Evidence was committed progressively; the <a href="https://github.com/EmmanuelMadueke/advanced-database-portfolio/blob/main/evidence/reproducibility-2026-10-17/README.md">fresh results</a> were published in commit <strong>20387ce</strong>. These are tool-run checks, not independent student-verification claims.</p>
+<h2>Individual technical reflection</h2>
+<p>I directed changes to the ERD presentation by supplying a table-style reference, reviewing the revised appearance and requesting explicit explanations of relationship ratios. Presenting keys and attributes alongside one-to-one and one-to-many relationships makes the model easier to inspect: the drawing needs to communicate business rules as well as table names. I also requested an image without the rendering script, and kept development staged through checklist updates and progressive commits.</p>
+<p>The technical evidence illustrates why a plausible result needs a stronger check. Nonnegative stock did not prevent two purchases in the unsafe race; the protected test also checked purchase counts and stock conservation. Similarly, query timings were interpreted alongside unchanged results and execution plans. These are useful principles for future database work: specify the business invariant, test failure cases, and retain evidence for each claimed improvement. My recorded review covers the ERD presentation. The runtime tests were executed through Codex; independently reproducing and explaining them remains an area for further personal verification.</p>
+<h2>AI use declaration and references</h2>
+<p>OpenAI Codex assisted with requirements, code and documentation drafting, test execution, result analysis, the distributed-design discussion and this summary. I supplied the ERD reference, reviewed its appearance, requested relationship explanations and directed progressive development. Saved checks document tool-executed verification; I do not claim independent execution of those tests. I remain responsible for the accuracy and understanding of the submitted work.</p>
+<p class="small">Assessment basis: <em>MIT 8103 Advanced Database Systems continuous assessment, September cohort 2026</em>, sections 2–12. Technical sources: <a href="https://www.postgresql.org/docs/18/">PostgreSQL 18 documentation</a> (constraints, EXPLAIN, isolation, replication and recovery); <a href="https://www.mongodb.com/docs/manual/">MongoDB Manual</a> (validation, multikey indexes, replica sets and sharding). Activity documents contain claim-level links. Reflection structure draws on the University of Edinburgh’s <a href="https://reflection.ed.ac.uk/reflectors-toolkit/reflecting-on-experience/what-so-what-now-what">Reflection Toolkit</a> and Monash University’s <a href="https://www.monash.edu/student-academic-success/excel-at-writing/how-to-write/reflection/reflective-practice">reflective-practice guidance</a> (accessed 17 October 2026). SQL and enrichment datasets are synthetic. PostgreSQL, MongoDB, Docker, Python and Node.js/mongosh support the recorded implementation and checks.</p>
+
+<footer>Emmanuel Madueke · MIT 8103 portfolio summary · 3 / 3</footer>
+</section>
+</body>
+</html>
