@@ -68,4 +68,4 @@ A replica can reproduce an accidental deletion; it is not a retained historical 
 
 Before deployment, operators would need to select and validate the failover/control-plane tool, separate failure domains, secure replication connections, monitor WAL retention and replica progress, monitor MongoDB member/majority health, and test application reconnect behaviour. Proposed measurements include checkout acknowledgement latency, detection/promotion/reconnection times, observed data loss, and restore results. None has been collected here, so this document makes no uptime SLA or zero-loss guarantee across arbitrary failures.
 
-Next: analyse consistency and sharding in detail, including replica lag, customer order visibility, partition keys, and multi-variant checkout across partitions. The architecture diagram and consolidated failure scenarios remain subsequent deliverables.
+Continue with the completed [consistency and sharding analysis](consistency-sharding.md), [architecture and scenarios](architecture-scenarios.md), and [conclusions](conclusions.md).

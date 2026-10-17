@@ -6,7 +6,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 **Selected path: a sourced distributed/cloud architecture discussion for the existing online fashion store.** The [scope and evidence plan](scope.md) defines the architecture questions, assumptions, and deliverables.
 
-This activity will build on the implemented PostgreSQL checkout and MongoDB catalogue enrichment. Replication, failover, and sharding are proposed discussion topics; no distributed deployment has been created or tested for this activity.
+This completed discussion builds on the implemented PostgreSQL checkout and MongoDB catalogue enrichment. Replication, failover, and sharding are proposed discussion topics; no distributed deployment has been created or tested for this activity.
 
 ## Activity checklist
 
@@ -14,7 +14,7 @@ This activity will build on the implemented PostgreSQL checkout and MongoDB cata
 - [x] Explain replication and availability, including outage/failover behaviour.
 - [x] Explain consistency and sharding, including stock and customer-order visibility.
 - [x] Produce a sourced architecture diagram and concrete failure scenarios.
-- [ ] Consolidate design assumptions, operational trade-offs, references, and conclusions.
+- [x] Consolidate design assumptions, operational trade-offs, references, and conclusions.
 
 The [replication and availability analysis](replication-availability.md) now defines proposed node roles, acknowledgement choices, failover safeguards, and outage responses using official sources.
 
@@ -22,7 +22,9 @@ The [consistency and sharding analysis](consistency-sharding.md) now explains re
 
 The [architecture diagram and eight concrete scenarios](architecture-scenarios.md) now show the proposed topology, safe recovery policies, and future validation needs. No distributed failure scenario has been executed.
 
-Next: consolidate design assumptions, operational trade-offs, references, and conclusions.
+The [conclusions and evidence coverage](conclusions.md) consolidate decisions, proposed settings, unresolved operational requirements, and official references. **Portfolio 5 is complete for the discussion path.**
+
+Next: audit all five portfolios against the assessment deliverables. Final reproducibility review, summary, reflection, and submission remain pending.
 
 ## Existing evidence used as the starting point
 

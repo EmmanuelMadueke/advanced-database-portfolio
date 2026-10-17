@@ -53,4 +53,4 @@ Use official PostgreSQL and MongoDB documentation for database behaviour. If a p
 
 Existing portfolio outputs can support statements about the local implementations only. Scenario outcomes in Portfolio 5 will be labelled proposed or expected until actually tested. This activity will not invent screenshots, configuration exports, measurements, failure logs, or personal verification. No runtime changes are needed to complete this first scope-selection item.
 
-Next: write the replication and availability analysis, then develop consistency/sharding and the final architecture/failure-scenario evidence in subsequent checklist stages.
+Completion update: the planned discussion deliverables are now covered in the [conclusions and evidence map](conclusions.md). The original scope above remains the basis for the activity; no distributed deployment has been added.

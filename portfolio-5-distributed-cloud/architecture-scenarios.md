@@ -92,4 +92,4 @@ All responses below are **expected behaviour or proposed operational policy**, n
 
 This stage supplies a sourced diagram and case-specific reasoning. The SVG was structurally checked and visually reviewed; documentation links were checked locally. **None of the eight failure scenarios was executed.** The proposed validation steps are future experiments, not test results or claims of Emmanuel's personal verification.
 
-Next: consolidate the assumptions, design decisions, operational trade-offs, references, and conclusions for the discussion path. No deployed configuration or availability measurements will be invented to complete that stage.
+The [conclusions and evidence coverage](conclusions.md) now consolidate the assumptions, decisions, trade-offs, and references. No deployed configuration or availability measurements are claimed.
