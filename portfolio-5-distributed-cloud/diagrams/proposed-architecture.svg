@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1200" viewBox="0 0 1500 1200" role="img" aria-labelledby="title desc">
+<title id="title">Proposed fashion-store distributed architecture</title>
+<desc id="desc">Discussion design only, not deployed. One PostgreSQL writer in zone A streams WAL to a synchronous standby in B and an asynchronous reporting standby in C. A three-member MongoDB replica set holds enrichment. Application routes checkout to the SQL writer, reports to the asynchronous standby, and enrichment to the MongoDB primary. SQL failover requires fencing and exclusive authority. Snapshot import is separate from replication. No sharding or region failover is proposed.</desc>
+<defs><marker id="blue" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#2563a6"/></marker><marker id="green" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#16734b"/></marker><marker id="gray" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="#586474"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#172638} .heading{font-size:23px;font-weight:700}.body{font-size:19px}.small{font-size:17px}.zone{fill:#f3f6fa;stroke:#c7d0dc;stroke-width:2}.sql{fill:#e8f1fc;stroke:#2563a6;stroke-width:2}.mongo{fill:#e8f6ef;stroke:#16734b;stroke-width:2}.edge{fill:none;stroke:#2563a6;stroke-width:3;marker-end:url(#blue)}.medge{fill:none;stroke:#16734b;stroke-width:3;marker-end:url(#green)}.route{fill:none;stroke:#586474;stroke-width:2;stroke-dasharray:7 5;marker-end:url(#gray)}</style>
+<rect width="1500" height="1200" fill="white"/>
+<text x="70" y="46" font-size="30" font-weight="700">Fashion store — proposed distributed architecture</text>
+<text x="70" y="78" class="body">DISCUSSION ONLY • Not deployed or failover-tested • One region, three assumed independent zones</text>
+<rect x="70" y="108" width="1360" height="82" rx="10" fill="#26394f"/>
+<text x="95" y="141" style="fill:white" class="heading">Application service — proposed instances across zones</text>
+<text x="95" y="171" style="fill:white" class="body">Checkout + recent orders → P   |   Lag-tolerant reports → R   |   Descriptive enrichment → M1 initially</text>
+<rect x="70" y="235" width="400" height="490" rx="12" class="zone"/>
+<rect x="550" y="235" width="400" height="490" rx="12" class="zone"/>
+<rect x="1030" y="235" width="400" height="490" rx="12" class="zone"/>
+<text x="90" y="272" class="heading">Zone A</text><text x="570" y="272" class="heading">Zone B</text><text x="1050" y="272" class="heading">Zone C</text>
+<rect x="90" y="305" width="360" height="100" rx="8" class="sql"/>
+<text x="110" y="338" class="heading">P • PostgreSQL primary</text><text x="110" y="367" class="body">Sole SQL writer; checkout</text><text x="110" y="391" class="small">Authoritative stock and recent orders</text>
+<rect x="570" y="305" width="360" height="100" rx="8" class="sql"/>
+<text x="590" y="338" class="heading">S • Synchronous standby</text><text x="590" y="367" class="body">Preferred promotion candidate</text><text x="590" y="391" class="small">Required durable WAL acknowledgement</text>
+<rect x="1050" y="305" width="360" height="100" rx="8" class="sql"/>
+<text x="1070" y="338" class="heading">R • Asynchronous standby</text><text x="1070" y="367" class="body">Lag-tolerant reporting reads</text><text x="1070" y="391" class="small">Not an equivalent lossless failover target</text>
+<path d="M270 190 V305" class="route"/><path d="M1230 190 V305" class="route"/>
+<path d="M100 190 H32 V565 H90" class="route"/>
+<path d="M270 405 V447 H750 V405" class="edge"/><text x="480" y="438" class="small">WAL • synchronous [1]</text>
+<path d="M240 405 V492 H1230 V405" class="edge"/><rect x="810" y="475" width="240" height="25" fill="#f3f6fa"/><text x="820" y="493" class="small">WAL • asynchronous [1]</text>
+<rect x="90" y="530" width="360" height="90" rx="8" class="mongo"/>
+<text x="110" y="564" class="heading">M1 • MongoDB primary</text><text x="110" y="594" class="body">Product enrichment reads/writes</text>
+<rect x="570" y="530" width="360" height="90" rx="8" class="mongo"/>
+<text x="590" y="564" class="heading">M2 • MongoDB secondary</text><text x="590" y="594" class="body">Data-bearing voting member</text>
+<rect x="1050" y="530" width="360" height="90" rx="8" class="mongo"/>
+<text x="1070" y="564" class="heading">M3 • MongoDB secondary</text><text x="1070" y="594" class="body">Data-bearing voting member</text>
+<path d="M270 620 V652 H750 V620" class="medge"/><text x="480" y="644" class="small">Replica set [3]</text>
+<path d="M240 620 V693 H1230 V620" class="medge"/><rect x="815" y="675" width="220" height="26" fill="#f3f6fa"/><text x="825" y="694" class="small">Replication • initial roles</text>
+<rect x="70" y="752" width="1360" height="65" rx="8" fill="#fff3dc" stroke="#ba8a31"/>
+<text x="90" y="779" class="heading">SQL control plane across A/B/C — proposed, tooling not selected [2]</text>
+<text x="90" y="805" class="body">Exclusive writer authority → fence old primary → validate/promote S → restore synchronous partner → route writes</text>
+<rect x="70" y="837" width="1360" height="65" rx="8" fill="#f3f6fa" stroke="#c7d0dc"/>
+<text x="90" y="864" class="heading">Separate data-transfer workflow — not database replication</text>
+<text x="90" y="890" class="body">SQL snapshot export + curated enrichment → validated profile load → MongoDB   |   Live refresh is not implemented</text>
+<rect x="70" y="922" width="1360" height="60" rx="8" fill="#f3f6fa" stroke="#c7d0dc"/>
+<text x="90" y="949" class="heading">Independent backup storage and restore plan — proposed</text>
+<text x="90" y="973" class="small">SQL base backups + archived WAL; retained exports, enrichment, and manifests. Replicas do not replace backups.</text>
+<text x="70" y="1016" class="small">Legend: dashed gray = application request route; blue = PostgreSQL WAL flow; green = MongoDB replication.</text>
+<text x="70" y="1042" class="small">Replication arrows show logical flow, not acknowledgement packets. Database roles can change after validated failover.</text>
+<text x="70" y="1068" class="small">No sharding, regional failover, measured uptime, or implemented application fallback is implied.</text>
+<text x="70" y="1112" class="small">Sources: [1] PostgreSQL 18 standby/WAL docs; [2] PostgreSQL 18 failover docs; [3] MongoDB replica-set docs.</text>
+<text x="70" y="1138" class="small">Full source links and interpretation: ../architecture-scenarios.md</text>
+<text x="70" y="1177" class="body">Owner, author, and maintainer: Emmanuel Madueke</text>
+</svg>
