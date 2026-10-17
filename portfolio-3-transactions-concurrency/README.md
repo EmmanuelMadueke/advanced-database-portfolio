@@ -22,7 +22,7 @@ Use the existing [PostgreSQL setup](../docs/setup.md) and [sample data](../docs/
 
 The existing [operations](../portfolio-1-database-design/sql/03_operations.sql), [integrity triggers](../portfolio-1-database-design/sql/02_integrity.sql), and [controlled writer role](../portfolio-1-database-design/sql/04_permissions.sql) supply the implementation being examined. Portfolio 1's [integrity tests](../portfolio-1-database-design/tests/integrity.sql) provide earlier single-session checks; they do not replace this activity's planned persistence and concurrency evidence.
 
-Next: Portfolio 4 — choose and justify a NoSQL use case from the same fashion store.
+The completed NoSQL work is in [Portfolio 4](../portfolio-4-nosql/README.md).
 
 ## COMMIT demonstration
 

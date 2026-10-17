@@ -64,7 +64,7 @@ Checks verify known totals, filters, failed-payment retries, empty results, zero
 
 [Baseline results and plan observations](evidence/baseline/README.md) retain five measured plans per selected query, environment/index metadata, buffer counts, and result fingerprints. [The collection protocol](benchmarks/README.md) explains reproduction and limitations. This is the scale dataset; it is separate from the unscaled sample correctness outputs above.
 
-The [optimisation experiment](optimisation/README.md) retains a fresh before/indexes-only/indexes-and-rewrite comparison and reproducible SQL. Thirty sample checks and seven history-equivalence cases passed. Next: Portfolio 3, define the checkout transaction boundary.
+The [optimisation experiment](optimisation/README.md) retains a fresh before/indexes-only/indexes-and-rewrite comparison and reproducible SQL. Thirty sample checks and seven history-equivalence cases passed. The completed transaction work is in [Portfolio 3](../portfolio-3-transactions-concurrency/README.md).
 
 ## References
 

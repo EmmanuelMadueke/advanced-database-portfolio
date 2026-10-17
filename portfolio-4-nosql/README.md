@@ -19,7 +19,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 The [document model](document-model.md), [candidate validator](model/profile-validator.json), and [three illustrative profiles](model/example-profiles.json) define the implemented structure. The validator has now been installed and tested against MongoDB; actual profiles use source IDs resolved from SQL, not the illustrative IDs.
 
-The [SQL/NoSQL suitability comparison](sql-nosql-comparison.md) brings together the verified results, snapshot-synchronisation limits, and SQL alternatives. **Portfolio 4 is complete.** Next: Portfolio 5 — choose a discussion or practical setup path.
+The [SQL/NoSQL suitability comparison](sql-nosql-comparison.md) brings together the verified results, snapshot-synchronisation limits, and SQL alternatives. **Portfolio 4 is complete.** The completed distributed/cloud discussion is in [Portfolio 5](../portfolio-5-distributed-cloud/README.md).
 
 ## Existing foundations
 

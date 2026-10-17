@@ -24,7 +24,7 @@ The [architecture diagram and eight concrete scenarios](architecture-scenarios.m
 
 The [conclusions and evidence coverage](conclusions.md) consolidate decisions, proposed settings, unresolved operational requirements, and official references. **Portfolio 5 is complete for the discussion path.**
 
-Next: audit all five portfolios against the assessment deliverables. Final reproducibility review, summary, reflection, and submission remain pending.
+The [assessment audit](../docs/assessment-audit.md) now maps all five activities to the brief. Next: final reproducibility review; summary, reflection, and submission remain pending.
 
 ## Existing evidence used as the starting point
 

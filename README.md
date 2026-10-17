@@ -85,9 +85,10 @@ The main objectives of this project are to:
 - [Portfolio 3 transaction boundary and progress](portfolio-3-transactions-concurrency/README.md)
 - [Portfolio 4 NoSQL use case and progress](portfolio-4-nosql/README.md)
 - [Portfolio 5 distributed/cloud scope and progress](portfolio-5-distributed-cloud/README.md)
+- [Assessment audit and remaining submission work](docs/assessment-audit.md)
 - [AI-use working record](docs/ai-use.md)
 
-These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. The PostgreSQL 18.1 schema and controlled write routines are implemented, with 35 passing integrity/workflow checks and saved outputs. Reproducible sample data and an optional larger workload are now included. Portfolio 2 now contains 12 reports with 30 passing result checks. Five scale-dataset reports now have controlled before/after measurements for three reporting indexes and a customer-history rewrite, with unchanged results. [Optimisation findings](portfolio-2-query-optimisation/optimisation/README.md) document plan changes, costs, and limitations. Portfolio 2 is complete. Portfolio 3 now defines the checkout transaction boundary, including rollback scope, locking, and simulated-payment limitations. A COMMIT demonstration passed eight fresh-connection checks for the persisted order, payment, snapshots, and stock deductions. A ROLLBACK demonstration also passed six fresh-connection checks after an injected checkout failure. A two-session READ COMMITTED demonstration passed seven visibility checks. An isolated unsafe last-unit race reproduced overselling with eight checks. The protected checkout passed eleven concurrency checks, with confirmed lock waiting, one successful buyer, and no duplicate deduction on replay. Portfolio 3 is complete. Portfolio 4 selects MongoDB for structured product catalogue enrichment, with PostgreSQL retaining transactional data ownership. The document model, candidate validator, and three illustrative profiles are defined. MongoDB 8.0.34 now contains three source-reconciled profiles, with 22 import/validation/reconciliation checks and four fresh-connection checks passed. Five MongoDB finds, a tag aggregation, and an optional multikey index are verified with 16 checks plus hinted-result equivalence. The evidence-based SQL/NoSQL comparison is documented, including snapshot synchronisation and operational trade-offs. Portfolio 4 is complete. Portfolio 5 now selects a sourced architecture discussion covering replication, availability, consistency, and sharding. The sourced replication/availability analysis now defines proposed database roles, failover safeguards, and outage trade-offs. Consistency, replica lag, candidate shard keys, and cross-partition checkout trade-offs are now documented. A [sourced architecture diagram and eight failure scenarios](portfolio-5-distributed-cloud/architecture-scenarios.md) now connect those choices to proposed recovery and validation steps; no distributed failures have been tested. The [conclusions and evidence coverage](portfolio-5-distributed-cloud/conclusions.md) consolidate assumptions, proposed settings, trade-offs, and references. Portfolio 5 is complete for the discussion path. Next: audit all five portfolios against the assessment deliverables; final reproducibility review and submission documentation remain pending.
+These documents and the conceptual ERD define the proposed initial model. The relational schema and data dictionary are specified for PostgreSQL. Normalisation is documented, including historical snapshots, aggregate redundancy, and the fixed-currency exception. The PostgreSQL 18.1 schema and controlled write routines are implemented, with 35 passing integrity/workflow checks and saved outputs. Reproducible sample data and an optional larger workload are now included. Portfolio 2 now contains 12 reports with 30 passing result checks. Five scale-dataset reports now have controlled before/after measurements for three reporting indexes and a customer-history rewrite, with unchanged results. [Optimisation findings](portfolio-2-query-optimisation/optimisation/README.md) document plan changes, costs, and limitations. Portfolio 2 is complete. Portfolio 3 now defines the checkout transaction boundary, including rollback scope, locking, and simulated-payment limitations. A COMMIT demonstration passed eight fresh-connection checks for the persisted order, payment, snapshots, and stock deductions. A ROLLBACK demonstration also passed six fresh-connection checks after an injected checkout failure. A two-session READ COMMITTED demonstration passed seven visibility checks. An isolated unsafe last-unit race reproduced overselling with eight checks. The protected checkout passed eleven concurrency checks, with confirmed lock waiting, one successful buyer, and no duplicate deduction on replay. Portfolio 3 is complete. Portfolio 4 selects MongoDB for structured product catalogue enrichment, with PostgreSQL retaining transactional data ownership. The document model, candidate validator, and three illustrative profiles are defined. MongoDB 8.0.34 now contains three source-reconciled profiles, with 22 import/validation/reconciliation checks and four fresh-connection checks passed. Five MongoDB finds, a tag aggregation, and an optional multikey index are verified with 16 checks plus hinted-result equivalence. The evidence-based SQL/NoSQL comparison is documented, including snapshot synchronisation and operational trade-offs. Portfolio 4 is complete. Portfolio 5 now selects a sourced architecture discussion covering replication, availability, consistency, and sharding. The sourced replication/availability analysis now defines proposed database roles, failover safeguards, and outage trade-offs. Consistency, replica lag, candidate shard keys, and cross-partition checkout trade-offs are now documented. A [sourced architecture diagram and eight failure scenarios](portfolio-5-distributed-cloud/architecture-scenarios.md) now connect those choices to proposed recovery and validation steps; no distributed failures have been tested. The [conclusions and evidence coverage](portfolio-5-distributed-cloud/conclusions.md) consolidate assumptions, proposed settings, trade-offs, and references. Portfolio 5 is complete for the discussion path. The [assessment audit](docs/assessment-audit.md) maps all five activities to the brief and records remaining submission work. Next: run the final reproducibility review; the LMS summary, personal reflection, declaration review, and assessor access remain pending.
 
 ## Main Entities
 
@@ -317,51 +318,38 @@ Develop SQL queries for transactional operations and management reporting.
 
 ## Repository Structure
 
-A possible project structure is:
+The main repository directories are:
 
 ```text
 advanced-database-portfolio/
-│
 ├── README.md
-│
-├── docs/
-│   ├── case-study.md
-│   ├── requirements.md
-│   ├── business-rules.md
-│   ├── entities-and-attributes.md
-│   ├── normalization.md
-│   └── database-design.md
-│
-├── diagrams/
-│   ├── conceptual-erd.png
-│   └── logical-erd.png
-│
-├── sql/
-│   ├── schema.sql
-│   ├── constraints.sql
-│   ├── sample-data.sql
-│   └── queries.sql
-│
-└── reports/
-    └── query-results.md
+├── docs/                             # Case study, design, setup, audit
+├── diagrams/                         # Conceptual ERD image
+├── portfolio-1-database-design/       # Schema, seeds, integrity checks
+├── portfolio-2-query-optimisation/    # Reports, plans, comparisons
+├── portfolio-3-transactions-concurrency/ # Transactions and race evidence
+├── portfolio-4-nosql/                 # MongoDB model, import, queries
+└── portfolio-5-distributed-cloud/     # Sourced architecture discussion
 ```
 
-The structure may be expanded as the project progresses.
+Each activity README links its scripts, evidence, and reproduction instructions.
 
 ---
 
 ## Technologies
 
-The project may use the following technologies:
+The portfolio uses the following technologies:
 
 - **SQL** — database definition and querying
 - **PostgreSQL 18.1** — verified relational database management system
+- **MongoDB Community 8.0.34** — verified standalone document database
+- **Python and Node.js/mongosh** — reproduction, coordination, and validation scripts
 - **Git** — version control
 - **GitHub** — source code and portfolio repository
 - **Markdown** — documentation
-- **ERD Tool** — database modelling and visualisation
+- **SVG** — ERD and proposed architecture images
 
-PostgreSQL is the relational design target. The remaining tools and NoSQL database will be confirmed during setup and their respective activities.
+PostgreSQL and MongoDB runtime versions and reproduction conditions are recorded in the activity evidence. The distributed/cloud architecture remains a discussion.
 
 ---
 
@@ -388,7 +376,7 @@ The completed project is expected to contain:
 
 ## Project Status
 
-**Status:** In Development
+**Status:** Five portfolio activities complete; final verification and submission documentation pending
 
 Current stage:
 
@@ -404,9 +392,11 @@ Current stage:
 - [x] Create SQL schema
 - [x] Add database constraints
 - [x] Insert sample data
-- [ ] Create transactional queries
+- [x] Create transactional queries
 - [x] Create management queries
-- [ ] Complete database testing (35 schema/integrity checks passed; remaining activities pending)
+- [x] Complete activity-specific database demonstrations and retain outputs
+- [x] Audit all five activities against assessment deliverables
+- [ ] Complete final reproducibility review
 - [ ] Complete documentation
 
 ---

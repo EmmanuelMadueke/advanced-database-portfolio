@@ -13,7 +13,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 - [Normalisation analysis](../docs/normalization.md)
 - [Standalone ERD image](../diagrams/conceptual-erd.svg)
 
-The conceptual model is complete as a proposed design. The relational schema and data dictionary are specified for PostgreSQL. Normalisation analysis is complete with explicit redundancy and fixed-currency caveats. The SQL implementation and 35 integrity/workflow assertions have passed on PostgreSQL 18.1. Sample data, seed validation, and supporting evidence are complete; Portfolio 1 deliverables are now covered. Further activity-specific testing remains.
+The conceptual model is complete as a proposed design. The relational schema and data dictionary are specified for PostgreSQL. Normalisation analysis is complete with explicit redundancy and fixed-currency caveats. The SQL implementation and 35 integrity/workflow assertions have passed on PostgreSQL 18.1. Sample data, seed validation, and supporting evidence are complete; Portfolio 1 deliverables are now covered. Later activity evidence is linked from the root README; final reproducibility review remains pending.
 
 ## Viewing the diagram
 
@@ -26,7 +26,7 @@ Open the [full-size SVG image](../diagrams/conceptual-erd.svg) in a browser and 
 3. [Controlled checkout, cart, and delivery operations](sql/03_operations.sql)
 4. [Demonstration role permissions](sql/04_permissions.sql)
 
-See [setup and reproduction instructions](../docs/setup.md), [integrity tests](tests/integrity.sql), and [actual outputs](evidence/README.md). Tests use temporary fixtures, force deferred validation, and roll back their rows. The sample seed and checks are described below. Full two-session concurrency demonstrations remain Portfolio 3 work.
+See [setup and reproduction instructions](../docs/setup.md), [integrity tests](tests/integrity.sql), and [actual outputs](evidence/README.md). Tests use temporary fixtures, force deferred validation, and roll back their rows. The sample seed and checks are described below. Completed two-session demonstrations are documented in [Portfolio 3](../portfolio-3-transactions-concurrency/README.md).
 
 ## Sample data
 
