@@ -1,0 +1,329 @@
+{
+  "started_utc": "2026-10-17T13:48:59.755017+00:00",
+  "source_commit": "5ba7d37645f1c11c3aaa0bca904bdfc3b54ce790",
+  "cluster": "/tmp/fashion-final-ykizgt3z",
+  "steps": [
+    {
+      "step": "initdb",
+      "command": "initdb -D /tmp/fashion-final-ykizgt3z/data -A trust --no-locale -E UTF8",
+      "database": null,
+      "exit_code": 0
+    },
+    {
+      "step": "pg-start",
+      "command": "pg_ctl -D /tmp/fashion-final-ykizgt3z/data -l /tmp/fashion-final-ykizgt3z/server.log -o '-k /tmp/fashion-final-ykizgt3z/socket -p 55433 -h '\"'\"''\"'\"'' -w start",
+      "database": null,
+      "exit_code": 0
+    },
+    {
+      "step": "postgres-version",
+      "command": "psql -X -d postgres -c 'select version();'",
+      "database": null,
+      "exit_code": 0
+    },
+    {
+      "step": "sample-createdb",
+      "command": "createdb fashion_final_sample",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "sample-install",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/01_schema.sql -f portfolio-1-database-design/sql/02_integrity.sql -f portfolio-1-database-design/sql/03_operations.sql -f portfolio-1-database-design/sql/04_permissions.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "integrity",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/tests/integrity.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "seed",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/05_sample_data.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "sample-check",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/tests/sample_data.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "query-results",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-2-query-optimisation/sql/run_all.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "query-check",
+      "command": "python3 portfolio-2-query-optimisation/tests/query_results.py",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "query-rewrite-check",
+      "command": "python3 portfolio-2-query-optimisation/tests/query_results.py",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "sql-export",
+      "command": "python3 portfolio-4-nosql/scripts/export_products.py /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/mongo-import/source-products.json",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "scale-seed",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/06_scale_data.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "scale-check",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/tests/scale_data.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "vacuum",
+      "command": "psql -X -v ON_ERROR_STOP=1 -c 'VACUUM (ANALYZE);'",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "plans-before",
+      "command": "python3 portfolio-2-query-optimisation/benchmarks/capture_plans.py --output /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-before",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "indexes",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-2-query-optimisation/optimisation/apply_indexes.sql",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "plans-indexes",
+      "command": "python3 portfolio-2-query-optimisation/benchmarks/capture_plans.py --output /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-indexes",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "plans-final",
+      "command": "python3 portfolio-2-query-optimisation/benchmarks/capture_plans.py --query-dir portfolio-2-query-optimisation/optimisation --output /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-final",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "compare-indexes",
+      "command": "python3 portfolio-2-query-optimisation/benchmarks/compare_plans.py /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-before /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-indexes",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "compare-final",
+      "command": "python3 portfolio-2-query-optimisation/benchmarks/compare_plans.py /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-before /Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/plans-final",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "history-equivalence",
+      "command": "python3 portfolio-2-query-optimisation/tests/history_equivalence.py",
+      "database": "fashion_final_sample",
+      "exit_code": 0
+    },
+    {
+      "step": "commit-createdb",
+      "command": "createdb fashion_final_commit",
+      "database": "fashion_final_commit",
+      "exit_code": 0
+    },
+    {
+      "step": "commit-install",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/01_schema.sql -f portfolio-1-database-design/sql/02_integrity.sql -f portfolio-1-database-design/sql/03_operations.sql -f portfolio-1-database-design/sql/04_permissions.sql",
+      "database": "fashion_final_commit",
+      "exit_code": 0
+    },
+    {
+      "step": "commit-fixture",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/01_commit_fixture.sql",
+      "database": "fashion_final_commit",
+      "exit_code": 0
+    },
+    {
+      "step": "commit-purchase",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/02_commit_purchase.sql",
+      "database": "fashion_final_commit",
+      "exit_code": 0
+    },
+    {
+      "step": "commit-verify",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/03_verify_commit.sql",
+      "database": "fashion_final_commit",
+      "exit_code": 0
+    },
+    {
+      "step": "rollback-createdb",
+      "command": "createdb fashion_final_rollback",
+      "database": "fashion_final_rollback",
+      "exit_code": 0
+    },
+    {
+      "step": "rollback-install",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/01_schema.sql -f portfolio-1-database-design/sql/02_integrity.sql -f portfolio-1-database-design/sql/03_operations.sql -f portfolio-1-database-design/sql/04_permissions.sql",
+      "database": "fashion_final_rollback",
+      "exit_code": 0
+    },
+    {
+      "step": "rollback-fixture",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/01_commit_fixture.sql",
+      "database": "fashion_final_rollback",
+      "exit_code": 0
+    },
+    {
+      "step": "rollback-purchase",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/04_rollback_purchase.sql",
+      "database": "fashion_final_rollback",
+      "exit_code": 0
+    },
+    {
+      "step": "rollback-verify",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/05_verify_rollback.sql",
+      "database": "fashion_final_rollback",
+      "exit_code": 0
+    },
+    {
+      "step": "isolation-createdb",
+      "command": "createdb fashion_final_isolation",
+      "database": "fashion_final_isolation",
+      "exit_code": 0
+    },
+    {
+      "step": "isolation-install",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/01_schema.sql -f portfolio-1-database-design/sql/02_integrity.sql -f portfolio-1-database-design/sql/03_operations.sql -f portfolio-1-database-design/sql/04_permissions.sql",
+      "database": "fashion_final_isolation",
+      "exit_code": 0
+    },
+    {
+      "step": "isolation-fixture",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/01_commit_fixture.sql",
+      "database": "fashion_final_isolation",
+      "exit_code": 0
+    },
+    {
+      "step": "isolation-sessions",
+      "command": "python3 portfolio-3-transactions-concurrency/tests/isolation.py",
+      "database": "fashion_final_isolation",
+      "exit_code": 0
+    },
+    {
+      "step": "protected-createdb",
+      "command": "createdb fashion_final_protected",
+      "database": "fashion_final_protected",
+      "exit_code": 0
+    },
+    {
+      "step": "protected-install",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/01_schema.sql -f portfolio-1-database-design/sql/02_integrity.sql -f portfolio-1-database-design/sql/03_operations.sql -f portfolio-1-database-design/sql/04_permissions.sql",
+      "database": "fashion_final_protected",
+      "exit_code": 0
+    },
+    {
+      "step": "protected-fixture",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/13_protected_fixture.sql",
+      "database": "fashion_final_protected",
+      "exit_code": 0
+    },
+    {
+      "step": "protected-sessions",
+      "command": "python3 portfolio-3-transactions-concurrency/tests/protected_race.py",
+      "database": "fashion_final_protected",
+      "exit_code": 0
+    },
+    {
+      "step": "unsafe-createdb",
+      "command": "createdb fashion_final_unsafe",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "unsafe-fixture",
+      "command": "psql -X -v ON_ERROR_STOP=1 -f portfolio-3-transactions-concurrency/sql/09_unsafe_fixture.sql",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "unsafe-sessions",
+      "command": "python3 portfolio-3-transactions-concurrency/tests/unsafe_race.py",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "docker-version",
+      "command": "docker version",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-start",
+      "command": "docker run --name fashion-final-20261017 -p 127.0.0.1:57018:27017 -d mongodb/mongodb-community-server@sha256:8e60bd7f7f5d54e31657a3ee08385dcad3a93ff8f1d1fb1ea6dd216c8454d33f",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-ping",
+      "command": "mongosh 'mongodb://127.0.0.1:57018/fashion_profiles_final?directConnection=true&serverSelectionTimeoutMS=30000' --quiet --eval 'db.adminCommand({ping:1})'",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-load",
+      "command": "mongosh 'mongodb://127.0.0.1:57018/fashion_profiles_final?directConnection=true&serverSelectionTimeoutMS=30000' --quiet --file portfolio-4-nosql/scripts/load_and_verify.js",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-persisted",
+      "command": "mongosh 'mongodb://127.0.0.1:57018/fashion_profiles_final?directConnection=true&serverSelectionTimeoutMS=30000' --quiet --file portfolio-4-nosql/scripts/verify_persisted.js",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-queries",
+      "command": "mongosh 'mongodb://127.0.0.1:57018/fashion_profiles_final?directConnection=true&serverSelectionTimeoutMS=30000' --quiet --file portfolio-4-nosql/queries/run_and_check.js",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-hint",
+      "command": "mongosh 'mongodb://127.0.0.1:57018/fashion_profiles_final?directConnection=true&serverSelectionTimeoutMS=30000' --quiet --file portfolio-4-nosql/queries/inspect_index.js",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "mongo-stop",
+      "command": "docker stop fashion-final-20261017",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    },
+    {
+      "step": "pg-stop",
+      "command": "pg_ctl -D /tmp/fashion-final-ykizgt3z/data -m fast -w stop",
+      "database": "fashion_final_unsafe",
+      "exit_code": 0
+    }
+  ],
+  "completed_utc": "2026-10-17T13:49:14.173231+00:00",
+  "environment": {
+    "PATH_prefix": "/Library/PostgreSQL/18/bin",
+    "PGHOST": "/tmp/fashion-final-ykizgt3z/socket",
+    "PGPORT": "55433",
+    "PGUSER": "mac",
+    "PROFILE_OUTPUT_DIR": "/Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/mongo-import",
+    "QUERY_OUTPUT_DIR": "/Users/mac/advanced-database-portfolio/evidence/reproducibility-2026-10-17/mongo-queries",
+    "QUERY_OVERRIDE_DIR_for_query_rewrite_check": "portfolio-2-query-optimisation/optimisation"
+  }
+}

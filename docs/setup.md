@@ -75,7 +75,7 @@ Country-code constraints validate two uppercase letters only. Semantic country-l
 
 Schema creation and 35 integrity/workflow assertions passed on PostgreSQL 18.1. The tests force deferred validators at checkpoints and roll back fixture rows. Identity sequences can still advance after rolled-back inserts; generated order/payment IDs are captured dynamically. This is not yet a Portfolio 3 COMMIT/isolation/concurrency demonstration.
 
-Reproducible sample data and optional scale data are supplied in [sample-data documentation](sample-data.md). Broad management queries, two-session races, retry/deadlock behaviour, measured plans, NoSQL setup, and distributed/cloud evidence remain pending. Next: Portfolio 2 query development.
+Reproducible sample data and optional scale data are supplied in [sample-data documentation](sample-data.md). Subsequent portfolios now contain management queries, measured plans, two-session demonstrations, MongoDB implementation, and distributed/cloud discussion. The [final reproduction evidence](../evidence/reproducibility-2026-10-17/README.md) records a fresh run of the implemented workflows. Broader retry/deadlock schedules and distributed runtime behaviour remain untested.
 
 ## Subsequent NoSQL runtime verification
 

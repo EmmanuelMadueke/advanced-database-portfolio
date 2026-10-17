@@ -1,0 +1,12 @@
+BEGIN
+CREATE SCHEMA
+REVOKE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 1
+COMMIT
+        sku         | available_quantity 
+--------------------+--------------------
+ LAST-SHIRT-M-BLACK |                  1
+(1 row)
+

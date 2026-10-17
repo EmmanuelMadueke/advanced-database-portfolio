@@ -1,0 +1,34 @@
+Pager usage is off.
+                                                     version                                                      
+------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit
+(1 row)
+
+BEGIN
+SET
+SET
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+      purchase_role       | purchase_session 
+--------------------------+------------------
+ fashion_portfolio_writer |            31958
+(1 row)
+
+SET CONSTRAINTS
+Purchase constructed and validated; still inside transaction.
+ order_id | status | total_amount | currency_code 
+----------+--------+--------------+---------------
+        1 | paid   |     49000.00 | NGN
+(1 row)
+
+      sku      | available_quantity 
+---------------+--------------------
+ COMMIT-JACKET |                  4
+ COMMIT-SHIRT  |                  8
+(2 rows)
+
+COMMIT
+COMMIT acknowledged. Run 03_verify_commit.sql in a NEW psql connection.

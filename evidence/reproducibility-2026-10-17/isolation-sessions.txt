@@ -1,0 +1,21 @@
+A: PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit
+B: execute 07_isolation_observer.sql
+B: execute 08_isolation_observation.sql
+B: {"pid" : 31984, "isolation" : "read committed", "role" : "fashion_portfolio_writer", "read_only" : "on", "orders" : 0, "items" : 0, "payments" : 0, "paid_orders" : 0, "successes" : 0, "revenue" : 0, "shirt" : 10, "jacket" : 5}
+PASS: starting fixture has no purchases and stock 10/5
+A: execute 06_isolation_writer.sql
+A: execute 08_isolation_observation.sql
+A: {"pid" : 31982, "isolation" : "read committed", "role" : "fashion_portfolio_writer", "read_only" : "off", "orders" : 1, "items" : 2, "payments" : 1, "paid_orders" : 1, "successes" : 1, "revenue" : 49000.00, "shirt" : 8, "jacket" : 4}
+PASS: two distinct PostgreSQL sessions
+PASS: both transactions use READ COMMITTED and controlled writer role
+PASS: A sees its own uncommitted purchase and deductions
+B: execute 08_isolation_observation.sql
+B: {"pid" : 31984, "isolation" : "read committed", "role" : "fashion_portfolio_writer", "read_only" : "on", "orders" : 0, "items" : 0, "payments" : 0, "paid_orders" : 0, "successes" : 0, "revenue" : 0, "shirt" : 10, "jacket" : 5}
+PASS: B sees only original committed state while A stays open
+A: COMMIT (only after B completed the uncommitted-state observation)
+B: execute 08_isolation_observation.sql
+B: {"pid" : 31984, "isolation" : "read committed", "role" : "fashion_portfolio_writer", "read_only" : "on", "orders" : 1, "items" : 2, "payments" : 1, "paid_orders" : 1, "successes" : 1, "revenue" : 49000.00, "shirt" : 8, "jacket" : 4}
+PASS: same observer connection remains read-only
+PASS: B next statement sees complete purchase after A commit
+B: COMMIT (close the same observer transaction)
+7 two-session isolation checks passed.

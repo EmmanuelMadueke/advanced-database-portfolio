@@ -1,0 +1,574 @@
+{
+  "captured_at_utc": "2026-10-17T13:49:07.595290+00:00",
+  "protocol": {
+    "warmup_runs_per_query": 1,
+    "measured_runs_per_query": 5,
+    "explain": "ANALYZE, BUFFERS, TIMING OFF, FORMAT JSON",
+    "connection": "new psql connection per run; connection time excluded from server timings",
+    "cache": "not cleared; seed/ANALYZE and warm-up precede measurement",
+    "role": "schema owner; read-only connections",
+    "parallel_activity": "no deliberately concurrent workload; host noise uncontrolled"
+  },
+  "parameters": {
+    "category": "Clothing",
+    "brand": "Lagos Threads",
+    "audience": "unisex",
+    "size": "M",
+    "colour": "Black",
+    "min_price": "0",
+    "max_price": "20000",
+    "customer_email": "scale-0004@example.test",
+    "from_date": "2026-01-01",
+    "until_date": "2027-01-01"
+  },
+  "server": {
+    "version": "PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit",
+    "database": "fashion_final_sample",
+    "isolation": "read committed",
+    "timezone": "Africa/Lagos"
+  },
+  "settings": [
+    {
+      "name": "default_statistics_target",
+      "setting": "100",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "effective_cache_size",
+      "setting": "524288",
+      "unit": "8kB",
+      "source": "default"
+    },
+    {
+      "name": "enable_bitmapscan",
+      "setting": "on",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "enable_indexscan",
+      "setting": "on",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "enable_seqscan",
+      "setting": "on",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "jit",
+      "setting": "on",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "max_parallel_workers_per_gather",
+      "setting": "2",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "random_page_cost",
+      "setting": "4",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "seq_page_cost",
+      "setting": "1",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "shared_buffers",
+      "setting": "16384",
+      "unit": "8kB",
+      "source": "configuration file"
+    },
+    {
+      "name": "track_io_timing",
+      "setting": "off",
+      "unit": null,
+      "source": "default"
+    },
+    {
+      "name": "work_mem",
+      "setting": "4096",
+      "unit": "kB",
+      "source": "default"
+    }
+  ],
+  "tables": [
+    {
+      "table_name": "administrators",
+      "estimated_rows": 2,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "brands",
+      "estimated_rows": 3,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "cart_items",
+      "estimated_rows": 4,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "categories",
+      "estimated_rows": 3,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "colours",
+      "estimated_rows": 4,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "customer_addresses",
+      "estimated_rows": 1012,
+      "pages": 18,
+      "all_visible_pages": 18
+    },
+    {
+      "table_name": "customers",
+      "estimated_rows": 1012,
+      "pages": 14,
+      "all_visible_pages": 14
+    },
+    {
+      "table_name": "deliveries",
+      "estimated_rows": 6,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "inventory",
+      "estimated_rows": 1218,
+      "pages": 24,
+      "all_visible_pages": 24
+    },
+    {
+      "table_name": "order_items",
+      "estimated_rows": 10017,
+      "pages": 155,
+      "all_visible_pages": 155
+    },
+    {
+      "table_name": "orders",
+      "estimated_rows": 10012,
+      "pages": 521,
+      "all_visible_pages": 521
+    },
+    {
+      "table_name": "payments",
+      "estimated_rows": 2512,
+      "pages": 67,
+      "all_visible_pages": 67
+    },
+    {
+      "table_name": "product_variants",
+      "estimated_rows": 1218,
+      "pages": 14,
+      "all_visible_pages": 14
+    },
+    {
+      "table_name": "products",
+      "estimated_rows": 208,
+      "pages": 4,
+      "all_visible_pages": 4
+    },
+    {
+      "table_name": "shopping_carts",
+      "estimated_rows": 6,
+      "pages": 1,
+      "all_visible_pages": 1
+    },
+    {
+      "table_name": "sizes",
+      "estimated_rows": 7,
+      "pages": 1,
+      "all_visible_pages": 1
+    }
+  ],
+  "exact_row_counts": {
+    "administrators": 2,
+    "brands": 3,
+    "cart_items": 4,
+    "categories": 3,
+    "colours": 4,
+    "customer_addresses": 1012,
+    "customers": 1012,
+    "deliveries": 6,
+    "inventory": 1218,
+    "order_items": 10017,
+    "orders": 10012,
+    "payments": 2512,
+    "product_variants": 1218,
+    "products": 208,
+    "shopping_carts": 6,
+    "sizes": 7
+  },
+  "indexes": [
+    {
+      "tablename": "administrators",
+      "indexname": "administrators_email_key",
+      "indexdef": "CREATE UNIQUE INDEX administrators_email_key ON retail.administrators USING btree (email)"
+    },
+    {
+      "tablename": "administrators",
+      "indexname": "administrators_pkey",
+      "indexdef": "CREATE UNIQUE INDEX administrators_pkey ON retail.administrators USING btree (administrator_id)"
+    },
+    {
+      "tablename": "brands",
+      "indexname": "brands_canonical_name",
+      "indexdef": "CREATE UNIQUE INDEX brands_canonical_name ON retail.brands USING btree (lower(btrim((name)::text)))"
+    },
+    {
+      "tablename": "brands",
+      "indexname": "brands_pkey",
+      "indexdef": "CREATE UNIQUE INDEX brands_pkey ON retail.brands USING btree (brand_id)"
+    },
+    {
+      "tablename": "cart_items",
+      "indexname": "cart_items_pkey",
+      "indexdef": "CREATE UNIQUE INDEX cart_items_pkey ON retail.cart_items USING btree (cart_id, variant_id)"
+    },
+    {
+      "tablename": "categories",
+      "indexname": "categories_canonical_name",
+      "indexdef": "CREATE UNIQUE INDEX categories_canonical_name ON retail.categories USING btree (lower(btrim((name)::text)))"
+    },
+    {
+      "tablename": "categories",
+      "indexname": "categories_pkey",
+      "indexdef": "CREATE UNIQUE INDEX categories_pkey ON retail.categories USING btree (category_id)"
+    },
+    {
+      "tablename": "colours",
+      "indexname": "colours_canonical_name",
+      "indexdef": "CREATE UNIQUE INDEX colours_canonical_name ON retail.colours USING btree (lower(btrim((name)::text)))"
+    },
+    {
+      "tablename": "colours",
+      "indexname": "colours_pkey",
+      "indexdef": "CREATE UNIQUE INDEX colours_pkey ON retail.colours USING btree (colour_id)"
+    },
+    {
+      "tablename": "customer_addresses",
+      "indexname": "customer_addresses_pkey",
+      "indexdef": "CREATE UNIQUE INDEX customer_addresses_pkey ON retail.customer_addresses USING btree (address_id)"
+    },
+    {
+      "tablename": "customers",
+      "indexname": "customers_email_key",
+      "indexdef": "CREATE UNIQUE INDEX customers_email_key ON retail.customers USING btree (email)"
+    },
+    {
+      "tablename": "customers",
+      "indexname": "customers_pkey",
+      "indexdef": "CREATE UNIQUE INDEX customers_pkey ON retail.customers USING btree (customer_id)"
+    },
+    {
+      "tablename": "deliveries",
+      "indexname": "deliveries_order_id_key",
+      "indexdef": "CREATE UNIQUE INDEX deliveries_order_id_key ON retail.deliveries USING btree (order_id)"
+    },
+    {
+      "tablename": "deliveries",
+      "indexname": "deliveries_pkey",
+      "indexdef": "CREATE UNIQUE INDEX deliveries_pkey ON retail.deliveries USING btree (delivery_id)"
+    },
+    {
+      "tablename": "inventory",
+      "indexname": "inventory_pkey",
+      "indexdef": "CREATE UNIQUE INDEX inventory_pkey ON retail.inventory USING btree (variant_id)"
+    },
+    {
+      "tablename": "order_items",
+      "indexname": "order_items_pkey",
+      "indexdef": "CREATE UNIQUE INDEX order_items_pkey ON retail.order_items USING btree (order_id, variant_id)"
+    },
+    {
+      "tablename": "orders",
+      "indexname": "orders_pkey",
+      "indexdef": "CREATE UNIQUE INDEX orders_pkey ON retail.orders USING btree (order_id)"
+    },
+    {
+      "tablename": "orders",
+      "indexname": "reporting_orders_customer_history",
+      "indexdef": "CREATE INDEX reporting_orders_customer_history ON retail.orders USING btree (customer_id, created_at DESC, order_id DESC)"
+    },
+    {
+      "tablename": "orders",
+      "indexname": "reporting_orders_paid_date",
+      "indexdef": "CREATE INDEX reporting_orders_paid_date ON retail.orders USING btree (paid_at) INCLUDE (order_id, total_amount) WHERE ((status)::text = ANY ((ARRAY['paid'::character varying, 'processing'::character varying, 'dispatched'::character varying, 'delivered'::character varying])::text[]))"
+    },
+    {
+      "tablename": "payments",
+      "indexname": "one_successful_payment",
+      "indexdef": "CREATE UNIQUE INDEX one_successful_payment ON retail.payments USING btree (order_id) WHERE ((status)::text = 'succeeded'::text)"
+    },
+    {
+      "tablename": "payments",
+      "indexname": "payments_pkey",
+      "indexdef": "CREATE UNIQUE INDEX payments_pkey ON retail.payments USING btree (payment_id)"
+    },
+    {
+      "tablename": "payments",
+      "indexname": "payments_provider_reference_key",
+      "indexdef": "CREATE UNIQUE INDEX payments_provider_reference_key ON retail.payments USING btree (provider_reference)"
+    },
+    {
+      "tablename": "payments",
+      "indexname": "reporting_payments_order",
+      "indexdef": "CREATE INDEX reporting_payments_order ON retail.payments USING btree (order_id) INCLUDE (status, provider_reference)"
+    },
+    {
+      "tablename": "product_variants",
+      "indexname": "product_variants_pkey",
+      "indexdef": "CREATE UNIQUE INDEX product_variants_pkey ON retail.product_variants USING btree (variant_id)"
+    },
+    {
+      "tablename": "product_variants",
+      "indexname": "product_variants_product_id_size_id_colour_id_key",
+      "indexdef": "CREATE UNIQUE INDEX product_variants_product_id_size_id_colour_id_key ON retail.product_variants USING btree (product_id, size_id, colour_id)"
+    },
+    {
+      "tablename": "product_variants",
+      "indexname": "product_variants_sku_key",
+      "indexdef": "CREATE UNIQUE INDEX product_variants_sku_key ON retail.product_variants USING btree (sku)"
+    },
+    {
+      "tablename": "products",
+      "indexname": "products_pkey",
+      "indexdef": "CREATE UNIQUE INDEX products_pkey ON retail.products USING btree (product_id)"
+    },
+    {
+      "tablename": "shopping_carts",
+      "indexname": "one_active_cart",
+      "indexdef": "CREATE UNIQUE INDEX one_active_cart ON retail.shopping_carts USING btree (customer_id) WHERE ((status)::text = 'active'::text)"
+    },
+    {
+      "tablename": "shopping_carts",
+      "indexname": "shopping_carts_pkey",
+      "indexdef": "CREATE UNIQUE INDEX shopping_carts_pkey ON retail.shopping_carts USING btree (cart_id)"
+    },
+    {
+      "tablename": "sizes",
+      "indexname": "sizes_canonical_name",
+      "indexdef": "CREATE UNIQUE INDEX sizes_canonical_name ON retail.sizes USING btree (lower(btrim((label)::text)))"
+    },
+    {
+      "tablename": "sizes",
+      "indexname": "sizes_pkey",
+      "indexdef": "CREATE UNIQUE INDEX sizes_pkey ON retail.sizes USING btree (size_id)"
+    }
+  ],
+  "statistics": [
+    {
+      "relname": "administrators",
+      "last_analyze": "2026-10-17T14:49:05.663249+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 2,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "brands",
+      "last_analyze": "2026-10-17T14:49:05.619573+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 3,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "cart_items",
+      "last_analyze": "2026-10-17T14:49:05.631414+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 4,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "categories",
+      "last_analyze": "2026-10-17T14:49:05.617108+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 3,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "colours",
+      "last_analyze": "2026-10-17T14:49:05.627017+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 4,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "customer_addresses",
+      "last_analyze": "2026-10-17T14:49:05.615888+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 1012,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "customers",
+      "last_analyze": "2026-10-17T14:49:05.614454+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 1012,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "deliveries",
+      "last_analyze": "2026-10-17T14:49:05.662289+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 6,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "inventory",
+      "last_analyze": "2026-10-17T14:49:05.628646+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 1218,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "order_items",
+      "last_analyze": "2026-10-17T14:49:05.656623+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 10017,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "orders",
+      "last_analyze": "2026-10-17T14:49:05.645859+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 10012,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "payments",
+      "last_analyze": "2026-10-17T14:49:05.659398+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 2512,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "product_variants",
+      "last_analyze": "2026-10-17T14:49:05.624449+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 1218,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "products",
+      "last_analyze": "2026-10-17T14:49:05.61843+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 208,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "shopping_carts",
+      "last_analyze": "2026-10-17T14:49:05.6307+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 6,
+      "n_dead_tup": 0
+    },
+    {
+      "relname": "sizes",
+      "last_analyze": "2026-10-17T14:49:05.625908+01:00",
+      "last_autoanalyze": null,
+      "n_live_tup": 7,
+      "n_dead_tup": 0
+    }
+  ],
+  "status_distribution": [
+    {
+      "status": "cancelled",
+      "rows": 2
+    },
+    {
+      "status": "delivered",
+      "rows": 3
+    },
+    {
+      "status": "dispatched",
+      "rows": 2
+    },
+    {
+      "status": "paid",
+      "rows": 2502
+    },
+    {
+      "status": "pending",
+      "rows": 7502
+    },
+    {
+      "status": "processing",
+      "rows": 1
+    }
+  ],
+  "paid_day_distribution": [
+    {
+      "paid_day": "2026-10-17",
+      "rows": 2508
+    }
+  ],
+  "category_distribution": [
+    {
+      "category": "Accessories",
+      "products": 2
+    },
+    {
+      "category": "Clothing",
+      "products": 204
+    },
+    {
+      "category": "Footwear",
+      "products": 2
+    }
+  ],
+  "summaries": [
+    {
+      "query": "01_catalogue",
+      "rows": 201,
+      "median_execution_ms": 0.655,
+      "min_execution_ms": 0.608,
+      "max_execution_ms": 0.695
+    },
+    {
+      "query": "03_customer_history",
+      "rows": 10,
+      "median_execution_ms": 0.116,
+      "min_execution_ms": 0.109,
+      "max_execution_ms": 0.126
+    },
+    {
+      "query": "04_open_orders",
+      "rows": 10007,
+      "median_execution_ms": 3.201,
+      "min_execution_ms": 3.1,
+      "max_execution_ms": 3.262
+    },
+    {
+      "query": "06_best_selling_variants",
+      "rows": 312,
+      "median_execution_ms": 2.744,
+      "min_execution_ms": 2.64,
+      "max_execution_ms": 2.808
+    },
+    {
+      "query": "10_revenue_summary",
+      "rows": 1,
+      "median_execution_ms": 0.191,
+      "min_execution_ms": 0.187,
+      "max_execution_ms": 0.244
+    }
+  ]
+}

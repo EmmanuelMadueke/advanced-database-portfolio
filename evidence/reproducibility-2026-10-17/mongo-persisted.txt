@@ -1,0 +1,5 @@
+PASS persisted: source, enrichment, and validator hashes match manifest
+PASS persisted: exact profiles and SQL references match from fresh connection
+PASS persisted: strict/error validator matches saved definition
+PASS persisted: all stored documents satisfy validator
+4 fresh-connection checks passed. MongoDB 8.0.34, mongosh 2.5.10

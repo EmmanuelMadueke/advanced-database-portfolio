@@ -1,0 +1,6 @@
+01_catalogue: 201 rows; median execution 0.700 ms (5 runs)
+03_customer_history: 10 rows; median execution 1.444 ms (5 runs)
+04_open_orders: 10007 rows; median execution 3.316 ms (5 runs)
+06_best_selling_variants: 312 rows; median execution 3.552 ms (5 runs)
+10_revenue_summary: 1 rows; median execution 1.055 ms (5 runs)
+Captured 1 warm-up and repeated measured plans per query; collector made no schema changes.

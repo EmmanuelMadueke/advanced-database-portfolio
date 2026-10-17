@@ -1,0 +1,103 @@
+[
+  {
+    "_id": "1",
+    "schema_version": {
+      "$numberInt": "1"
+    },
+    "profile_type": "accessory",
+    "sql_context": {
+      "name": "Tote Bag",
+      "category": "Accessories",
+      "brand": "Lagos Threads",
+      "audience": "unisex",
+      "is_active": true
+    },
+    "tags": [
+      "everyday",
+      "reusable"
+    ],
+    "attributes": {
+      "materials": [
+        "cotton canvas"
+      ],
+      "features": [
+        "inner pocket"
+      ],
+      "dimensions_cm": {
+        "height": {
+          "$numberInt": "38"
+        },
+        "width": {
+          "$numberInt": "34"
+        },
+        "depth": {
+          "$numberInt": "10"
+        }
+      }
+    }
+  },
+  {
+    "_id": "2",
+    "schema_version": {
+      "$numberInt": "1"
+    },
+    "profile_type": "clothing",
+    "sql_context": {
+      "name": "Classic T-Shirt",
+      "category": "Clothing",
+      "brand": "Lagos Threads",
+      "audience": "unisex",
+      "is_active": true
+    },
+    "tags": [
+      "everyday"
+    ],
+    "attributes": {
+      "composition": [
+        {
+          "material": "cotton",
+          "percent": {
+            "$numberInt": "95"
+          }
+        },
+        {
+          "material": "elastane",
+          "percent": {
+            "$numberInt": "5"
+          }
+        }
+      ],
+      "fit": "regular",
+      "care": [
+        "Wash at 30 C",
+        "Do not bleach"
+      ]
+    }
+  },
+  {
+    "_id": "7",
+    "schema_version": {
+      "$numberInt": "1"
+    },
+    "profile_type": "footwear",
+    "sql_context": {
+      "name": "Canvas Sneakers",
+      "category": "Footwear",
+      "brand": "Urban Steps",
+      "audience": "unisex",
+      "is_active": true
+    },
+    "tags": [
+      "casual"
+    ],
+    "attributes": {
+      "upper_materials": [
+        "cotton canvas"
+      ],
+      "sole_materials": [
+        "rubber"
+      ],
+      "fastening": "lace-up"
+    }
+  }
+]

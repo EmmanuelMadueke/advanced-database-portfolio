@@ -1,0 +1,25 @@
+A: PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit
+A: execute 12_unsafe_result.sql
+A: {"pid" : 32036, "stock" : 1, "purchases" : 0, "buyers" : 0, "units_sold" : 0}
+PASS: one available unit and no prior purchases
+A: execute 10_unsafe_read.sql
+A: {"pid" : 32036, "isolation" : "read committed", "observed_stock" : 1}
+B: execute 10_unsafe_read.sql
+B: {"pid" : 32038, "isolation" : "read committed", "observed_stock" : 1}
+PASS: buyers use distinct sessions
+PASS: both transactions use READ COMMITTED
+PASS: both independently observed the same last unit
+Schedule: both reads completed; A now writes and commits, then B uses its stale value.
+A: execute 11_unsafe_accept.sql
+A: Accepted purchase committed for Buyer A using observed stock 1
+B: execute 11_unsafe_accept.sql
+B: Accepted purchase committed for Buyer B using observed stock 1
+Verifier: execute 12_unsafe_result.sql
+Verifier: {"pid" : 32040, "stock" : 0, "purchases" : 2, "buyers" : 2, "units_sold" : 2}
+Verifier: Buyer A|LAST-SHIRT-M-BLACK|1
+Verifier: Buyer B|LAST-SHIRT-M-BLACK|1
+PASS: verification uses a fresh connection
+PASS: both buyers committed one-unit purchases
+PASS: nonnegative stock check passes despite overselling
+PASS: conservation broken: stock plus sold units exceeds starting unit
+8 unsafe-race checks passed: the intended defect was reproduced, not prevented.

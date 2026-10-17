@@ -1,0 +1,42 @@
+Pager usage is off.
+                                                     version                                                      
+------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit
+(1 row)
+
+BEGIN
+SET
+SET
+ transaction_isolation 
+-----------------------
+ read committed
+(1 row)
+
+      purchase_role       | rollback_session 
+--------------------------+------------------
+ fashion_portfolio_writer |            31969
+(1 row)
+
+SET CONSTRAINTS
+Purchase constructed and validated; still inside transaction.
+ order_id | status | total_amount | currency_code 
+----------+--------+--------------+---------------
+        1 | paid   |     49000.00 | NGN
+(1 row)
+
+      sku      | available_quantity 
+---------------+--------------------
+ COMMIT-JACKET |                  4
+ COMMIT-SHIRT  |                  8
+(2 rows)
+
+ payment_id |  status   |  amount  | provider_reference 
+------------+-----------+----------+--------------------
+          1 | succeeded | 49000.00 | P3-ROLLBACK-001
+(1 row)
+
+psql:portfolio-3-transactions-concurrency/sql/04_rollback_purchase.sql:26: ERROR:  simulated checkout failure before commit
+CONTEXT:  PL/pgSQL function inline_code_block line 1 at RAISE
+ROLLBACK
+PASS: expected checkout failure P0001 observed; explicit ROLLBACK completed.
+Run 05_verify_rollback.sql in a NEW psql connection.

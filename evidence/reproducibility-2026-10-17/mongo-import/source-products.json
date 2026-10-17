@@ -1,0 +1,71 @@
+{
+  "source_database": "fashion_final_sample",
+  "server_version": "PostgreSQL 18.1 on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.6), 64-bit",
+  "exported_at": "2026-10-17T13:49:01.86657+00:00",
+  "products": [
+    {
+      "product_id": "1",
+      "name": "Tote Bag",
+      "category": "Accessories",
+      "brand": "Lagos Threads",
+      "audience": "unisex",
+      "is_active": true
+    },
+    {
+      "product_id": "2",
+      "name": "Classic T-Shirt",
+      "category": "Clothing",
+      "brand": "Lagos Threads",
+      "audience": "unisex",
+      "is_active": true
+    },
+    {
+      "product_id": "3",
+      "name": "Linen Shirt",
+      "category": "Clothing",
+      "brand": "Lagos Threads",
+      "audience": "men",
+      "is_active": true
+    },
+    {
+      "product_id": "4",
+      "name": "Leather Belt",
+      "category": "Accessories",
+      "brand": "Coastline Wear",
+      "audience": "unisex",
+      "is_active": true
+    },
+    {
+      "product_id": "5",
+      "name": "Midi Dress",
+      "category": "Clothing",
+      "brand": "Coastline Wear",
+      "audience": "women",
+      "is_active": true
+    },
+    {
+      "product_id": "6",
+      "name": "Kids Hoodie",
+      "category": "Clothing",
+      "brand": "Coastline Wear",
+      "audience": "kids",
+      "is_active": true
+    },
+    {
+      "product_id": "7",
+      "name": "Canvas Sneakers",
+      "category": "Footwear",
+      "brand": "Urban Steps",
+      "audience": "unisex",
+      "is_active": true
+    },
+    {
+      "product_id": "8",
+      "name": "Leather Sandals",
+      "category": "Footwear",
+      "brand": "Urban Steps",
+      "audience": "men",
+      "is_active": true
+    }
+  ]
+}

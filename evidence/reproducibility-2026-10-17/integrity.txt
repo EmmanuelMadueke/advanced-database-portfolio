@@ -1,0 +1,288 @@
+BEGIN
+SET
+CREATE FUNCTION
+CREATE FUNCTION
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 3
+INSERT 0 1
+INSERT 0 2
+INSERT 0 2
+INSERT 0 1
+SET CONSTRAINTS
+SET CONSTRAINTS
+psql:portfolio-1-database-design/tests/integrity.sql:47: NOTICE:  PASS: 16 base tables
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:49: NOTICE:  PASS: invalid customer FK (rejected with 23503)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:51: NOTICE:  PASS: duplicate variant combination (rejected with 23505)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:53: NOTICE:  PASS: case-insensitive category uniqueness (rejected with 23505)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:55: NOTICE:  PASS: one active cart (rejected with 23505)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:57: NOTICE:  PASS: negative stock (rejected with 23514)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:59: NOTICE:  PASS: invalid cart quantity (rejected with 23514)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:61: NOTICE:  PASS: NaN price (rejected with 23514)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:63: NOTICE:  PASS: missing inventory at transaction boundary (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:65: NOTICE:  PASS: inventory cannot be removed (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:67: NOTICE:  PASS: excess fractional money (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:70: NOTICE:  PASS: restricted order start status (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+SET
+psql:portfolio-1-database-design/tests/integrity.sql:74: NOTICE:  PASS: writer cannot directly alter stock (rejected with 42501)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:76: NOTICE:  PASS: writer cannot rewrite order history (rejected with 42501)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+ set_cart_item 
+---------------
+ 
+(1 row)
+
+ set_cart_item 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:80: NOTICE:  PASS: cart upsert combines line
+ assert_true 
+-------------
+ 
+(1 row)
+
+ set_cart_item 
+---------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:82: NOTICE:  PASS: cart removal
+ assert_true 
+-------------
+ 
+(1 row)
+
+ record_failed_payment 
+-----------------------
+                     1
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:86: NOTICE:  PASS: failed payment does not deduct stock
+ assert_true 
+-------------
+ 
+(1 row)
+
+SET CONSTRAINTS
+SET CONSTRAINTS
+RESET
+UPDATE 1
+UPDATE 1
+psql:portfolio-1-database-design/tests/integrity.sql:93: NOTICE:  PASS: incorrect aggregate rejected (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:95: NOTICE:  PASS: invalid status transition (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:101: NOTICE:  PASS: invalid payment amount (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+SET
+SET CONSTRAINTS
+SET CONSTRAINTS
+psql:portfolio-1-database-design/tests/integrity.sql:107: NOTICE:  PASS: successful purchase updates stock
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:109: NOTICE:  PASS: finalisation captures current price
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:111: NOTICE:  PASS: destination snapshot survives saved-address edit
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:113: NOTICE:  PASS: finalisation replay returns same payment
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:115: NOTICE:  PASS: replay does not deduct again
+ assert_true 
+-------------
+ 
+(1 row)
+
+ dispatch_order 
+----------------
+ 
+(1 row)
+
+ deliver_order 
+---------------
+ 
+(1 row)
+
+SET CONSTRAINTS
+SET CONSTRAINTS
+psql:portfolio-1-database-design/tests/integrity.sql:121: NOTICE:  PASS: order and delivery finish together
+ assert_true 
+-------------
+ 
+(1 row)
+
+RESET
+psql:portfolio-1-database-design/tests/integrity.sql:124: NOTICE:  PASS: purchased line cannot change (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:126: NOTICE:  PASS: terminal payment cannot change (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+UPDATE 1
+psql:portfolio-1-database-design/tests/integrity.sql:129: NOTICE:  PASS: paid price snapshot survives catalogue edit
+ assert_true 
+-------------
+ 
+(1 row)
+
+SET
+RESET
+psql:portfolio-1-database-design/tests/integrity.sql:134: NOTICE:  PASS: duplicate provider reference (rejected with 23505)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+SET
+RESET
+UPDATE 1
+SET
+psql:portfolio-1-database-design/tests/integrity.sql:141: NOTICE:  PASS: checkout rechecks stock (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:143: NOTICE:  PASS: failed checkout leaves pending order and no success
+ assert_true 
+-------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:145: NOTICE:  PASS: multi-item checkout rolls back earlier deduction (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:149: NOTICE:  PASS: multi-item failure restores earlier stock and snapshots
+ assert_true 
+-------------
+ 
+(1 row)
+
+ cancel_order 
+--------------
+ 
+(1 row)
+
+psql:portfolio-1-database-design/tests/integrity.sql:152: NOTICE:  PASS: cancelled order cannot be paid (rejected with P0001)
+ expect_rejected 
+-----------------
+ 
+(1 row)
+
+RESET
+SET CONSTRAINTS
+ROLLBACK
+                        result                         
+-------------------------------------------------------
+ Fixture rolled back; no test customers/orders remain.
+(1 row)
+

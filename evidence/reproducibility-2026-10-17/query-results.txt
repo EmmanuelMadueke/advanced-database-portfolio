@@ -1,0 +1,146 @@
+BEGIN
+01_catalogue
+    sku    |  product_name   | category |     brand     | audience | size | colour | unit_price | available_quantity 
+-----------+-----------------+----------+---------------+----------+------+--------+------------+--------------------
+ TEE-BLK-M | Classic T-Shirt | Clothing | Lagos Threads | unisex   | M    | Black  |   12000.00 |                 18
+(1 row)
+
+02_inventory
+    sku     |  product_name   | variant_active | product_active | available_quantity | low_stock_threshold | stock_status 
+------------+-----------------+----------------+----------------+--------------------+---------------------+--------------
+ BLT-BRN-OS | Leather Belt    | t              | t              |                  4 |                   3 | available
+ DRS-BLK-M  | Midi Dress      | t              | t              |                  2 |                   3 | low_stock
+ DRS-BLU-S  | Midi Dress      | t              | t              |                  7 |                   3 | available
+ HOD-BLK-M  | Kids Hoodie     | t              | t              |                  8 |                   3 | available
+ HOD-BLU-S  | Kids Hoodie     | t              | t              |                 11 |                   3 | available
+ LIN-BLU-L  | Linen Shirt     | t              | t              |                  2 |                   3 | low_stock
+ LIN-WHT-M  | Linen Shirt     | t              | t              |                  9 |                   3 | available
+ SND-BLK-42 | Leather Sandals | t              | t              |                  4 |                   3 | available
+ SND-BRN-41 | Leather Sandals | t              | t              |                  4 |                   3 | available
+ SNK-BLK-41 | Canvas Sneakers | t              | t              |                  6 |                   3 | available
+ SNK-WHT-40 | Canvas Sneakers | t              | t              |                  5 |                   3 | available
+ SNK-WHT-42 | Canvas Sneakers | t              | t              |                  0 |                   3 | out_of_stock
+ TEE-BLK-L  | Classic T-Shirt | t              | t              |                  0 |                   3 | out_of_stock
+ TEE-BLK-M  | Classic T-Shirt | t              | t              |                 18 |                   3 | available
+ TEE-BLK-S  | Classic T-Shirt | t              | t              |                 14 |                   3 | available
+ TEE-WHT-M  | Classic T-Shirt | t              | t              |                 11 |                   3 | available
+ TOT-BLK-OS | Tote Bag        | t              | t              |                 18 |                   3 | available
+ TOT-WHT-OS | Tote Bag        | t              | t              |                 10 |                   3 | available
+(18 rows)
+
+03_customer_history
+       email       | order_id |          created_at          | order_status | total_amount | currency_code | payment_attempts | failed_attempts | successful_reference | delivery_status | tracking_reference 
+-------------------+----------+------------------------------+--------------+--------------+---------------+------------------+-----------------+----------------------+-----------------+--------------------
+ femi@example.test |       12 | 2026-10-17 14:49:00.83319+01 | paid         |     22500.00 | NGN           |                2 |               1 | DEMO-008             |                 | 
+(1 row)
+
+04_open_orders
+ order_id |        email        | order_status | total_amount |          created_at          | delivery_status | tracking_reference 
+----------+---------------------+--------------+--------------+------------------------------+-----------------+--------------------
+        6 | tunde@example.test  | dispatched   |     48000.00 | 2026-10-17 14:49:00.83319+01 | dispatched      | TRACK-DEMO-002
+        7 | zainab@example.test | processing   |     28000.00 | 2026-10-17 14:49:00.83319+01 | pending         | 
+        8 | chidi@example.test  | paid         |     47500.00 | 2026-10-17 14:49:00.83319+01 |                 | 
+        9 | bisi@example.test   | pending      |     19000.00 | 2026-10-17 14:49:00.83319+01 |                 | 
+       12 | femi@example.test   | paid         |     22500.00 | 2026-10-17 14:49:00.83319+01 |                 | 
+       13 | ngozi@example.test  | pending      |     29000.00 | 2026-10-17 14:49:00.83319+01 |                 | 
+       14 | seyi@example.test   | dispatched   |     35000.00 | 2026-10-17 14:49:00.83319+01 | dispatched      | TRACK-DEMO-010
+(7 rows)
+
+05_delivery_tracking
+ order_id |        email        | order_status | delivery_status |   carrier    | tracking_reference |         dispatched_at         |         delivered_at          
+----------+---------------------+--------------+-----------------+--------------+--------------------+-------------------------------+-------------------------------
+        5 | ada@example.test    | delivered    | delivered       | Demo Courier | TRACK-DEMO-001     | 2026-10-17 14:49:00.849287+01 | 2026-10-17 14:49:00.849625+01
+        6 | tunde@example.test  | dispatched   | dispatched      | Demo Courier | TRACK-DEMO-002     | 2026-10-17 14:49:00.851803+01 | 
+        7 | zainab@example.test | processing   | pending         |              |                    |                               | 
+       11 | amina@example.test  | delivered    | delivered       | Demo Courier | TRACK-DEMO-007     | 2026-10-17 14:49:00.857473+01 | 2026-10-17 14:49:00.857619+01
+       14 | seyi@example.test   | dispatched   | dispatched      | Demo Courier | TRACK-DEMO-010     | 2026-10-17 14:49:00.860172+01 | 
+       15 | nneka@example.test  | delivered    | delivered       | Demo Courier | TRACK-DEMO-011     | 2026-10-17 14:49:00.860997+01 | 2026-10-17 14:49:00.861122+01
+(6 rows)
+
+06_best_selling_variants
+    sku     | current_product_name | units_sold | purchase_orders | revenue_ngn 
+------------+----------------------+------------+-----------------+-------------
+ TEE-BLK-M  | Classic T-Shirt      |          2 |               1 |    24000.00
+ TOT-BLK-OS | Tote Bag             |          2 |               2 |    18000.00
+ SNK-BLK-41 | Canvas Sneakers      |          1 |               1 |    35000.00
+ SNK-WHT-40 | Canvas Sneakers      |          1 |               1 |    35000.00
+ DRS-BLU-S  | Midi Dress           |          1 |               1 |    28000.00
+ SND-BRN-41 | Leather Sandals      |          1 |               1 |    26000.00
+ LIN-BLU-L  | Linen Shirt          |          1 |               1 |    22500.00
+ LIN-WHT-M  | Linen Shirt          |          1 |               1 |    22000.00
+ BLT-BRN-OS | Leather Belt         |          1 |               1 |    18000.00
+ HOD-BLU-S  | Kids Hoodie          |          1 |               1 |    15000.00
+ TEE-WHT-M  | Classic T-Shirt      |          1 |               1 |    12500.00
+ TEE-BLK-S  | Classic T-Shirt      |          1 |               1 |    12000.00
+(12 rows)
+
+07_sales_by_product
+ current_product_name | units_sold | purchase_orders | revenue_ngn 
+----------------------+------------+-----------------+-------------
+ Canvas Sneakers      |          2 |               2 |    70000.00
+ Classic T-Shirt      |          4 |               3 |    48500.00
+ Linen Shirt          |          2 |               2 |    44500.00
+ Midi Dress           |          1 |               1 |    28000.00
+ Leather Sandals      |          1 |               1 |    26000.00
+ Tote Bag             |          2 |               2 |    18000.00
+ Leather Belt         |          1 |               1 |    18000.00
+ Kids Hoodie          |          1 |               1 |    15000.00
+(8 rows)
+
+08_sales_by_category
+ current_category | units_sold | purchase_orders | revenue_ngn 
+------------------+------------+-----------------+-------------
+ Clothing         |          8 |               6 |   136000.00
+ Footwear         |          3 |               3 |    96000.00
+ Accessories      |          3 |               2 |    36000.00
+(3 rows)
+
+09_monthly_sales
+ month_start | paid_orders | revenue_ngn 
+-------------+-------------+-------------
+ 2026-01-01  |           0 |           0
+ 2026-02-01  |           0 |           0
+ 2026-03-01  |           0 |           0
+ 2026-04-01  |           0 |           0
+ 2026-05-01  |           0 |           0
+ 2026-06-01  |           0 |           0
+ 2026-07-01  |           0 |           0
+ 2026-08-01  |           0 |           0
+ 2026-09-01  |           0 |           0
+ 2026-10-01  |           8 |   268000.00
+ 2026-11-01  |           0 |           0
+ 2026-12-01  |           0 |           0
+(12 rows)
+
+10_revenue_summary
+ paid_orders | revenue_ngn | average_order_ngn 
+-------------+-------------+-------------------
+           8 |   268000.00 |          33500.00
+(1 row)
+
+11_customer_activity
+        email         | first_name | last_name | paid_orders | total_spend_ngn |         last_paid_at          
+----------------------+------------+-----------+-------------+-----------------+-------------------------------
+ tunde@example.test   | Tunde      | Bello     |           1 |        48000.00 | 2026-10-17 14:49:00.851483+01
+ chidi@example.test   | Chidi      | Nwosu     |           1 |        47500.00 | 2026-10-17 14:49:00.854628+01
+ seyi@example.test    | Seyi       | Ojo       |           1 |        35000.00 | 2026-10-17 14:49:00.859916+01
+ ada@example.test     | Ada        | Okafor    |           1 |        33000.00 | 2026-10-17 14:49:00.847425+01
+ zainab@example.test  | Zainab     | Yusuf     |           1 |        28000.00 | 2026-10-17 14:49:00.853064+01
+ amina@example.test   | Amina      | Musa      |           1 |        27000.00 | 2026-10-17 14:49:00.857106+01
+ nneka@example.test   | Nneka      | Obi       |           1 |        27000.00 | 2026-10-17 14:49:00.860758+01
+ femi@example.test    | Femi       | Lawal     |           1 |        22500.00 | 2026-10-17 14:49:00.858899+01
+ bisi@example.test    | Bisi       | Adeleke   |           0 |               0 | 
+ ibrahim@example.test | Ibrahim    | Ali       |           0 |               0 | 
+ ife@example.test     | Ife        | Eze       |           0 |               0 | 
+ ngozi@example.test   | Ngozi      | Uche      |           0 |               0 | 
+(12 rows)
+
+12_payment_exceptions
+ order_id |       email        | order_status | payment_id | payment_status | method |  amount  | provider_reference |          created_at          
+----------+--------------------+--------------+------------+----------------+--------+----------+--------------------+------------------------------
+        9 | bisi@example.test  | pending      |          9 | failed         | card   | 19000.00 | DEMO-005-FAIL      | 2026-10-17 14:49:00.83319+01
+       10 | ife@example.test   | cancelled    |         10 | failed         | card   | 18000.00 | DEMO-006-FAIL      | 2026-10-17 14:49:00.83319+01
+       13 | ngozi@example.test | pending      |         14 | pending        | card   | 29000.00 | DEMO-009-PENDING   | 2026-10-17 14:49:00.83319+01
+(3 rows)
+
+COMMIT
