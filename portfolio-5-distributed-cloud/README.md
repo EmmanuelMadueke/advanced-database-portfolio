@@ -12,13 +12,15 @@ This activity will build on the implemented PostgreSQL checkout and MongoDB cata
 
 - [x] Choose a discussion or practical setup path.
 - [x] Explain replication and availability, including outage/failover behaviour.
-- [ ] Explain consistency and sharding, including stock and customer-order visibility.
+- [x] Explain consistency and sharding, including stock and customer-order visibility.
 - [ ] Produce a sourced architecture diagram and concrete failure scenarios.
 - [ ] Consolidate design assumptions, operational trade-offs, references, and conclusions.
 
 The [replication and availability analysis](replication-availability.md) now defines proposed node roles, acknowledgement choices, failover safeguards, and outage responses using official sources.
 
-Next: explain consistency and sharding, including replica lag, customer order visibility, and cross-partition checkout.
+The [consistency and sharding analysis](consistency-sharding.md) now explains read routes, replica versus cross-store staleness, candidate keys, and the cost of splitting checkout across partitions. The proposed initial deployment remains unsharded.
+
+Next: produce the sourced architecture diagram and concrete failure/consistency scenarios.
 
 ## Existing evidence used as the starting point
 
