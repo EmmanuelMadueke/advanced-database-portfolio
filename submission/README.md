@@ -13,7 +13,7 @@ The document is finalised as a three-page summary at Emmanuel's request. Its ref
 
 The reflection uses a description–analysis–future-action structure informed by the [University of Edinburgh Reflection Toolkit](https://reflection.ed.ac.uk/reflectors-toolkit/reflecting-on-experience/what-so-what-now-what) and [Monash reflective-practice guidance](https://www.monash.edu/student-academic-success/excel-at-writing/how-to-write/reflection/reflective-practice), consulted on 17 October 2026. These public sources informed structure; the project examples and personal contributions come from this portfolio. Both sources are acknowledged in the PDF.
 
-Private-repository status, assessor access and LMS upload remain separate outstanding actions. Finalising this document does not assert that those actions, or independent student runtime verification, have occurred. The historical working AI-use record remains unchanged; the summary contains a declaration covering assistance across the portfolio.
+The [access review](access-review.md) confirms the summary push and progressive history; private-repository status, assessor access and LMS upload remain outstanding. Finalising this document does not assert that those actions, or independent student runtime verification, have occurred. The historical working AI-use record remains unchanged; the summary contains a declaration covering assistance across the portfolio.
 
 Retain the distinction between source commit `5ba7d37` and evidence commit `20387ce`, and between local runtime checks and untested distributed proposals.
 
