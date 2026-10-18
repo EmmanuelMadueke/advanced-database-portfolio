@@ -17,6 +17,10 @@ The [access review](access-review.md) confirms the summary push and progressive 
 
 Retain the distinction between source commit `5ba7d37` and evidence commit `20387ce`, and between local runtime checks and untested distributed proposals.
 
+## Technical verification preparation
+
+A [case-specific preparation guide](../docs/technical-verification.md) links likely questions to source, outputs, and limitations across all five activities. It includes a rehearsal procedure but does not claim that Emmanuel has completed it.
+
 ## PDF production and checks
 
 The PDF was rendered from the local HTML with Chrome headless, using A4 CSS and explicit page boundaries. `pdfinfo` reports three A4 pages; extracted text contains all five activity sections and all three footers. All pages were visually inspected for clipping and readability. Repository file links in the HTML were mapped to existing local targets; remote permissions and external URL availability were not tested.

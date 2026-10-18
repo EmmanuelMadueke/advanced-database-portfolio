@@ -86,6 +86,7 @@ The main objectives of this project are to:
 - [Portfolio 4 NoSQL use case and progress](portfolio-4-nosql/README.md)
 - [Portfolio 5 distributed/cloud scope and progress](portfolio-5-distributed-cloud/README.md)
 - [Assessment audit and remaining submission work](docs/assessment-audit.md)
+- [Technical-verification preparation](docs/technical-verification.md)
 - [Fresh reproducibility results](evidence/reproducibility-2026-10-17/README.md)
 - [Three-page LMS summary](submission/README.md)
 - [AI-use working record](docs/ai-use.md)
