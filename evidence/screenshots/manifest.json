@@ -1,0 +1,227 @@
+{
+  "capture_date": "2026-10-22",
+  "runtime_evidence_date": "2026-10-17",
+  "method": "Headless Chrome browser screenshots of local evidence viewers and SVG diagrams; no new database execution",
+  "viewport": "1600x1400",
+  "items": [
+    {
+      "screenshot": "01-schema-checks.png",
+      "viewer": "01-schema-checks.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/integrity.txt",
+          "sha256": "ff10d6940922159ad68219a60209468ab43f2558f30a74191dd90f6cf45c2640",
+          "selected_line_numbers": [
+            208,
+            215,
+            221,
+            228,
+            236,
+            246,
+            252,
+            258,
+            264,
+            275
+          ]
+        }
+      ],
+      "screenshot_sha256": "c623cf1f638ee8f828c83d7fb59cb863990a57570bda6098e7ff0b47123226a2",
+      "viewer_sha256": "dc29ffeec6474a2a1624ffbb50bd1e299c81695fd3c14e911748b67355c2032b"
+    },
+    {
+      "screenshot": "02-query-optimisation.png",
+      "viewer": "02-query-optimisation.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/compare-final.txt",
+          "sha256": "a8bc568ba02964d109bb2eb4c1a07bf0a00ee107853bb5cb78bb07ad7f409dfa",
+          "selected_line_numbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ],
+      "screenshot_sha256": "ea742ed1c39c13530cf962434b41103c1cb0917e23fcd60549e1d9f8b6a73546",
+      "viewer_sha256": "02eb81e9ed648b90ca24621923f210c4bfc84ba8fc70437574c437b5f6b8c005"
+    },
+    {
+      "screenshot": "03-commit.png",
+      "viewer": "03-commit.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/commit-verify.txt",
+          "sha256": "d952fb8b38190aed625a0e154cfcf0f328742b908246d8319018b91bebf758d7",
+          "selected_line_numbers": [
+            10,
+            16,
+            22,
+            28,
+            34,
+            40,
+            46,
+            52,
+            70
+          ]
+        }
+      ],
+      "screenshot_sha256": "41a9903273cc2cd2dc34fd085ae0f5f23d65af4b6bc1f82b543890465db5242c",
+      "viewer_sha256": "2f3a54d8372328c08ef0fcfbfee72d147c806f4989a3a5fba448bd4a371bd07f"
+    },
+    {
+      "screenshot": "04-rollback.png",
+      "viewer": "04-rollback.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/rollback-verify.txt",
+          "sha256": "a0f3515e724652b8b06ebd46a25d7f3afdf4f0edca3d7499c2974312849bc698",
+          "selected_line_numbers": [
+            10,
+            16,
+            22,
+            28,
+            34,
+            40,
+            58
+          ]
+        }
+      ],
+      "screenshot_sha256": "86fe2a153b3e55de3e417aff18113da140533bbfbadfd71a4fae97cc32bac759",
+      "viewer_sha256": "a8255151b5982b908dd341aa4782163dd5ad191ac4578edec756400b2f1b5193"
+    },
+    {
+      "screenshot": "05-isolation.png",
+      "viewer": "05-isolation.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/isolation-sessions.txt",
+          "sha256": "cee99550417f5ca013db478b875acc361714668cc65a0733b1363c57834894cb",
+          "selected_line_numbers": [
+            5,
+            9,
+            10,
+            11,
+            14,
+            18,
+            19,
+            21
+          ]
+        }
+      ],
+      "screenshot_sha256": "1fcb3bd580ec6b63d8e2cbb673222dc840a5f7341bdb765307ebc27016baf48e",
+      "viewer_sha256": "963ff04ba02a32f038fa19c9e16461cfc8d0c2819d0f2b50d7919916cc489607"
+    },
+    {
+      "screenshot": "06-concurrency.png",
+      "viewer": "06-concurrency.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/unsafe-sessions.txt",
+          "sha256": "43acbaf3c94a37bce380c73e6a6ec971244fd628d349a0fa28c84c75ecccda53",
+          "selected_line_numbers": [
+            4,
+            9,
+            10,
+            11,
+            21,
+            22,
+            23,
+            24,
+            25
+          ]
+        },
+        {
+          "path": "evidence/reproducibility-2026-10-17/protected-sessions.txt",
+          "sha256": "a7f30c08a2b90480d530b005c6eda1917f5cd3e99ac389e4bc9dd7cdb320e35d",
+          "selected_line_numbers": [
+            4,
+            9,
+            10,
+            16,
+            20,
+            21,
+            24,
+            25,
+            26,
+            27,
+            30,
+            33,
+            34
+          ]
+        }
+      ],
+      "screenshot_sha256": "7db3a54c63c9d3d1ecf762bcbe59e151ca1667ed72e6f601606258f439abd302",
+      "viewer_sha256": "1c0c86fc61fef95066fc983704f9339c13b39c2ad8e1736efc9b2c3ad8984d66"
+    },
+    {
+      "screenshot": "07-mongodb.png",
+      "viewer": "07-mongodb.html",
+      "sources": [
+        {
+          "path": "evidence/reproducibility-2026-10-17/mongo-load.txt",
+          "sha256": "69bd4f8ca7a91df3411a74d3996d005fe24268717c7754dbf1a3471ceac113f6",
+          "selected_line_numbers": [
+            22,
+            23,
+            47
+          ]
+        },
+        {
+          "path": "evidence/reproducibility-2026-10-17/mongo-persisted.txt",
+          "sha256": "1046a6ab3980050f72c7a2a9b62b73c4a6036af5045e4f995bf8b24c728db792",
+          "selected_line_numbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "path": "evidence/reproducibility-2026-10-17/mongo-queries.txt",
+          "sha256": "bfb6ba27b01562715d96eb644ae869bbbc2590124aa4696d417b5b30475cef35",
+          "selected_line_numbers": [
+            13,
+            14,
+            15,
+            16,
+            200
+          ]
+        }
+      ],
+      "screenshot_sha256": "cf0c18cde68997eb6ffa0c104c9c43fd697144a20025359051d64ca85872b095",
+      "viewer_sha256": "30f89073e8049b8e349f977d607eb055d37663c894b73216c9e48f3c6e004ff4"
+    },
+    {
+      "screenshot": "08-erd.png",
+      "viewer": "08-erd.html",
+      "sources": [
+        {
+          "path": "diagrams/conceptual-erd.svg",
+          "sha256": "b3ab5e2f35b5a31484a3994da34ad8044e9e84a9aeaaa6b1f06c4c1ceac6777e"
+        }
+      ],
+      "screenshot_sha256": "d2fef8b546cb6353ad50acdf8917488f8bd9baa919f026a976cbf77173caf52e",
+      "viewer_sha256": "925eb71b1eae3da641b836f3da6120b33844e7deff2400206df8775486a28bbf"
+    },
+    {
+      "screenshot": "09-architecture.png",
+      "viewer": "09-architecture.html",
+      "sources": [
+        {
+          "path": "portfolio-5-distributed-cloud/diagrams/proposed-architecture.svg",
+          "sha256": "e1b8e968dd63c45518733d87a800f25ac260d3033e3fa4588380027ece971fdc"
+        }
+      ],
+      "screenshot_sha256": "6492b8e602f363cdfc7547efe62e198cd9190802678af4cd724489c8c311b4d7",
+      "viewer_sha256": "de396d553b7af0976a9de0e8e9a95dfb9c234c82d2f4e7c9cde2ec50a7ee9a2c"
+    }
+  ],
+  "verified_date": "2026-10-23"
+}

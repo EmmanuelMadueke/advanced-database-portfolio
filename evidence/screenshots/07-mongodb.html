@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Portfolio 4 — validation and queries</title><style>body{margin:40px;font:17px/1.45 Arial,sans-serif;color:#182334;background:#fff}h1{font-size:28px;margin:0 0 10px}h2{font-size:17px;margin:18px 0 6px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf2f6;border-left:4px solid #285e77;padding:16px;font:14px/1.5 monospace;margin:0}.meta{color:#43566b}footer{margin-top:20px;font-size:14px;color:#43566b}</style><h1>Portfolio 4 — validation and queries</h1><p class="meta">Emmanuel Madueke · Saved output from 17 October 2026 · Browser capture prepared 22 October 2026</p><p>Verbatim selected lines from retained execution logs. This is an evidence viewer, not a new database run or a database-admin application screenshot.</p><h2>mongo-load.txt</h2><pre>PASS reconciliation: exact selected IDs, copied SQL context, and enrichment match; no missing/orphan/extra profiles
+PASS reconciliation: zero documents fail the installed validator
+PASS: 10 importer checks, 10 MongoDB rejection checks, 2 reconciliation checks.</pre><h2>mongo-persisted.txt</h2><pre>PASS persisted: source, enrichment, and validator hashes match manifest
+PASS persisted: exact profiles and SQL references match from fresh connection
+PASS persisted: strict/error validator matches saved definition
+PASS persisted: all stored documents satisfy validator
+4 fresh-connection checks passed. MongoDB 8.0.34, mongosh 2.5.10</pre><h2>mongo-queries.txt</h2><pre>PASS: width 34 inclusive, 35 excluded
+PASS: all six complete ordered outputs unchanged after index creation
+PASS: profiles unchanged by queries/index creation
+PASS: original identity index retained and exactly one reporting index added
+16 query/index checks passed. Single explain runs on three profiles are not a latency benchmark.</pre><footer>Full source logs: evidence/reproducibility-2026-10-17/ · Selection and SHA-256 provenance: manifest.json</footer></html>

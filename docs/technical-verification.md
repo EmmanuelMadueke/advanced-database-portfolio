@@ -8,7 +8,7 @@ Prepared on **18 October 2026** from the implemented portfolio and retained evid
 
 Describe an online fashion retailer whose customers buy size/colour variants. PostgreSQL owns catalogue facts, stock, purchases, payment attempts and delivery; MongoDB holds descriptive enrichment. Payments are simulated. The proposed distributed design was discussed, not deployed.
 
-Use the [three-page summary](../submission/lms-summary.pdf) as the overview, then navigate from the [assessment evidence map](assessment-audit.md) to the relevant source or output. Distinguish what the code does, what a particular test established, and what remains untested.
+Use the [three-page summary](../Madueke_Emmanuel_301912318/Madueke_Emmanuel_301912318.pdf) as the overview, then navigate from the [assessment evidence map](assessment-audit.md) to the relevant source or output. Distinguish what the code does, what a particular test established, and what remains untested.
 
 ## Portfolio 1: model and integrity
 

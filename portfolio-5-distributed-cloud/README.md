@@ -34,3 +34,7 @@ The [assessment audit](../docs/assessment-audit.md) now maps all five activities
 - [SQL/NoSQL comparison and synchronisation limits](../portfolio-4-nosql/sql-nosql-comparison.md)
 
 Those activities establish local database behaviour. They do not establish multi-node availability, recovery times, replica consistency, or cloud deployment.
+
+## Screenshot evidence
+
+See the [assessment screenshot gallery](../evidence/screenshots/README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.

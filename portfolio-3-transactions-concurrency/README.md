@@ -75,3 +75,7 @@ Do not run 02_commit_purchase.sql in this database. The shared fixture retains i
 | Concurrency control | [Protected race and eleven checks](protected-concurrency.md) |
 
 These are distinct demonstrations, not a claim that every possible transaction schedule has been verified. Raw outputs, reproducible SQL, and limitations are retained for each stage. Emmanuel's personal review/reflection remains separate from tool-run checks.
+
+## Screenshot evidence
+
+See the [assessment screenshot gallery](../evidence/screenshots/README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.

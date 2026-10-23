@@ -10,7 +10,7 @@ Reviewed on **17 October 2026**, after summary commit `d4bd70c` was pushed.
 - The configured SSH remote accepted the summary push; remote `main` points to `d4bd70c`.
 - Local `main` and `origin/main` agree with no commits ahead or behind.
 - The branch contains **29 commits**, beginning on 8 October 2026 and continuing through 17 October 2026. Subjects cover requirements, ERD, schema, datasets, queries, optimisation, transactions, NoSQL, distributed discussion, audit, reproduction and summary. This is retained development history, not a guarantee of assessment marks or independent student execution.
-- The finalised [three-page PDF](lms-summary.pdf) and [editable source](lms-summary.html) are committed and pushed.
+- The finalised [three-page PDF](Madueke_Emmanuel_301912318.pdf) and [editable source](Madueke_Emmanuel_301912318.html) are committed and pushed.
 
 ## Still unverified
 

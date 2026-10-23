@@ -43,3 +43,7 @@ MongoDB Community 8.0.34 is verified in a local Docker container with a pinned i
 | SQL/NoSQL suitability | [Comparison and synchronisation boundaries](sql-nosql-comparison.md) |
 
 The final comparison is a documentation synthesis of retained results; no new database execution was needed for that stage. Tests are tool-run evidence. Emmanuel's personal review/reflection and the final assessment-wide audit remain separate tasks.
+
+## Screenshot evidence
+
+See the [assessment screenshot gallery](../evidence/screenshots/README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.

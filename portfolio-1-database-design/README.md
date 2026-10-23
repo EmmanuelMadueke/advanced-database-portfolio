@@ -36,3 +36,7 @@ See [setup and reproduction instructions](../docs/setup.md), [integrity tests](t
 - [Scale validation](tests/scale_data.sql): counts, totals, payments, and inventory reconciliation.
 
 See [dataset scenarios and reproduction](../docs/sample-data.md) and [actual output](evidence/README.md). Run sample validation before the optional scale seed. The seeds are committed data; validation scripts roll back only their own temporary helpers. Data is fictional and event timestamps reflect the run time.
+
+## Screenshot evidence
+
+See the [assessment screenshot gallery](../evidence/screenshots/README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.

@@ -69,3 +69,7 @@ The [optimisation experiment](optimisation/README.md) retains a fresh before/ind
 ## References
 
 PostgreSQL 18 documentation: [psql variables and script execution](https://www.postgresql.org/docs/18/app-psql.html), [date/time functions](https://www.postgresql.org/docs/18/functions-datetime.html), and [transaction isolation](https://www.postgresql.org/docs/18/transaction-iso.html).
+
+## Screenshot evidence
+
+See the [assessment screenshot gallery](../evidence/screenshots/README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.

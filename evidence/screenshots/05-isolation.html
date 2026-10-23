@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Portfolio 3 — READ COMMITTED visibility</title><style>body{margin:40px;font:17px/1.45 Arial,sans-serif;color:#182334;background:#fff}h1{font-size:28px;margin:0 0 10px}h2{font-size:17px;margin:18px 0 6px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf2f6;border-left:4px solid #285e77;padding:16px;font:14px/1.5 monospace;margin:0}.meta{color:#43566b}footer{margin-top:20px;font-size:14px;color:#43566b}</style><h1>Portfolio 3 — READ COMMITTED visibility</h1><p class="meta">Emmanuel Madueke · Saved output from 17 October 2026 · Browser capture prepared 22 October 2026</p><p>Verbatim selected lines from retained execution logs. This is an evidence viewer, not a new database run or a database-admin application screenshot.</p><h2>isolation-sessions.txt</h2><pre>PASS: starting fixture has no purchases and stock 10/5
+PASS: two distinct PostgreSQL sessions
+PASS: both transactions use READ COMMITTED and controlled writer role
+PASS: A sees its own uncommitted purchase and deductions
+PASS: B sees only original committed state while A stays open
+PASS: same observer connection remains read-only
+PASS: B next statement sees complete purchase after A commit
+7 two-session isolation checks passed.</pre><footer>Full source logs: evidence/reproducibility-2026-10-17/ · Selection and SHA-256 provenance: manifest.json</footer></html>
