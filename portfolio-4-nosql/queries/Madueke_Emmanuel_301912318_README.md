@@ -2,7 +2,7 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-Five catalogue queries and one aggregation now run against the three verified MongoDB profiles. Sixteen result/index checks passed; a separate diagnostic check confirmed that an explicit index hint preserves results. [Actual outputs and plans](../evidence/queries/README.md) are retained.
+Five catalogue queries and one aggregation now run against the three verified MongoDB profiles. Sixteen result/index checks passed; a separate diagnostic check confirmed that an explicit index hint preserves results. [Actual outputs and plans](../evidence/queries/Madueke_Emmanuel_301912318_README.md) are retained.
 
 ## Query definitions and meaning
 
@@ -55,7 +55,7 @@ Each plan capture is a single executionStats explain. Recorded execution times w
 
 ## Reproduce
 
-Use the [implementation instructions](../implementation.md) to obtain the verified three-profile fixture. Start the retained container with `docker start fashion-portfolio-mongo` if needed. From the repository root, set PROFILE_OUTPUT_DIR to the implementation artifacts if using another source/target. The manifest must match the target database.
+Use the [implementation instructions](../Madueke_Emmanuel_301912318_implementation.md) to obtain the verified three-profile fixture. Start the retained container with `docker start fashion-portfolio-mongo` if needed. From the repository root, set PROFILE_OUTPUT_DIR to the implementation artifacts if using another source/target. The manifest must match the target database.
 
 On a target with only the default `_id_` index, run:
 

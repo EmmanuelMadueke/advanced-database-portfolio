@@ -17,4 +17,4 @@ Each directory contains environment.json, measurements.csv, and five query JSON 
 - [Thirty sample checks](sample-checks.txt), on a separate unscaled database
 - [Seven history-equivalence cases](history-equivalence.txt), on the scale database
 
-See [findings and reproduction](../../optimisation/README.md) for interpretation and costs. Outputs are actual tool-run evidence; timings are local observations.
+See [findings and reproduction](../../optimisation/Madueke_Emmanuel_301912318_README.md) for interpretation and costs. Outputs are actual tool-run evidence; timings are local observations.

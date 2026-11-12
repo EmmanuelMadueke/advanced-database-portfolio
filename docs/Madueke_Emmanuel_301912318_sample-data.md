@@ -38,7 +38,7 @@ Orders are built and paid using `create_order`, `finalise_order`, `record_failed
 
 ## Verification and reproduction
 
-Install scripts 01–04 using [setup instructions](setup.md), then run as the schema owner:
+Install scripts 01–04 using [setup instructions](Madueke_Emmanuel_301912318_setup.md), then run as the schema owner:
 
 ```sh
 psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/sql/05_sample_data.sql
@@ -47,7 +47,7 @@ psql -X -v ON_ERROR_STOP=1 -f portfolio-1-database-design/tests/sample_data.sql
 
 The seed is a single transaction, forces deferred validation, and commits its records. It refuses an already populated customer/product/order dataset; it is intentionally not a reset or an upsert script. Use a new disposable database to repeat it. Generated IDs can differ after prior tests consume sequence values; natural references and final business results remain the same. Creation/payment/dispatch timestamps reflect the execution time, so byte-for-byte timestamp reproduction is not claimed.
 
-Ten read-only assertions verify all entity counts, lifecycle coverage, cart/stock cases, order totals, successful payment amounts, and every initial stock balance minus paid quantities. These checks run before the optional enlargement. [Actual output](../portfolio-1-database-design/evidence/sample-check-output.txt) includes inventory, order, and payment reports; [seed output](../portfolio-1-database-design/evidence/sample-seed-output.txt) shows successful COMMIT.
+Ten read-only assertions verify all entity counts, lifecycle coverage, cart/stock cases, order totals, successful payment amounts, and every initial stock balance minus paid quantities. These checks run before the optional enlargement. [Actual output](../portfolio-1-database-design/evidence/Madueke_Emmanuel_301912318_sample-check-output.txt) includes inventory, order, and payment reports; [seed output](../portfolio-1-database-design/evidence/Madueke_Emmanuel_301912318_sample-seed-output.txt) shows successful COMMIT.
 
 ## Optional larger workload for Portfolio 2
 

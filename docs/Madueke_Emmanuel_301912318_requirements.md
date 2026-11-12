@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Scope and users
 
-The online fashion retail store sells clothing, footwear, and accessories. This portfolio models its database rather than a complete storefront or live payment integration. Requirements derive from [the case study](case-study.md); modelling decisions below are proposed scope choices for the academic implementation.
+The online fashion retail store sells clothing, footwear, and accessories. This portfolio models its database rather than a complete storefront or live payment integration. Requirements derive from [the case study](Madueke_Emmanuel_301912318_case-study.md); modelling decisions below are proposed scope choices for the academic implementation.
 
 Customers browse products, manage carts, place orders, and retrieve their own purchase and delivery history. Administrators maintain the catalogue, stock, and fulfilment records. Management users retrieve sales and inventory reports. Database access permissions will be addressed during implementation; declaring these users does not imply access control is already implemented.
 

@@ -2,7 +2,7 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-The product-enrichment model is now implemented on MongoDB Community **8.0.34**. Three profiles were loaded from actual PostgreSQL catalogue references with the collection validator set to strict/error. Ten importer checks, ten database rejection checks, two reconciliation checks, and four fresh-connection persistence checks passed. Actual evidence is retained in [evidence/implementation](evidence/implementation/README.md).
+The product-enrichment model is now implemented on MongoDB Community **8.0.34**. Three profiles were loaded from actual PostgreSQL catalogue references with the collection validator set to strict/error. Ten importer checks, ten database rejection checks, two reconciliation checks, and four fresh-connection persistence checks passed. Actual evidence is retained in [evidence/implementation](evidence/implementation/Madueke_Emmanuel_301912318_README.md).
 
 ## Runtime and data
 
@@ -33,7 +33,7 @@ Invalid shape writes were rejected with code 121, and duplicate identity with co
 
 ## Reproduce
 
-Run from the repository root with Docker, mongosh, Python 3, and the PostgreSQL tools available. Follow [SQL setup](../docs/setup.md) to start a disposable PostgreSQL cluster, set connection variables, create a **new** source database, and install Portfolio 1 scripts 01–05 in order. Do not reuse a database containing test fixtures or scale data for the documented eight-product result.
+Run from the repository root with Docker, mongosh, Python 3, and the PostgreSQL tools available. Follow [SQL setup](../docs/Madueke_Emmanuel_301912318_setup.md) to start a disposable PostgreSQL cluster, set connection variables, create a **new** source database, and install Portfolio 1 scripts 01–05 in order. Do not reuse a database containing test fixtures or scale data for the documented eight-product result.
 
 Start the MongoDB container:
 

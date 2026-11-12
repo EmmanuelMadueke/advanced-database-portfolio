@@ -34,7 +34,7 @@ Every individual row remains valid: stock is nonnegative, quantities are positiv
 
 ## Reproduce
 
-Configure the PostgreSQL tools and connection variables using [setup](../docs/setup.md). Create a new disposable database; no retail schema or sample seed is required for this isolated example. From the repository root:
+Configure the PostgreSQL tools and connection variables using [setup](../docs/Madueke_Emmanuel_301912318_setup.md). Create a new disposable database; no retail schema or sample seed is required for this isolated example. From the repository root:
 
 ```sh
 export PGDATABASE=fashion_unsafe_demo
@@ -53,7 +53,7 @@ For manual execution, open two psql connections to the same fresh database, then
 4. In B, execute the same acceptance script using its retained stale value.
 5. In a fresh connection, execute `\i portfolio-3-transactions-concurrency/sql/12_unsafe_result.sql`.
 
-[Fixture output](evidence/unsafe-fixture.txt) and [session output with eight checks](evidence/unsafe-sessions.txt) retain actual results. SQL and the [runner](tests/unsafe_race.py) are reproducible; no history or outputs are fabricated.
+[Fixture output](evidence/unsafe-fixture.txt) and [session output with eight checks](evidence/Madueke_Emmanuel_301912318_unsafe-sessions.txt) retain actual results. SQL and the [runner](tests/unsafe_race.py) are reproducible; no history or outputs are fabricated.
 
 ## Next: apply control and repeat
 

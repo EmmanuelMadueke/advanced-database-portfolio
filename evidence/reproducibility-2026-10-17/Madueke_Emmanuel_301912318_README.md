@@ -6,9 +6,9 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 The documented Portfolio 1–4 workflows completed successfully against fresh disposable databases on source commit `5ba7d37`. All **52 recorded commands exited zero**, including startup and shutdown. Portfolio 5 received documentation checks only. These are tool-run results, not a claim of Emmanuel's independent verification.
 
-[Run manifest](run-manifest.json) records actual UTC start/completion times, exact command arguments, database selection, exit codes, and connection/output environment. Each step's stdout and stderr are retained in the correspondingly named text file. Commands ran sequentially and stopped on failure; cleanup stopped the runtimes. Historical activity outputs were not overwritten. No implementation correction was needed.
+[Run manifest](Madueke_Emmanuel_301912318_run-manifest.json) records actual UTC start/completion times, exact command arguments, database selection, exit codes, and connection/output environment. Each step's stdout and stderr are retained in the correspondingly named text file. Commands ran sequentially and stopped on failure; cleanup stopped the runtimes. Historical activity outputs were not overwritten. No implementation correction was needed.
 
-PostgreSQL 18.1 ran in a new temporary cluster using a local Unix socket on port 55433 with TCP disabled. Separate databases isolated sample/scale, COMMIT, ROLLBACK, isolation, protected-race, and unsafe-race work. The sample source was exported to MongoDB input **before** loading scale data. [Server version](postgres-version.txt) and [Docker version](docker-version.txt) retain the observed versions.
+PostgreSQL 18.1 ran in a new temporary cluster using a local Unix socket on port 55433 with TCP disabled. Separate databases isolated sample/scale, COMMIT, ROLLBACK, isolation, protected-race, and unsafe-race work. The sample source was exported to MongoDB input **before** loading scale data. [Server version](postgres-version.txt) and [Docker version](Madueke_Emmanuel_301912318_docker-version.txt) retain the observed versions.
 
 MongoDB 8.0.34 ran in new container `fashion-final-20261017` on localhost port 57018, using the same pinned official image digest as the implementation instructions. The target was `fashion_profiles_final`; the [import manifest](mongo-import/manifest.json) records versions, source database, actual timestamps, hashes, and selected SQL IDs. The in-session mongosh version was 2.5.10. This is a standalone development instance, not a replica-set or cloud test.
 
@@ -16,18 +16,18 @@ MongoDB 8.0.34 ran in new container `fashion-final-20261017` on localhost port 5
 
 | Coverage | Fresh evidence | Outcome |
 | --- | --- | --- |
-| Schema installation and integrity | [Install](sample-install.txt), [integrity](integrity.txt) | 35 assertions passed; fixture rolled back |
-| Sample and scale seeds | [Sample checks](sample-check.txt), [scale checks](scale-check.txt) | 10 and 4 assertions passed |
-| Twelve SQL reports | [Actual results](query-results.txt), [original checks](query-check.txt), [rewrite checks](query-rewrite-check.txt) | 30 checks passed for each query selection |
-| Optimisation experiment | [Indexes comparison](compare-indexes.txt), [final comparison](compare-final.txt), [history equivalence](history-equivalence.txt) | Five result fingerprints/counts match in both comparisons; 28 original indexes retained; seven history cases agree |
-| COMMIT | [Purchase](commit-purchase.txt), [fresh-connection verification](commit-verify.txt) | Eight checks passed |
-| ROLLBACK | [Injected failure and rollback](rollback-purchase.txt), [fresh-connection verification](rollback-verify.txt) | Six checks passed; expected injected error is part of the passing demonstration |
+| Schema installation and integrity | [Install](Madueke_Emmanuel_301912318_sample-install.txt), [integrity](Madueke_Emmanuel_301912318_integrity.txt) | 35 assertions passed; fixture rolled back |
+| Sample and scale seeds | [Sample checks](Madueke_Emmanuel_301912318_sample-check.txt), [scale checks](Madueke_Emmanuel_301912318_scale-check.txt) | 10 and 4 assertions passed |
+| Twelve SQL reports | [Actual results](Madueke_Emmanuel_301912318_query-results.txt), [original checks](Madueke_Emmanuel_301912318_query-check.txt), [rewrite checks](Madueke_Emmanuel_301912318_query-rewrite-check.txt) | 30 checks passed for each query selection |
+| Optimisation experiment | [Indexes comparison](Madueke_Emmanuel_301912318_compare-indexes.txt), [final comparison](Madueke_Emmanuel_301912318_compare-final.txt), [history equivalence](Madueke_Emmanuel_301912318_history-equivalence.txt) | Five result fingerprints/counts match in both comparisons; 28 original indexes retained; seven history cases agree |
+| COMMIT | [Purchase](Madueke_Emmanuel_301912318_commit-purchase.txt), [fresh-connection verification](Madueke_Emmanuel_301912318_commit-verify.txt) | Eight checks passed |
+| ROLLBACK | [Injected failure and rollback](Madueke_Emmanuel_301912318_rollback-purchase.txt), [fresh-connection verification](Madueke_Emmanuel_301912318_rollback-verify.txt) | Six checks passed; expected injected error is part of the passing demonstration |
 | Isolation | [Session output](isolation-sessions.txt) | Seven checks passed |
-| Unsafe race | [Session output](unsafe-sessions.txt) | Eight checks reproduced overselling in the isolated teaching schema |
-| Protected race | [Session output](protected-sessions.txt) | Eleven checks passed, including observed blocking, one purchase, and unchanged known-order replay |
+| Unsafe race | [Session output](Madueke_Emmanuel_301912318_unsafe-sessions.txt) | Eight checks reproduced overselling in the isolated teaching schema |
+| Protected race | [Session output](Madueke_Emmanuel_301912318_protected-sessions.txt) | Eleven checks passed, including observed blocking, one purchase, and unchanged known-order replay |
 | MongoDB import | [Load](mongo-load.txt), [persisted check](mongo-persisted.txt), [stored profiles](mongo-import/profiles.ejson) | 22 load checks and four persistence checks passed |
 | MongoDB queries/index | [Query output](mongo-queries.txt), [hinted diagnostic](mongo-hint.txt) | 16 checks and hinted-result equivalence passed |
-| Documentation | [Local link and SVG checks](documentation-checks.txt) | Relative paths resolved; SVG XML parsed. No external URL or distributed-runtime verification |
+| Documentation | [Local link and SVG checks](Madueke_Emmanuel_301912318_documentation-checks.txt) | Relative paths resolved; SVG XML parsed. No external URL or distributed-runtime verification |
 | Cleanup | [MongoDB stop](mongo-stop.txt), [PostgreSQL stop](pg-stop.txt) | Both stopped successfully; retained data was not deleted |
 
 The `plans-before/`, `plans-indexes/`, and `plans-final/` directories contain raw repeated EXPLAIN captures and environment/index metadata. The `mongo-import/` and `mongo-queries/` directories retain the actual inputs, hashes, validation options, results, and plans produced by the existing scripts.
@@ -42,6 +42,6 @@ The successful rerun does not test every transaction schedule, production access
 
 ## Repeat the review
 
-Use the existing [SQL setup](../../docs/setup.md), [sample-data steps](../../docs/sample-data.md), [optimisation protocol](../../portfolio-2-query-optimisation/optimisation/README.md), [transaction instructions](../../portfolio-3-transactions-concurrency/README.md), and [MongoDB instructions](../../portfolio-4-nosql/implementation.md). The manifest provides this run's exact invocation order, including the dedicated concurrency fixtures and MongoDB query scripts.
+Use the existing [SQL setup](../../docs/Madueke_Emmanuel_301912318_setup.md), [sample-data steps](../../docs/Madueke_Emmanuel_301912318_sample-data.md), [optimisation protocol](../../portfolio-2-query-optimisation/optimisation/Madueke_Emmanuel_301912318_README.md), [transaction instructions](../../portfolio-3-transactions-concurrency/Madueke_Emmanuel_301912318_README.md), and [MongoDB instructions](../../portfolio-4-nosql/Madueke_Emmanuel_301912318_implementation.md). The manifest provides this run's exact invocation order, including the dedicated concurrency fixtures and MongoDB query scripts.
 
 Choose new temporary cluster/output paths, database names, and a container name/available localhost port. Keep the connection variables aligned with those choices. Do not replay the recorded temporary paths blindly or overwrite this evidence. Run the original and rewritten query checks on the unscaled sample, export the eight-product snapshot before scale loading, then run the scale comparisons without changing data/statistics between phases. Stop the disposable services after inspection.

@@ -13,4 +13,4 @@ This directory retains actual synthetic-data outputs. The export/import timestam
 - [Stored BSON documents](profiles.ejson) and [installed validation options](collection-options.ejson).
 - Diagnostic outputs: [module logging error](initial-loader-error.txt), [update-test harness error](initial-update-test-error.txt), [cross-context comparison error](initial-comparison-error.txt). These are development corrections, not passing verification evidence.
 
-The final successful target is fashion_profiles_complete; earlier diagnostic targets are separate databases. No student review or runtime verification is attributed to Emmanuel. See [implementation and reproduction](../../implementation.md) for limitations, the CLI/in-session shell-version discrepancy, and the next stage.
+The final successful target is fashion_profiles_complete; earlier diagnostic targets are separate databases. No student review or runtime verification is attributed to Emmanuel. See [implementation and reproduction](../../Madueke_Emmanuel_301912318_implementation.md) for limitations, the CLI/in-session shell-version discrepancy, and the next stage.

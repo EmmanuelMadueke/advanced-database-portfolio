@@ -50,7 +50,7 @@ The demonstrated retry is narrower: finalise_order on a known already-paid order
 
 ## Reproduce
 
-Use a new disposable database such as fashion_protected_demo. Configure connection variables and install Portfolio 1 scripts 01–04 using the [setup instructions](../docs/setup.md). Do not load the normal sample/scale dataset. From the repository root:
+Use a new disposable database such as fashion_protected_demo. Configure connection variables and install Portfolio 1 scripts 01–04 using the [setup instructions](../docs/Madueke_Emmanuel_301912318_setup.md). Do not load the normal sample/scale dataset. From the repository root:
 
 ```sh
 psql -X -f portfolio-3-transactions-concurrency/sql/13_protected_fixture.sql

@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Scope and status
 
-The proposed collection is `product_profiles` in a dedicated portfolio MongoDB database. It holds one document per enriched PostgreSQL product from one identified source dataset. This stage defines the model, a [candidate MongoDB validator](model/profile-validator.json), and [three illustrative profiles](model/example-profiles.json). The subsequent [implementation](implementation.md) now verifies collection creation, validation, and source-aware loading; this document remains the design contract.
+The proposed collection is `product_profiles` in a dedicated portfolio MongoDB database. It holds one document per enriched PostgreSQL product from one identified source dataset. This stage defines the model, a [candidate MongoDB validator](model/profile-validator.json), and [three illustrative profiles](model/example-profiles.json). The subsequent [implementation](Madueke_Emmanuel_301912318_implementation.md) now verifies collection creation, validation, and source-aware loading; this document remains the design contract.
 
 The profiles describe the existing Classic T-Shirt, Canvas Sneakers, and Tote Bag. Their enrichment is synthetic. Example IDs 1, 5, and 7 illustrate the reference format; they are not a verified export and must be replaced with actual source product IDs during implementation. No import timestamps or runtime outputs are fabricated.
 

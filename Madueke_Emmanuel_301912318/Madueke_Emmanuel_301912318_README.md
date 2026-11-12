@@ -11,7 +11,7 @@ The document is finalised as a three-page summary at Emmanuel's request. Its ref
 
 ## Supporting screenshots
 
-The [nine-image screenshot gallery](../evidence/screenshots/README.md) covers the ERD, schema checks, query optimisation, COMMIT, ROLLBACK, isolation/concurrency, MongoDB results and proposed architecture. These are browser captures of retained output excerpts and diagrams, dated 22 October 2026; runtime logs remain dated 17 October. Upload supporting PNGs as required alongside the three-page PDF. All files in this submission directory use the requested student identifier; descriptive suffixes distinguish the Markdown notes.
+The [nine-image screenshot gallery](../evidence/screenshots/Madueke_Emmanuel_301912318_README.md) covers the ERD, schema checks, query optimisation, COMMIT, ROLLBACK, isolation/concurrency, MongoDB results and proposed architecture. These are browser captures of retained output excerpts and diagrams, dated 22 October 2026; runtime logs remain dated 17 October. Upload supporting PNGs as required alongside the three-page PDF. All files in this submission directory use the requested student identifier; descriptive suffixes distinguish the Markdown notes.
 
 ## Public guidance and remaining submission actions
 
@@ -23,7 +23,7 @@ Retain the distinction between source commit `5ba7d37` and evidence commit `2038
 
 ## Technical verification preparation
 
-A [case-specific preparation guide](../docs/technical-verification.md) links likely questions to source, outputs, and limitations across all five activities. It includes a rehearsal procedure but does not claim that Emmanuel has completed it.
+A [case-specific preparation guide](../docs/Madueke_Emmanuel_301912318_technical-verification.md) links likely questions to source, outputs, and limitations across all five activities. It includes a rehearsal procedure but does not claim that Emmanuel has completed it.
 
 ## PDF production and checks
 

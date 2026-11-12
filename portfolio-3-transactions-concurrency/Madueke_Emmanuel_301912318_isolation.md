@@ -25,7 +25,7 @@ Each observation is one SELECT returning order/item/payment counts, paid order a
 
 ## Reproduce automatically
 
-Create a new disposable database, configure PGHOST/PGPORT/PGDATABASE/PGUSER as needed, and install Portfolio 1 scripts 01–04 as described in the [activity README](README.md#reproduce). Use a database name such as fashion_isolation_demo. Do not run the COMMIT or ROLLBACK purchase scripts in it. From the repository root:
+Create a new disposable database, configure PGHOST/PGPORT/PGDATABASE/PGUSER as needed, and install Portfolio 1 scripts 01–04 as described in the [activity README](Madueke_Emmanuel_301912318_README.md#reproduce). Use a database name such as fashion_isolation_demo. Do not run the COMMIT or ROLLBACK purchase scripts in it. From the repository root:
 
 ```sh
 psql -X -f portfolio-3-transactions-concurrency/sql/01_commit_fixture.sql

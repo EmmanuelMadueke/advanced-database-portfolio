@@ -2,7 +2,7 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-These proposed rules refine [the requirements](requirements.md) for the initial implementation. They are not claims about an existing retailer.
+These proposed rules refine [the requirements](Madueke_Emmanuel_301912318_requirements.md) for the initial implementation. They are not claims about an existing retailer.
 
 ## Catalogue and inventory
 

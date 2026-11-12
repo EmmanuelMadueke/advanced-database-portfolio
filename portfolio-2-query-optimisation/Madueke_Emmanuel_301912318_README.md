@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Current stage
 
-The first checklist item, meaningful SQL queries, is complete. Twelve read-only reports have been implemented and verified on PostgreSQL 18.1 against the unscaled fashion-store sample data. Thirty result checks passed; actual outputs are saved below. Baseline execution plans and measurement conditions are now recorded for five reports on the default scale dataset. Three reporting indexes and a customer-history rewrite have now been tested in a controlled three-phase comparison. Result equivalence, plan changes, storage costs, and limitations are documented in the [optimisation findings](optimisation/README.md). Portfolio 2 is complete.
+The first checklist item, meaningful SQL queries, is complete. Twelve read-only reports have been implemented and verified on PostgreSQL 18.1 against the unscaled fashion-store sample data. Thirty result checks passed; actual outputs are saved below. Baseline execution plans and measurement conditions are now recorded for five reports on the default scale dataset. Three reporting indexes and a customer-history rewrite have now been tested in a controlled three-phase comparison. Result equivalence, plan changes, storage costs, and limitations are documented in the [optimisation findings](optimisation/Madueke_Emmanuel_301912318_README.md). Portfolio 2 is complete.
 
 ## Queries
 
@@ -35,7 +35,7 @@ Customer history aggregates attempts before joining, so retries do not duplicate
 
 ## Reproduce
 
-Use [Portfolio 1 setup](../docs/setup.md) and [seed instructions](../docs/sample-data.md). Connect to a database containing scripts 01–05. The saved expected outcomes and result-check suite require the unscaled sample dataset.
+Use [Portfolio 1 setup](../docs/Madueke_Emmanuel_301912318_setup.md) and [seed instructions](../docs/Madueke_Emmanuel_301912318_sample-data.md). Connect to a database containing scripts 01–05. The saved expected outcomes and result-check suite require the unscaled sample dataset.
 
 ```sh
 psql -X -v ON_ERROR_STOP=1 -f portfolio-2-query-optimisation/sql/run_all.sql
@@ -54,17 +54,17 @@ The Python check runner uses psql CSV output and the original query files; it do
 
 ## Evidence and limitations
 
-- [Actual query results](evidence/sample-query-results.txt)
-- [Thirty result checks](evidence/query-check-output.txt)
-- [Evidence context](evidence/README.md)
+- [Actual query results](evidence/Madueke_Emmanuel_301912318_sample-query-results.txt)
+- [Thirty result checks](evidence/Madueke_Emmanuel_301912318_query-check-output.txt)
+- [Evidence context](evidence/Madueke_Emmanuel_301912318_README.md)
 
 Checks verify known totals, filters, failed-payment retries, empty results, zero-sales groups/months, date endpoints, timezone invariance, and literal handling. They establish correctness on the documented sample data, not query efficiency. Sample timestamps are concentrated around loading; broad historical/date-distribution testing remains limited. The optional scale dataset is available for the next experiment stage, but these results were captured before enlargement.
 
 ## Baseline plans
 
-[Baseline results and plan observations](evidence/baseline/README.md) retain five measured plans per selected query, environment/index metadata, buffer counts, and result fingerprints. [The collection protocol](benchmarks/README.md) explains reproduction and limitations. This is the scale dataset; it is separate from the unscaled sample correctness outputs above.
+[Baseline results and plan observations](evidence/baseline/Madueke_Emmanuel_301912318_README.md) retain five measured plans per selected query, environment/index metadata, buffer counts, and result fingerprints. [The collection protocol](benchmarks/Madueke_Emmanuel_301912318_README.md) explains reproduction and limitations. This is the scale dataset; it is separate from the unscaled sample correctness outputs above.
 
-The [optimisation experiment](optimisation/README.md) retains a fresh before/indexes-only/indexes-and-rewrite comparison and reproducible SQL. Thirty sample checks and seven history-equivalence cases passed. The completed transaction work is in [Portfolio 3](../portfolio-3-transactions-concurrency/README.md).
+The [optimisation experiment](optimisation/Madueke_Emmanuel_301912318_README.md) retains a fresh before/indexes-only/indexes-and-rewrite comparison and reproducible SQL. Thirty sample checks and seven history-equivalence cases passed. The completed transaction work is in [Portfolio 3](../portfolio-3-transactions-concurrency/Madueke_Emmanuel_301912318_README.md).
 
 ## References
 
@@ -72,4 +72,4 @@ PostgreSQL 18 documentation: [psql variables and script execution](https://www.p
 
 ## Screenshot evidence
 
-See the [assessment screenshot gallery](../evidence/screenshots/README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.
+See the [assessment screenshot gallery](../evidence/screenshots/Madueke_Emmanuel_301912318_README.md) for captures of retained outputs and diagrams. Captures are labelled separately from the original execution dates; Portfolio 5 remains a discussion.

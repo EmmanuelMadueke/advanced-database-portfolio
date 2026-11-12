@@ -48,7 +48,7 @@ For a committed successful purchase:
 - Each purchased variant's available stock decreases by its ordered quantity and remains nonnegative.
 - The order is paid; purchase facts are protected against later changes by the lifecycle guards.
 
-The [schema](../portfolio-1-database-design/sql/01_schema.sql) supplies keys, uniqueness, and row checks. [Consistency triggers](../portfolio-1-database-design/sql/02_integrity.sql) enforce order/payment relationships and lifecycle rules. Stock deduction is performed by the finalisation routine; there is no stock movement ledger or trigger proving that every privileged manual stock change corresponds to a purchase. The [demo writer role](../portfolio-1-database-design/sql/04_permissions.sql) permits controlled routines and SELECT, without direct table writes. It is a trusted testing role, not customer authentication or customer-level authorisation.
+The [schema](../portfolio-1-database-design/01_schema.sql) supplies keys, uniqueness, and row checks. [Consistency triggers](../portfolio-1-database-design/sql/02_integrity.sql) enforce order/payment relationships and lifecycle rules. Stock deduction is performed by the finalisation routine; there is no stock movement ledger or trigger proving that every privileged manual stock change corresponds to a purchase. The [demo writer role](../portfolio-1-database-design/sql/04_permissions.sql) permits controlled routines and SELECT, without direct table writes. It is a trusted testing role, not customer authentication or customer-level authorisation.
 
 ## Failure and retry outcomes
 

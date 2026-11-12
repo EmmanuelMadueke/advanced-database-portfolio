@@ -13,7 +13,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 | pgAdmin | Installed application found; connection/UI workflow not tested |
 | MongoDB shell | `mongosh` found; server/version/setup still pending for Portfolio 4 |
 
-PostgreSQL was not on PATH. Verification used a separate temporary cluster and fresh databases, listening on a local Unix socket at port 55432 with TCP disabled. Existing databases were not modified. [Database summary](../portfolio-1-database-design/evidence/database-summary.txt) records the actual server version, timezone, table/column counts, and absence of retained test customers.
+PostgreSQL was not on PATH. Verification used a separate temporary cluster and fresh databases, listening on a local Unix socket at port 55432 with TCP disabled. Existing databases were not modified. [Database summary](../portfolio-1-database-design/evidence/Madueke_Emmanuel_301912318_database-summary.txt) records the actual server version, timezone, table/column counts, and absence of retained test customers.
 
 ## Run against a fresh database
 
@@ -75,8 +75,8 @@ Country-code constraints validate two uppercase letters only. Semantic country-l
 
 Schema creation and 35 integrity/workflow assertions passed on PostgreSQL 18.1. The tests force deferred validators at checkpoints and roll back fixture rows. Identity sequences can still advance after rolled-back inserts; generated order/payment IDs are captured dynamically. This is not yet a Portfolio 3 COMMIT/isolation/concurrency demonstration.
 
-Reproducible sample data and optional scale data are supplied in [sample-data documentation](sample-data.md). Subsequent portfolios now contain management queries, measured plans, two-session demonstrations, MongoDB implementation, and distributed/cloud discussion. The [final reproduction evidence](../evidence/reproducibility-2026-10-17/README.md) records a fresh run of the implemented workflows. Broader retry/deadlock schedules and distributed runtime behaviour remain untested.
+Reproducible sample data and optional scale data are supplied in [sample-data documentation](Madueke_Emmanuel_301912318_sample-data.md). Subsequent portfolios now contain management queries, measured plans, two-session demonstrations, MongoDB implementation, and distributed/cloud discussion. The [final reproduction evidence](../evidence/reproducibility-2026-10-17/Madueke_Emmanuel_301912318_README.md) records a fresh run of the implemented workflows. Broader retry/deadlock schedules and distributed runtime behaviour remain untested.
 
 ## Subsequent NoSQL runtime verification
 
-Docker Engine 29.1.3 and MongoDB Community 8.0.34 have now been verified for Portfolio 4. See [MongoDB implementation and reproduction](../portfolio-4-nosql/implementation.md) for the pinned image, actual source export, validation evidence, and shell-version observations. Earlier setup tables describe the environment as observed on their stated date.
+Docker Engine 29.1.3 and MongoDB Community 8.0.34 have now been verified for Portfolio 4. See [MongoDB implementation and reproduction](../portfolio-4-nosql/Madueke_Emmanuel_301912318_implementation.md) for the pinned image, actual source export, validation evidence, and shell-version observations. Earlier setup tables describe the environment as observed on their stated date.

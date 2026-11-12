@@ -2,7 +2,7 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-This analysis evaluates the [relational schema](relational-schema.md) and [data dictionary](data-dictionary.md). It covers functional dependencies, candidate keys, and 1NF–3NF using fashion-store examples. It is design reasoning, not evidence of executed SQL.
+This analysis evaluates the [relational schema](Madueke_Emmanuel_301912318_relational-schema.md) and [data dictionary](Madueke_Emmanuel_301912318_data-dictionary.md). It covers functional dependencies, candidate keys, and 1NF–3NF using fashion-store examples. It is design reasoning, not evidence of executed SQL.
 
 ## Definitions and assumptions
 

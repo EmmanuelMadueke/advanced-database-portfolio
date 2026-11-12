@@ -54,7 +54,7 @@ Retain all three as optional reporting indexes for the demonstrated workload and
 
 ## Reproduce
 
-From the repository root, use [setup instructions](../../docs/setup.md) to create a fresh database and load Portfolio 1 scripts 01–06 in order. Configure PGHOST, PGPORT, PGDATABASE, PGUSER and PSQL_BIN as needed. Use the default scale size and a 2026 seed date for these fixed report periods. Set psql on PATH for the commands below. Do not modify data or refresh statistics between captures. Each output directory must be new.
+From the repository root, use [setup instructions](../../docs/Madueke_Emmanuel_301912318_setup.md) to create a fresh database and load Portfolio 1 scripts 01–06 in order. Configure PGHOST, PGPORT, PGDATABASE, PGUSER and PSQL_BIN as needed. Use the default scale size and a 2026 seed date for these fixed report periods. Set psql on PATH for the commands below. Do not modify data or refresh statistics between captures. Each output directory must be new.
 
 ```sh
 psql -X -v ON_ERROR_STOP=1 -c 'VACUUM (ANALYZE);'
@@ -73,4 +73,4 @@ On a separate database loaded with scripts 01–05 only, run:
 QUERY_OVERRIDE_DIR=portfolio-2-query-optimisation/optimisation python3 portfolio-2-query-optimisation/tests/query_results.py
 ```
 
-The override directory replaces numbered query files only; other reports fall back to sql/. [Saved evidence](../evidence/optimisation/README.md) contains all three phases and successful checks. [Measurement protocol](../benchmarks/README.md) explains parameters, instrumentation, and limitations.
+The override directory replaces numbered query files only; other reports fall back to sql/. [Saved evidence](../evidence/optimisation/README.md) contains all three phases and successful checks. [Measurement protocol](../benchmarks/Madueke_Emmanuel_301912318_README.md) explains parameters, instrumentation, and limitations.

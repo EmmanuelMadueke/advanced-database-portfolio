@@ -2,11 +2,11 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-This document translates the [ERD](conceptual-erd.md) and [business rules](business-rules.md) into a PostgreSQL design. Its table and enforcement definitions are now implemented in the [Portfolio 1 SQL scripts](../portfolio-1-database-design/README.md) and verified on PostgreSQL 18.1. See [setup](setup.md) for evidence and remaining limitations.
+This document translates the [ERD](Madueke_Emmanuel_301912318_conceptual-erd.md) and [business rules](Madueke_Emmanuel_301912318_business-rules.md) into a PostgreSQL design. Its table and enforcement definitions are now implemented in the [Portfolio 1 SQL scripts](../portfolio-1-database-design/Madueke_Emmanuel_301912318_README.md) and verified on PostgreSQL 18.1. See [setup](Madueke_Emmanuel_301912318_setup.md) for evidence and remaining limitations.
 
 ## Relations and keys
 
-All columns, types, nullability, and defaults are in the [data dictionary](data-dictionary.md). Physical names use lowercase snake_case and avoid reserved names such as ORDER.
+All columns, types, nullability, and defaults are in the [data dictionary](Madueke_Emmanuel_301912318_data-dictionary.md). Physical names use lowercase snake_case and avoid reserved names such as ORDER.
 
 | Relation | Primary key | Foreign keys | Additional uniqueness |
 | --- | --- | --- | --- |

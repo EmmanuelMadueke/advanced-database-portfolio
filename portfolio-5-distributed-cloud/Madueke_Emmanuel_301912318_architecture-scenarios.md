@@ -6,9 +6,9 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 This is discussion evidence for the existing fashion-store case study. **The distributed architecture is proposed, not deployed or failover-tested.** The local PostgreSQL and standalone MongoDB results from earlier activities do not verify the outcomes below.
 
-![Proposed three-zone PostgreSQL and MongoDB architecture](diagrams/proposed-architecture.svg)
+![Proposed three-zone PostgreSQL and MongoDB architecture](diagrams/Madueke_Emmanuel_301912318_proposed-architecture.svg)
 
-[Open the full-size diagram](diagrams/proposed-architecture.svg). The image shows initial roles; successful failover would change the primary and application destination. Replication arrows represent logical data flow, not individual acknowledgements or a complete network configuration.
+[Open the full-size diagram](diagrams/Madueke_Emmanuel_301912318_proposed-architecture.svg). The image shows initial roles; successful failover would change the primary and application destination. Replication arrows represent logical data flow, not individual acknowledgements or a complete network configuration.
 
 The design assumes one region with three independent availability zones. PostgreSQL P is the sole checkout writer; S is its required synchronous standby; R serves lag-tolerant reports. MongoDB M1/M2/M3 form a separate proposed replica set for descriptive enrichment. Application routing, failover control, fencing, monitoring, and backup storage remain design requirements. No cloud provider or control-plane product is selected.
 
@@ -18,7 +18,7 @@ The numbered diagram sources are:
 2. **PostgreSQL promotion and fencing:** [PostgreSQL 18 failover](https://www.postgresql.org/docs/18/warm-standby-failover.html). Failure detection and orchestration require additional machinery; the old primary must be prevented from accepting writes before a replacement is used. The control-plane sequence is this portfolio's proposed policy.
 3. **MongoDB membership and elections:** [Three-member replica sets](https://www.mongodb.com/docs/manual/core/replica-set-architecture-three-members/), [elections](https://www.mongodb.com/docs/manual/core/replica-set-elections/), and [replica-set write concern](https://www.mongodb.com/docs/manual/core/replica-set-write-concern/). The proposal uses three data-bearing voters and majority write concern. An eligible connected majority can elect a replacement primary; writes are interrupted during election.
 
-The rationale and limitations are developed in [replication and availability](replication-availability.md) and [consistency and sharding](consistency-sharding.md). The separate snapshot-import arrow reflects the [implemented SQL/NoSQL boundary](../portfolio-4-nosql/sql-nosql-comparison.md), which has no continuous refresh mechanism.
+The rationale and limitations are developed in [replication and availability](Madueke_Emmanuel_301912318_replication-availability.md) and [consistency and sharding](Madueke_Emmanuel_301912318_consistency-sharding.md). The separate snapshot-import arrow reflects the [implemented SQL/NoSQL boundary](../portfolio-4-nosql/sql-nosql-comparison.md), which has no continuous refresh mechanism.
 
 ## Concrete scenarios
 
@@ -92,4 +92,4 @@ All responses below are **expected behaviour or proposed operational policy**, n
 
 This stage supplies a sourced diagram and case-specific reasoning. The SVG was structurally checked and visually reviewed; documentation links were checked locally. **None of the eight failure scenarios was executed.** The proposed validation steps are future experiments, not test results or claims of Emmanuel's personal verification.
 
-The [conclusions and evidence coverage](conclusions.md) now consolidate the assumptions, decisions, trade-offs, and references. No deployed configuration or availability measurements are claimed.
+The [conclusions and evidence coverage](Madueke_Emmanuel_301912318_conclusions.md) now consolidate the assumptions, decisions, trade-offs, and references. No deployed configuration or availability measurements are claimed.

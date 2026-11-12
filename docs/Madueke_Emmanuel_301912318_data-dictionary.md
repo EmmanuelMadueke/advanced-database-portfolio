@@ -2,7 +2,7 @@
 
 Owner, author, and maintainer: **Emmanuel Madueke**.
 
-Design target: PostgreSQL. All 16 ERD entities are mapped below. The definitions are implemented in Portfolio 1 SQL and verified against PostgreSQL 18.1 (16 tables and 99 columns); see [setup and verification](setup.md). See [relational schema](relational-schema.md) for composite keys, deletion policies, cross-column checks, and business-rule enforcement.
+Design target: PostgreSQL. All 16 ERD entities are mapped below. The definitions are implemented in Portfolio 1 SQL and verified against PostgreSQL 18.1 (16 tables and 99 columns); see [setup and verification](Madueke_Emmanuel_301912318_setup.md). See [relational schema](Madueke_Emmanuel_301912318_relational-schema.md) for composite keys, deletion policies, cross-column checks, and business-rule enforcement.
 
 `NULL allowed: No` means NOT NULL, including all PK/FK columns. Optional strings use NULL for missing values, not empty strings. Surrogate PKs use `bigint GENERATED ALWAYS AS IDENTITY`; child keys reuse their parent's type. Length limits are project choices, not universal business standards. All monetary columns use NGN and two decimal places. Identity defaults require no extension. Email is stored trimmed/lowercase; the project deliberately treats case variants as the same identity. Customer and administrator email uniqueness is separate.
 

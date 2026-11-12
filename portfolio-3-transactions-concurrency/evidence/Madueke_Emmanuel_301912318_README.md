@@ -6,10 +6,10 @@ A dedicated disposable database, fashion_commit_demo, was installed on the isola
 
 | Evidence | Observed result |
 | --- | --- |
-| [Installation](commit-install.txt) | Schema, integrity rules, operations, and permissions installed |
-| [Initial fixture error](commit-fixture-initial-error.txt) | Required product description was omitted; fixture transaction aborted before any purchase |
-| [Corrected fixture](commit-fixture.txt) | Starting stock: shirts 10, jackets 5; orders/items/payments all zero |
-| [Purchase](commit-purchase.txt) | READ COMMITTED, restricted writer role, two lines, NGN 49,000, explicit COMMIT acknowledged |
+| [Installation](Madueke_Emmanuel_301912318_commit-install.txt) | Schema, integrity rules, operations, and permissions installed |
+| [Initial fixture error](Madueke_Emmanuel_301912318_commit-fixture-initial-error.txt) | Required product description was omitted; fixture transaction aborted before any purchase |
+| [Corrected fixture](Madueke_Emmanuel_301912318_commit-fixture.txt) | Starting stock: shirts 10, jackets 5; orders/items/payments all zero |
+| [Purchase](Madueke_Emmanuel_301912318_commit-purchase.txt) | READ COMMITTED, restricted writer role, two lines, NGN 49,000, explicit COMMIT acknowledged |
 | [Fresh-connection verification](commit-verification.txt) | Eight assertions passed; order/payment/snapshots persisted, stock 8 and 4 |
 
 The initial fixture was corrected by supplying product descriptions and rerun after its failed connection closed. The failed fixture inserts rolled back, but identity sequences advanced; fresh reproduction may therefore assign different fixture IDs. This setup error is not the planned checkout ROLLBACK demonstration.
@@ -37,11 +37,11 @@ The deliberate ERROR line is expected evidence, not a failed test run. Identity 
 
 ## Two-session isolation — 16 October 2026
 
-[Installation](isolation-install.txt), [fixture](isolation-fixture.txt), and [session-by-session observations](isolation-sessions.txt) record the separate fashion_isolation_demo database. Seven checks passed: B could not see A's uncommitted purchase but saw it in the next statement after A committed, without restarting B's READ COMMITTED transaction. See [interpretation, SQL, and reproduction](../isolation.md). Competing-writer behaviour remains to be demonstrated.
+[Installation](isolation-install.txt), [fixture](isolation-fixture.txt), and [session-by-session observations](isolation-sessions.txt) record the separate fashion_isolation_demo database. Seven checks passed: B could not see A's uncommitted purchase but saw it in the next statement after A committed, without restarting B's READ COMMITTED transaction. See [interpretation, SQL, and reproduction](../Madueke_Emmanuel_301912318_isolation.md). Competing-writer behaviour remains to be demonstrated.
 
 ## Unsafe last-unit race — 16 October 2026
 
-[Fixture output](unsafe-fixture.txt) and [session output](unsafe-sessions.txt) record the separate fashion_unsafe_demo database. Two READ COMMITTED buyers read the same last unit before either wrote, then both committed accepted purchases using stale stock values. A fresh connection found stock zero and two units sold from an initial one. Eight assertions passed by confirming the intended defect. The existing retail implementation was not modified. See [analysis, scope, and reproduction](../unsafe-concurrency.md). Corrected concurrent behaviour remains pending.
+[Fixture output](unsafe-fixture.txt) and [session output](Madueke_Emmanuel_301912318_unsafe-sessions.txt) record the separate fashion_unsafe_demo database. Two READ COMMITTED buyers read the same last unit before either wrote, then both committed accepted purchases using stale stock values. A fresh connection found stock zero and two units sold from an initial one. Eight assertions passed by confirming the intended defect. The existing retail implementation was not modified. See [analysis, scope, and reproduction](../unsafe-concurrency.md). Corrected concurrent behaviour remains pending.
 
 ## Protected last-unit race — 16 October 2026
 

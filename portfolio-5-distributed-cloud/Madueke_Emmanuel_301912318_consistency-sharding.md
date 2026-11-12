@@ -4,7 +4,7 @@ Owner, author, and maintainer: **Emmanuel Madueke**.
 
 ## Decision and scope
 
-Keep the proposed PostgreSQL checkout database **unsharded**, with the primary/standby roles defined in [replication and availability](replication-availability.md). Keep MongoDB profiles in one proposed replica set. Evaluate sharding as a future option, not a current deployment requirement: the portfolio has a synthetic SQL workload and three document profiles, with no production capacity evidence requiring shards.
+Keep the proposed PostgreSQL checkout database **unsharded**, with the primary/standby roles defined in [replication and availability](Madueke_Emmanuel_301912318_replication-availability.md). Keep MongoDB profiles in one proposed replica set. Evaluate sharding as a future option, not a current deployment requirement: the portfolio has a synthetic SQL workload and three document profiles, with no production capacity evidence requiring shards.
 
 All routing, recovery, and partitioning policies below are proposed. Existing local tests do not establish distributed consistency, and no shard, replica-session guarantee, or cross-partition transaction was executed for this stage.
 
@@ -31,7 +31,7 @@ Primary routing must follow validated failover, not a permanent hostname pointin
 
 Majority acknowledgement alone does not guarantee that an arbitrary secondary read immediately sees a writer's change. MongoDB documents causal guarantees using causally consistent sessions with majority read and write concerns; the application must preserve the required session/order context. This is a possible future policy for an editor's read-after-write workflow, not a feature exercised by the standalone portfolio container. [MongoDB causal consistency requirements](https://www.mongodb.com/docs/manual/core/causal-consistency-read-write-concerns/).
 
-No MongoDB read concern makes copied SQL catalogue fields current. The implemented export/import guarantees agreement with one recorded SQL snapshot only. If SQL deactivates a product after export, all MongoDB replicas could faithfully replicate the same outdated active flag. That is cross-store staleness, separate from replication lag. The [implemented reconciliation contract](../portfolio-4-nosql/implementation.md) remains authoritative about what has actually been verified.
+No MongoDB read concern makes copied SQL catalogue fields current. The implemented export/import guarantees agreement with one recorded SQL snapshot only. If SQL deactivates a product after export, all MongoDB replicas could faithfully replicate the same outdated active flag. That is cross-store staleness, separate from replication lag. The [implemented reconciliation contract](../portfolio-4-nosql/Madueke_Emmanuel_301912318_implementation.md) remains authoritative about what has actually been verified.
 
 A future live refresh would need durable change capture/delivery, stable product identity, version ordering, duplicate handling, deletion handling, and reconciliation after missed events. Its delay would need monitoring independently of replica lag. None of that automation exists here; a proposed fallback to SQL descriptions is also unimplemented.
 
@@ -73,4 +73,4 @@ For the current store, retaining the single logical SQL writer keeps that tested
 
 Before changing this design, collect workload size/growth, hot-product frequency, query distribution, replica lag, read-after-write failures, lock waits, and recovery behaviour. Use those observations to set freshness and recovery targets. Test failure between each proposed cross-partition step before claiming atomicity or compensation correctness.
 
-This stage concludes that recent-order reads should use the authoritative SQL writer, lag-tolerant reports may use R, and catalogue-copy freshness must be managed separately. Sharding remains a future option with explicit transaction costs. The completed [architecture and failure scenarios](architecture-scenarios.md) illustrate these choices; the [conclusions](conclusions.md) consolidate their limits and evidence coverage.
+This stage concludes that recent-order reads should use the authoritative SQL writer, lag-tolerant reports may use R, and catalogue-copy freshness must be managed separately. Sharding remains a future option with explicit transaction costs. The completed [architecture and failure scenarios](Madueke_Emmanuel_301912318_architecture-scenarios.md) illustrate these choices; the [conclusions](Madueke_Emmanuel_301912318_conclusions.md) consolidate their limits and evidence coverage.

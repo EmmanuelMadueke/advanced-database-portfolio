@@ -33,7 +33,7 @@ Independent successful-payment totals reconcile with the summary: **2,508 succes
 - [Environment](environment.json): server version/settings, exact/estimated rows, statistics timestamps, distributions, and every baseline index definition.
 - [Per-run measurements](measurements.csv): planning/execution times, rows, buffer and temporary-block counts for all 25 measured runs.
 - The five query JSON files retain warm-up and all measured plan trees, parameters, source hashes, output row counts, samples, and complete-result fingerprints.
-- [Measurement protocol and reproduction](../../benchmarks/README.md): selected parameters, warm-up, ANALYZE, read-only connections, and cache conditions.
+- [Measurement protocol and reproduction](../../benchmarks/Madueke_Emmanuel_301912318_README.md): selected parameters, warm-up, ANALYZE, read-only connections, and cache conditions.
 
 Planner preferences were left at their recorded defaults; work_mem was 4 MB, shared_buffers 128 MB, and track_io_timing was off. No concurrent workload was deliberately introduced. Host activity and caching were uncontrolled. All successful payments in this dataset occur on 10 October 2026, and the deterministic scale generator correlates status with customer/variant selection. These limitations constrain conclusions from date filters and workload selectivity.
 
